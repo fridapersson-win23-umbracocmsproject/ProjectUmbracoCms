@@ -5,8 +5,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="wwwroot\media\i0xnecad\onlinesignaturesnet-302-1.png" />
     <Content Include="wwwroot\media\l5alft14\sl-home2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 
   <ItemGroup>

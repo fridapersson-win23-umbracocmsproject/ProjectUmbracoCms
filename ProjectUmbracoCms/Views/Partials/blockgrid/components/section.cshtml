@@ -9,26 +9,31 @@
     var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
 
     //formatting
-    var addSpaceToTop = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
-    var addSpaceToBottom = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";
+    var spacingTopClass = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
+    var spacingBottomClass = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";
     var centerContentClass = (Model!.Content.Value<bool>("centerContentOnPage")) ? "center" : "";
 
     //bakgrundsfärg
-    var sectionBackgroundColorLabel = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("sectionBackgroundColor").Label.ToLower() ?? null;
-    var sectionBackgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel)) ? $"bg-{sectionBackgroundColorLabel}" : "";
+    var sectionBackgroundColorLabel = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("sectionBackgroundColor")?.Label.ToLower() ?? null;
+    var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{sectionBackgroundColorLabel}" : "";
 
     //bakgrundsbild
     var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;
 }
 
-<section id="@sectionId" class="@addSpaceToTop addSpaceToBottom">
 
-    @if(!string.IsNullOrEmpty(sectionBackgroundColorClass)) {
-        <div class="background @sectionBackgroundImage"></div>
+<section id="@sectionId" class="@spacingTopClass @spacingBottomClass">
+
+    @if (!string.IsNullOrEmpty(backgroundColorClass))
+    {
+        <div class="background @backgroundColorClass"></div>
+        // ska då vara absolut så man kan flytta runt
     }
 
     <div class="container @centerContentClass">
-        @if(!string.IsNullOrEmpty(sectionBackgroundImage)) {
+
+        @if (!string.IsNullOrEmpty(sectionBackgroundImage))
+        {
             <img class="background-image" src="@sectionBackgroundImage" alt="@sectionTitle background image" />
         }
 
