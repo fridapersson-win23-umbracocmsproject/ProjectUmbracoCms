@@ -2,7 +2,7 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ModularPage>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
-	Layout = null;
+	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? null;
 }
 

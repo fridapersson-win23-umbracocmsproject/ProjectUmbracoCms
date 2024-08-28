@@ -9,14 +9,15 @@
     var buttonLinkUrl = Model?.Content.Value<string>("buttonLinkUrl") ?? null;
 
     //kanpp layout
-    var buttonLinkColor = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("buttonLinkColor")?.Label.ToLower() ?? null;
+    var buttonColor = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("buttonColor")?.Label.ToLower() ?? "";
 }
 
-@if (!string.IsNullOrEmpty(buttonLinkColor))
+
+@if (!string.IsNullOrEmpty(buttonColor))
 {
-    <a href="@buttonLinkUrl" title="@buttonLinkText" class="btn btn-@buttonLinkColor">@buttonLinkText</a>
+    <a href="@buttonLinkUrl" title="@buttonLinkText" class="btn btn-@buttonColor">@buttonLinkText</a>
 }
 else
 {
-    <a href="@buttonLinkUrl" title="@buttonLinkText" class="btn">@buttonLinkText</a>
+    <a href="@buttonLinkUrl" title="@buttonLinkText" class="btn btn-theme">@buttonLinkText</a>
 }

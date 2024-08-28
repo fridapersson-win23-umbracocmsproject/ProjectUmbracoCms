@@ -8,8 +8,7 @@
     var headlineColor = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("headlineColor")?.Label.ToLower() ?? null;
 
     //anges ingen färg för healinen sätts default till theme
-    var themeColorClass = "headline-theme";
-    var headlineColorClass = !string.IsNullOrEmpty(headlineColor) ? $"headline-{headlineColor}" : themeColorClass;
+    var headlineColorClass = !string.IsNullOrEmpty(headlineColor) ? $"headline-{headlineColor}" : "headline-theme";
 }
 
 @if(!string.IsNullOrEmpty(headlineContent)) {
