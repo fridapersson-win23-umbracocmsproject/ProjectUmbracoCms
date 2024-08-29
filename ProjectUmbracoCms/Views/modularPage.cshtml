@@ -1,9 +1,13 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.ModularPage>
-@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using contentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
+
 	Layout = "mainLayout.cshtml";
+
 	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
 }
 
-@await Html.GetBlockGridHtmlAsync(Model.Layout)  
+@* @await Html.GetBlockGridHtmlAsync(Model.Layout) *@ @* funkar inte..? *@
+@await Html.GetBlockGridHtmlAsync(Model?.Value<Umbraco.Cms.Core.Models.Blocks.BlockGridModel>("layout")) @* funkar *@

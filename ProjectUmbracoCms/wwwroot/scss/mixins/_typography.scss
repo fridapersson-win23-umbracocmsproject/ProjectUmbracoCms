@@ -2,23 +2,20 @@
 $font-poppins: 'Poppins', sans-serif;
 
 @mixin standard-text {
-    line-height: 160%;
     font-weight: 400;
-    color: var(--color-gray-700);
+    color: var(--color-theme);
     font-family: $font-poppins;
     font-size: 16px;
 }
 
 @mixin standard-heading {
-    @include standard-text();
+    @include standard-text;
     font-weight: 800;
-    color: var(--color-gray-900);
 }
 
 @mixin text-nav {
     @include standard-text;
     font-size: 16px;
-    color: var(--color-gray-800);
     font-weight: 600 !important;
 }
 
@@ -50,36 +47,6 @@ $font-poppins: 'Poppins', sans-serif;
 @mixin text-lead {
     @include standard-text;
     font-size: 24px !important;
-}
-
-@mixin d1 {
-    @include standard-heading;
-    font-size: 80px !important;
-}
-
-@mixin d2 {
-    @include standard-heading;
-    font-size: 72px !important;
-}
-
-@mixin d3 {
-    @include standard-heading;
-    font-size: 64px !important;
-}
-
-@mixin d4 {
-    @include standard-heading;
-    font-size: 56px !important;
-}
-
-@mixin d5 {
-    @include standard-heading;
-    font-size: 48px !important;
-}
-
-@mixin d6 {
-    @include standard-heading;
-    font-size: 42px !important;
 }
 
 @mixin h1 {

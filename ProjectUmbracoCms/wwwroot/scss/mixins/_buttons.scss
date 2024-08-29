@@ -9,31 +9,22 @@
     gap: 12px;
 }
 
-.btn-theme {
+.btn-theme, .btn-subtheme, .btn-dark {
     @include btn;
-    background-color: var(--color-theme);
-    color: var(--color-white);
     border: none;
 
 
     &:hover {
         text-decoration: none;
-        background: var(--color-gray-500);
-        color: var(--color-dark);
     }
 }
 
-
-.btn-subtheme {
+.btn-round {
     @include btn;
-    background-color: var(--color-subtheme);
-    color: var(--color-white);
-    border: none;
-
-
+    border-radius: 50%;
+    display: flex;
+    padding: 1rem;
     &:hover {
         text-decoration: none;
-        background: var(--color-gray-500);
-        color: var(--color-dark);
     }
 }

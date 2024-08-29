@@ -1,6 +1,7 @@
 #hero-slider {
 
 
+
     .bg-gray {
     }
 
@@ -9,14 +10,18 @@
 
         .background-image {
             display: none;
-/*            border: solid red 1px;
+            /*            border: solid red 1px;
             width: 100%;
             height: auto;*/
+
+            @include md {
+ /*               position: absolute;
+                top: 0;*/
+            }
         }
 
         .headline-theme {
-            background-color: var(--color-theme);
-            @include h1;
+            @include h2;
         }
     }
 }

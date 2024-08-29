@@ -1,0 +1,38 @@
+.btn-theme {
+    background-color: var(--color-theme);
+    color: var(--color-white);
+
+    &:hover {
+        background-color: var(--color-subtheme);
+        color: var(--color-dark);
+    }
+}
+
+.btn-subtheme {
+    background-color: var(--color-subtheme);
+    color: var(--color-dark);
+
+    &:hover {
+        background-color: var(--color-theme);
+        color: var(--color-white);
+    }
+}
+
+.btn-dark {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+
+    &:hover {
+        background-color: var(--color-theme);
+        color: var(--color-white);
+    }
+}
+
+.btn-round {
+    color: var(--color-dark);
+
+    &:hover {
+        background-color: var(--color-subtheme);
+        color: var(--color-dark);
+    }
+}

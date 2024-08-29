@@ -1,0 +1,35 @@
+#topbar {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .address {
+            @include text-xs;
+            color: var(--color-white);
+            padding: .5rem;
+        }
+
+        .social-media {
+            display: flex;
+
+            .facebook, .linkedin, .twitter {
+                padding: .8rem;
+                color: var(--color-white);
+                &:hover {
+                    color: var(--color-subtheme);
+                }
+            }
+
+            .facebook {
+                border-left: solid var(--color-white) .1px;
+                border-right: solid var(--color-white) .1px;
+            }
+
+            .linkedin {
+                border-left: solid var(--color-white) .1px;
+                border-right: solid var(--color-white) .1px;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+header {
+    border-bottom: solid var(--color-default) 1px;
+    padding-bottom: .5rem;
+    .container {
+        display: flex;
+        gap: 2.5rem;
+        margin-top: .5rem;
+        justify-content: space-between;
+        align-items: center;
+
+
+        @include md {
+        }
+
+        @include lg {
+            justify-content: space-between;
+        }
+
+
+        .logotype {
+        }
+
+        .navbar {
+            display: none;
+
+            @include lg {
+                display: flex;
+            }
+
+
+            .nav-menu {
+                @include lg {
+                    display: flex;
+                    gap: 3rem;
+                }
+
+                .nav-link {
+                }
+            }
+        }
+
+        .search {
+
+            i {
+            }
+        }
+
+        .btn-round {
+            /*display: flex;*/
+            @include lg {
+                display: none;
+            }
+        }
+    }
+}
