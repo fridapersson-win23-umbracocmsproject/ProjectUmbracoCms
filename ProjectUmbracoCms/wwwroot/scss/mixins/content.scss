@@ -1,0 +1,23 @@
+@mixin center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex {
+    display: flex;
+    align-items: center;
+}
+
+@mixin grid {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@mixin spacing-top {
+    margin-top: 2rem;
+}
+
+@mixin spacing-bottom {
+    margin-top: 2rem;
+}

@@ -1,0 +1,22 @@
+#hero-slider {
+
+
+    .bg-gray {
+    }
+
+    .container {
+        overflow: hidden;
+
+        .background-image {
+            display: none;
+/*            border: solid red 1px;
+            width: 100%;
+            height: auto;*/
+        }
+
+        .headline-theme {
+            background-color: var(--color-theme);
+            @include h1;
+        }
+    }
+}

@@ -1,0 +1,39 @@
+@mixin btn {
+    border-radius: 6px;
+    text-align: center;
+    font-size: 14px;
+    padding: 8px 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-theme {
+    @include btn;
+    background-color: var(--color-theme);
+    color: var(--color-white);
+    border: none;
+
+
+    &:hover {
+        text-decoration: none;
+        background: var(--color-gray-500);
+        color: var(--color-dark);
+    }
+}
+
+
+.btn-subtheme {
+    @include btn;
+    background-color: var(--color-subtheme);
+    color: var(--color-white);
+    border: none;
+
+
+    &:hover {
+        text-decoration: none;
+        background: var(--color-gray-500);
+        color: var(--color-dark);
+    }
+}
