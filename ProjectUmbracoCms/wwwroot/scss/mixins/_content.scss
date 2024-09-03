@@ -63,3 +63,17 @@
     }
 }
 
+@mixin background-image {
+    display: none;
+
+    @include lg {
+        display: flex;
+        position: absolute;
+        margin: 0 auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
