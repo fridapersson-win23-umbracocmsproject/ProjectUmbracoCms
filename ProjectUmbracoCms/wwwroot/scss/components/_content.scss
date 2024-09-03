@@ -34,7 +34,7 @@
     @include background-image;
 }
 
-.custom-spacing-top-1 {
+/*.custom-spacing-top-1 {
     padding-top: 1rem;
 } 
 .custom-spacing-top-2 {
@@ -68,42 +68,42 @@
 
 
 .custom-spacing-bottom-1 {
-    padding-bottom: 1rem;
+    @include generate-spacing-classes("bottom", 1);
 }
 
 .custom-spacing-bottom-2 {
-    padding-bottom: 2rem;
+    @include generate-spacing-classes("bottom", 2);
 }
 
 .custom-spacing-bottom-3 {
-    padding-bottom: 3rem;
+    @include generate-spacing-classes("bottom", 3);
 }
 
 .custom-spacing-bottom-4 {
-    padding-bottom: 4rem;
+    @include generate-spacing-classes("bottom", 4);
 }
 
 .custom-spacing-bottom-5 {
-    padding-bottom: 5rem;
+    @include generate-spacing-classes("bottom", 5);
 }
 
 .custom-spacing-bottom-6 {
-    padding-bottom: 6rem;
+    @include generate-spacing-classes("bottom", 6);
 }
 
 .custom-spacing-bottom-7 {
-    padding-bottom: 7rem;
+    @include generate-spacing-classes("bottom", 7);
 }
 
 .custom-spacing-bottom-8 {
-    padding-bottom: 8rem;
+    @include generate-spacing-classes("bottom", 8);
 }
 
 .custom-spacing-bottom-9 {
-    padding-bottom: 9rem;
+    @include generate-spacing-classes("bottom", 9);
 }
 
 .custom-spacing-bottom-10 {
-    padding-bottom: 10rem;
-} 
+    @include generate-spacing-classes("bottom", 10);
+} */
     

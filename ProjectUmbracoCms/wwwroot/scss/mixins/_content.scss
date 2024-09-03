@@ -77,3 +77,15 @@
     }
 }
 
+
+
+@mixin custom-spacing-classes($property, $max) {
+    @for $i from 1 through $max {
+        .custom-spacing-#{$property}-#{$i} {
+            padding-#{$property}: #{$i}rem;
+        }
+    }
+}
+
+@include custom-spacing-classes("top", 10);
+@include custom-spacing-classes("bottom", 10);
