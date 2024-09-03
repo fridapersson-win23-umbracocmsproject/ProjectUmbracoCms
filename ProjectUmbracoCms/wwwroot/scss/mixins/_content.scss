@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 @mixin flex {
@@ -14,10 +15,51 @@
     grid-template-columns: 1fr;
 }
 
+@mixin section-spacing-top {
+    padding-top: 2rem;
+
+    @include md {
+    }
+
+    @include lg {
+        padding-top: 2rem;
+    }
+
+    @include xl {
+        padding-top: 3rem;
+    }
+
+    @include xxl {
+        padding-top: 4rem;
+    }
+}
+
+@mixin section-spacing-bottom {
+    padding-bottom: 2rem;
+
+    @include md {
+        padding-bottom: 3rem;
+    }
+
+    @include lg {
+        padding-bottom: 4rem;
+    }
+}
+
 @mixin spacing-top {
-    margin-top: 2rem;
+    padding-top: 1rem;
+    @include md {
+        padding-top: 2rem;
+    }
 }
 
 @mixin spacing-bottom {
-    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+
+    @include md {
+    }
+
+    @include lg {
+    }
 }
+

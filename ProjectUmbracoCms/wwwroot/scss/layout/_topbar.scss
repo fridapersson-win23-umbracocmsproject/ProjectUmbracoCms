@@ -15,20 +15,21 @@
 
             .facebook, .linkedin, .twitter {
                 padding: .8rem;
-                color: var(--color-white);
+                color: var(--color-gray);
+
                 &:hover {
                     color: var(--color-subtheme);
                 }
             }
 
             .facebook {
-                border-left: solid var(--color-white) .1px;
-                border-right: solid var(--color-white) .1px;
+                border-left: solid var(--color-gray) .1px;
+                border-right: solid var(--color-gray) .1px;
             }
 
             .linkedin {
-                border-left: solid var(--color-white) .1px;
-                border-right: solid var(--color-white) .1px;
+                border-left: solid var(--color-gray) .1px;
+                border-right: solid var(--color-gray) .1px;
             }
         }
     }

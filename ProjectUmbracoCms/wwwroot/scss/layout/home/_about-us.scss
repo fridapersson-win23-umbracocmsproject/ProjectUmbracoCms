@@ -1,0 +1,7 @@
+#about-us {
+    .container {
+        blockquote {
+            @include quotation;
+        }
+    }
+}

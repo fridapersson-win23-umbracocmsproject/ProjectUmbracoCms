@@ -9,10 +9,14 @@
 
     //anges ingen färg för healinen sätts default till theme
     var headlineColorClass = !string.IsNullOrEmpty(headlineColor) ? $"headline-{headlineColor}" : "headline-theme";
+
+    //formatting
+    var addSpaceToTop = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
+    var addSpaceToBottom = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";
 }
 
 @if(!string.IsNullOrEmpty(headlineContent)) {
-    <h5 class="@headlineColorClass">
+    <h5 class="@headlineColorClass @addSpaceToTop @addSpaceToBottom">
         @headlineContent
     </h5>
 }

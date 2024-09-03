@@ -1,0 +1,41 @@
+/*.headline-spacing-top {
+    padding-top: .5rem;
+
+    @include lg {
+        padding-top: 1rem;
+    }
+}
+
+.headline-spacing-bottom {
+    
+
+    @include lg {
+        padding-bottom: 1rem;
+    }
+}*/
+
+.section-spacing-top {
+    @include section-spacing-top;
+}
+.section-spacing-bottom {
+    @include section-spacing-bottom;
+}
+
+.spacing-top {
+    @include spacing-top;
+}
+
+.spacing-bottom {
+    @include spacing-bottom;
+}
+
+
+.background-image {
+/*    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit:conver;
+    object-position: center;
+    display: flex;
+    margin: 0 auto;*/
+}

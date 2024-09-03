@@ -1,0 +1,52 @@
+#our-story {
+    .background-image {
+        /*display: block;*/
+        display: none;
+
+
+        @include lg {
+            /*margin: 0;*/
+            position: absolute;
+            display: flex;
+            /*width: 80%;*/
+            margin: 0 auto;
+            /*height: 100%;*/
+            top: 0;
+            left: 0;
+        }
+
+        @include xl {
+            /*display: block;*/
+            /*position: absolute;*/
+        }
+    }
+
+    .container {
+        position: relative;
+        @include md {
+        }
+
+        h2 {
+
+            .split-heading-color {
+                text-shadow: .4px .4px #C0A78A, -.4px -.4px 0 #C0A78A, .4px -.4px 0 #C0A78A, -.4px .4px 0 #C0A78A;
+            }
+        }
+
+        p {
+            /*display: none;*/
+            text-align: center;
+        }
+
+        .btn-theme {
+            margin-bottom: 2rem;
+            /*width: 20%;*/
+        }
+
+        img {
+            /*display: block;*/
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+}

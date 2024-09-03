@@ -22,13 +22,14 @@
     <link rel="stylesheet" href="/css/styles.min.css" />
     <link rel="stylesheet" href="https://kit.fontawesome.com/a576612222.css" crossorigin="anonymous">
 
+
     <title>@pageTitle</title>
 </head>
 <body>
     <div class="wrapper">
         @await Html.PartialAsync("partials/static/topbar.cshtml")
 
-        @await Html.PartialAsync("partials/static/header.cshtml")
+         @await Html.PartialAsync("partials/static/header.cshtml")
 
 
         <main>@RenderBody()</main>
@@ -36,6 +37,7 @@
         @await Html.PartialAsync("partials/static/footer.cshtml")
     </div>
     <script src="/scripts/main.js"></script>
+
 
 </body>
 </html>

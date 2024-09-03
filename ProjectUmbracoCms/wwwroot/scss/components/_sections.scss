@@ -1,11 +1,5 @@
 section {
-    position: relative;
-}
-
-.spacing-top {
-    @include spacing-top;
-}
-
-.spacing-bottom {
-    @include spacing-bottom;
+    /*position: relative;*/
+    overflow: hidden;
+    width: 100%;
 }

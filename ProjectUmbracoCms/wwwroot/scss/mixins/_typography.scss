@@ -3,14 +3,21 @@ $font-poppins: 'Poppins', sans-serif;
 
 @mixin standard-text {
     font-weight: 400;
-    color: var(--color-theme);
+    /*color: var(--color-theme);*/
     font-family: $font-poppins;
     font-size: 16px;
 }
 
+@mixin quotation {
+    @include standard-text;
+    font-size: 18px;
+    font-weight: 300;
+    font-style: italic;
+}
+
 @mixin standard-heading {
     @include standard-text;
-    font-weight: 800;
+    font-weight: 700 !important;
 }
 
 @mixin text-nav {
@@ -52,6 +59,7 @@ $font-poppins: 'Poppins', sans-serif;
 @mixin h1 {
     @include standard-heading;
     font-size: 40px !important;
+
 }
 
 @mixin h2 {
@@ -77,4 +85,34 @@ $font-poppins: 'Poppins', sans-serif;
 @mixin h6 {
     @include standard-heading;
     font-size: 16px !important;
+}
+
+@mixin d1 {
+    @include standard-heading;
+    font-size: 80px !important;
+}
+
+@mixin d2 {
+    @include standard-heading;
+    font-size: 72px !important;
+}
+
+@mixin d3 {
+    @include standard-heading;
+    font-size: 64px !important;
+}
+
+@mixin d4 {
+    @include standard-heading;
+    font-size: 56px !important;
+}
+
+@mixin d5 {
+    @include standard-heading;
+    font-size: 48px !important;
+}
+
+@mixin d6 {
+    @include standard-heading;
+    font-size: 42px !important;
 }

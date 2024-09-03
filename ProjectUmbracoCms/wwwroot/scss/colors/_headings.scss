@@ -5,3 +5,16 @@ h1, h2, h4, h5 {
 h3, h6 {
     color: var(--color-subtheme);
 }
+
+.headline-theme {
+    color: var(--color-theme);
+}
+
+.headline-subtheme {
+    color: var(--color-subtheme);
+}
+
+.split-heading-color {
+    color: var(--color-subtheme);
+    outline: #000000;
+}

@@ -21,15 +21,14 @@
     var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;
 }
 
-<section id="@sectionId" class="@spacingTopClass spacingBottomClass">
+<section id="@sectionId" class="@backgroundColorClass">
 
     @if(!string.IsNullOrEmpty(backgroundColorClass))
     {
-        <div class="background @backgroundColorClass"></div>
-        // ska då vara absolut så man kan flytta runt
+        <div class="@backgroundColorClass"></div>
     }
 
-    <div class="@centerContentClass">
+    <div class="@centerContentClass @spacingTopClass spacingBottomClass">
 
         @if(!string.IsNullOrEmpty(sectionBackgroundImage))
         {

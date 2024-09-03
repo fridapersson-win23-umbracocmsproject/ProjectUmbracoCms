@@ -1,17 +1,14 @@
 .container {
     box-sizing: border-box;
-    position: relative;
+    /*position: relative;*/
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 
-    @include md {
-        max-width: 720px;
-    }
+}
 
-    @include lg {
-        max-width: 1320px;
-    }
+.center {
+    @include center-content;
 }

@@ -4,10 +4,14 @@
 
 @{
     var quotationContent = Model?.Content.Value<string>("quotationContent");
+
+    //formatting
+    var quotationSpacingTopClass = (Model!.Content.Value<bool>("addSpaceToTop")) ? "quotation-spacing-top" : "";
+    var quotationSpacingBottomClass = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "quotation-spacing-bottom" : "";
 }
 
 @if(!string.IsNullOrEmpty(quotationContent)) {
-    <blockquote>
+    <blockquote class="@quotationSpacingTopClass @quotationSpacingBottomClass">
         @quotationContent
     </blockquote>
 }

@@ -1,27 +1,82 @@
 #hero-slider {
 
 
-
-    .bg-gray {
+    @include md {
     }
+
+    @include lg {
+    }
+
+    @include xl {
+    }
+
+/*    .bg-gray {
+    }*/
+
+    .background-image {
+        /*display: block;*/
+        /*display: none;*/
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        @include lg {
+            /*margin: 0;*/
+            position: absolute;
+        }
+
+        @include xl {
+            /*display: block;*/
+            /*position: absolute;*/
+        }
+    }
+
 
     .container {
         overflow: hidden;
+        /*        padding-top: 0;
+        margin-top: 0;*/
 
-        .background-image {
-            display: none;
-            /*            border: solid red 1px;
-            width: 100%;
-            height: auto;*/
+        @include lg {
+            /*position: relative;*/
+        }
 
-            @include md {
- /*               position: absolute;
-                top: 0;*/
+
+
+
+        h1, p, a {
+            @include lg {
             }
         }
 
-        .headline-theme {
-            @include h2;
+        h1 {
+
+
+            @include lg {
+                @include d5;
+            }
+
+            @include xl {
+                @include d4;
+                /*margin-top: 2rem;*/
+            }
+
+            @include xxl {
+                @include d3;
+                /*margin-top: 2rem;*/
+            }
+        }
+
+        p {
+            @include lg {
+            }
+        }
+
+        .btn-theme {
+            @include md {
+                width: 70%;
+            }
         }
     }
 }

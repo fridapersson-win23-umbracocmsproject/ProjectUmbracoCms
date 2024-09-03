@@ -1,0 +1,34 @@
+.quotation-spacing-top {
+    @include quotation;
+    padding-top: 1rem;
+
+    @include md {
+        /*padding-top: .5rem;*/
+    }
+
+    @include lg {
+    }
+
+    @include xl {
+    }
+
+    @include xxl {
+    }
+}
+
+.quotation-spacing-bottom {
+    padding-bottom: 1rem;
+
+    @include md {
+        /*padding-top: .5rem;*/
+    }
+
+    @include lg {
+    }
+
+    @include xl {
+    }
+
+    @include xxl {
+    }
+}
