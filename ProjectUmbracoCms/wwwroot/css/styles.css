@@ -752,13 +752,6 @@ header .container .btn-round {
 }
 #hero-slider .container {
   overflow: hidden;
-  /*        padding-top: 0;
-  margin-top: 0;*/
-}
-@media (min-width: 1024px) {
-  #hero-slider .container {
-    /*position: relative;*/
-  }
 }
 @media (min-width: 1024px) {
   #hero-slider .container h1 {
@@ -778,7 +771,6 @@ header .container .btn-round {
     font-size: 16px;
     font-weight: 700 !important;
     font-size: 56px !important;
-    /*margin-top: 2rem;*/
   }
 }
 @media (min-width: 1400px) {
@@ -789,12 +781,16 @@ header .container .btn-round {
     font-size: 16px;
     font-weight: 700 !important;
     font-size: 64px !important;
-    /*margin-top: 2rem;*/
   }
 }
 @media (min-width: 768px) {
   #hero-slider .container .btn-theme {
-    width: 70%;
+    width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  #hero-slider .container .btn-theme {
+    width: 40%;
   }
 }
 
@@ -816,16 +812,16 @@ header .container .btn-round {
   @include lg {*/
   /*margin: 0;*/
   /*position: absolute;
-  display: flex;
-  margin: 0 auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;*/
+      display: flex;
+      margin: 0 auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;*/
   /*width: 80%;*/
   /*height: 100%;*/
   /*          top: 0;
-            left: 0;*/
+      left: 0;*/
   /*}
 
   @include xl {*/
@@ -850,6 +846,11 @@ header .container .btn-round {
 @media (min-width: 768px) {
   #our-story .container .btn-theme {
     width: 80%;
+  }
+}
+@media (min-width: 1024px) {
+  #our-story .container .btn-theme {
+    width: 30%;
   }
 }
 #our-story .container img {

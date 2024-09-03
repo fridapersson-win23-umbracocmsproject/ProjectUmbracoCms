@@ -11,12 +11,20 @@
     var headlineColorClass = !string.IsNullOrEmpty(headlineColor) ? $"headline-{headlineColor}" : "headline-theme";
 
     //formatting
-    var addSpaceToTop = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
-    var addSpaceToBottom = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";
+    var addSpaceToTop = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : null;
+    var addSpaceToBottom = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : null;
+
+    //custom dynamisk formatting
+    var customSpacingTop = Model?.Content.Value<int>("customAddSpaceToTop") ?? 0;
+    var customSpacingBottom = Model?.Content.Value<int>("customAddSpaceToBottom") ?? 0;
+
+    var customSpacingTopClass = customSpacingTop > 0 ? $"custom-spacing-top-{customSpacingTop}" : null;
+    var customSpacingBottomClass = customSpacingBottom > 0 ? $"custom-spacing-bottom-{customSpacingBottom}" : null;
+
 }
 
 @if(!string.IsNullOrEmpty(headlineContent)) {
-    <h5 class="@headlineColorClass @addSpaceToTop @addSpaceToBottom">
+    <h5 class="@headlineColorClass @addSpaceToTop @addSpaceToBottom @customSpacingTopClass @customSpacingBottomClass">
         @headlineContent
     </h5>
 }

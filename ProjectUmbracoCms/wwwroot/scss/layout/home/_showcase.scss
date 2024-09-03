@@ -22,11 +22,8 @@
 
     .container {
         overflow: hidden;
-        /*        padding-top: 0;
-        margin-top: 0;*/
 
         @include lg {
-            /*position: relative;*/
         }
 
 
@@ -46,12 +43,10 @@
 
             @include xl {
                 @include d4;
-                /*margin-top: 2rem;*/
             }
 
             @include xxl {
                 @include d3;
-                /*margin-top: 2rem;*/
             }
         }
 
@@ -62,7 +57,10 @@
 
         .btn-theme {
             @include md {
-                width: 70%;
+                width: 80%;
+            }
+            @include lg {
+                width: 40%;
             }
         }
     }

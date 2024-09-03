@@ -13,10 +13,20 @@
     //formatting
     var addSpaceToTop = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : "";
     var addSpaceToBottom = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : "";
+
+
+    //custom dynamisk formatting
+    var customSpacingTop = Model?.Content.Value<int>("customAddSpaceToTop") ?? 0;
+    var customSpacingBottom = Model?.Content.Value<int>("customAddSpaceToBottom") ?? 0;
+
+    var customSpacingTopClass = customSpacingTop > 0 ? $"custom-spacing-top-{customSpacingTop}" : null;
+    var customSpacingBottomClass = customSpacingBottom > 0 ? $"custom-spacing-bottom-{customSpacingBottom}" : null;
+
+    
 }
 
 @if(!string.IsNullOrEmpty(headlineContent)) {
-    <h2 class="@headlineColorClass @addSpaceToTop @addSpaceToBottom">
+    <h2 class="@headlineColorClass @addSpaceToTop @addSpaceToBottom @customSpacingTopClass @customSpacingBottomClass">
         @headlineContent
     </h2>
 }
