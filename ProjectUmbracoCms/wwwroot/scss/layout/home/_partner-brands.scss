@@ -1,0 +1,16 @@
+#image-slider-partner-brands {
+    .container {
+        .image-slider {
+            .image-container {
+                @include grid;
+                text-align: center;
+                gap: 3rem;
+                @include md {
+                    @include flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

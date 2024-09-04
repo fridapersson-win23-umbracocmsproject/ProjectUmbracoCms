@@ -1,28 +1,14 @@
 #our-story {
     .background-image {
-        /*display: block;*/
-        /*display: none;
+        width: 80%;
 
+        @include lg {
+            width: 70%;
+        }
 
-        @include lg {*/
-        /*margin: 0;*/
-        /*position: absolute;
-            display: flex;
-            margin: 0 auto;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;*/
-        /*width: 80%;*/
-        /*height: 100%;*/
-        /*          top: 0;
-            left: 0;*/
-        /*}
-
-        @include xl {*/
-        /*display: block;*/
-        /*position: absolute;*/
-        /*}*/
+        @include xxl {
+            width: 50%;
+        }
     }
 
     .container {
@@ -39,26 +25,31 @@
         }
 
         p {
-            /*display: none;*/
             text-align: center;
+            margin: 0;
         }
 
         .btn-theme {
             margin-bottom: 2rem;
-            /*width: 20%;*/
+
             @include md {
-                width: 80%;
+                width: 40%;
+                margin: 0 auto;
+                margin-bottom: 2rem;
             }
 
             @include lg {
-                width: 30%;
+                width: 15%;
+                padding: .8rem;
+                margin-top: 1rem;
             }
         }
 
         img {
-            /*display: block;*/
+            object-fit: cover;
+            object-position: center;
             width: 100%;
-            object-fit: contain;
+            background-color: white;
         }
     }
 }

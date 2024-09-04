@@ -147,10 +147,13 @@
     }
 
     p {
-        color: var(--color-subtheme);
+        color: var(--color-theme);
     }
 
     blockquote {
+        color: var(--color-subtheme);
+    }
+    a {
         color: var(--color-subtheme);
     }
 }

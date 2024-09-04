@@ -4,10 +4,14 @@
 
 @{
     var richTextContent = Model?.Content.Value("richTextContent") ?? null;
+    
+    //formatting
+    var spacingTopClass = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : null;
+    var spacingBottomClass = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : null;
 }
 
 @if(richTextContent != null) {
-    <div class="content">
+    <div class="content @spacingTopClass @spacingBottomClass">
         @richTextContent
     </div>
 }

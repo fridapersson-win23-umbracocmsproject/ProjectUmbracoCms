@@ -1,0 +1,31 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+
+@{
+    var cardLink = Model.Content.Value<string>("cardLink") ?? null;
+    var cardHeadline = Model?.Content.Value<string>("cardHeadline") ?? null;
+    var cardText = Model?.Content.Value<string>("cardText") ?? null;
+    var cardImage = Model?.Content.Value<IPublishedContent>("cardImage")?.Url() ?? null;
+    var cardImageDescription = Model?.Content.Value<string>("cardImageDescription") ?? null;
+
+    //formatting
+    var addSpaceToTop = (Model!.Content.Value<bool>("addSpaceToTop")) ? "spacing-top" : null;
+    var addSpaceToBottom = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "spacing-bottom" : null;
+}
+
+<div class="our-services-card @addSpaceToTop @addSpaceToBottom">
+    <a href="@cardLink" class="card-box">
+        <h5 class="card-headline">@cardHeadline</h5>
+        @if(cardImage != null)
+        {
+            <div class="card-image">
+                <img src="@cardImage" alt="@cardImageDescription" class="card-img" />
+            </div>
+        }
+        <div class="card-content">
+            <p>@cardText</p>
+        </div>
+    </a>
+</div>
