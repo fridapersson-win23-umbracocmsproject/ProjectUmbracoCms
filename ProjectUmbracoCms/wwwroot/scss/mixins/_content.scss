@@ -79,10 +79,10 @@
 
 
 
-@mixin custom-spacing-classes($property, $max) {
-    @for $i from 1 through $max {
-        .custom-spacing-#{$property}-#{$i} {
-            padding-#{$property}: #{$i}rem;
+@mixin custom-spacing-classes($direction, $maxSpacingValue) {
+    @for $spacingValue from 1 through $maxSpacingValue {
+        .custom-spacing-#{$direction}-#{$spacingValue} {
+            padding-#{$direction}: #{$spacingValue}rem;
         }
     }
 }
