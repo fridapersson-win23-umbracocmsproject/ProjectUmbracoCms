@@ -1,11 +1,9 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
 
 @{
-    var selectedImage = Model?.Content.Value<IPublishedContent>("selectedImage")?.Url() ?? null;
-    var imageDescription = Model?.Content.Value<string>("imageDescription") ?? "";
-
     //custom dynamisk formatting
     var customSpacingTop = Model?.Content.Value<int>("customAddSpaceToTop") ?? 0;
     var customSpacingBottom = Model?.Content.Value<int>("customAddSpaceToBottom") ?? 0;
@@ -14,6 +12,7 @@
     var customSpacingBottomClass = customSpacingBottom > 0 ? $"custom-spacing-bottom-{customSpacingBottom}" : null;
 }
 
-@if(!string.IsNullOrEmpty(selectedImage)) {
-    <img src="@selectedImage" alt="@imageDescription" class="img @customSpacingTopClass @customSpacingBottomClass" />
-}
+<div class="image-container @customSpacingTopClass @customSpacingBottomClass">
+    @await Html.GetBlockGridItemAreasHtmlAsync(Model!)
+</div>
+    

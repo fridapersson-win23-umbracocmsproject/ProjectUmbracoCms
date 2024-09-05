@@ -3,5 +3,7 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 <div class="card-container">
-    @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+    <div class="card-content">
+        @await Html.GetBlockGridItemAreasHtmlAsync(Model)
+    </div>
 </div>

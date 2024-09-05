@@ -26,6 +26,11 @@ $font-poppins: 'Poppins', sans-serif;
     font-weight: 600 !important;
 }
 
+@mixin text-xxs {
+    @include standard-text;
+    font-size: 10px !important;
+}
+
 @mixin text-xs {
     @include standard-text;
     font-size: 12px !important;

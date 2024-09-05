@@ -1,6 +1,7 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
 @{
     Layout = null;
 
@@ -29,7 +30,8 @@
     <div class="wrapper">
         @await Html.PartialAsync("partials/static/topbar.cshtml")
 
-         @await Html.PartialAsync("partials/static/header.cshtml")
+        @await Html.PartialAsync("partials/static/header.cshtml")
+
 
 
         <main>@RenderBody()</main>

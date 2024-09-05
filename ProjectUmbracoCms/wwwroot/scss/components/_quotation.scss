@@ -1,5 +1,9 @@
-.quotation-spacing-top {
+blockquote {
     @include quotation;
+}
+
+.quotation-spacing-top {
+    /*@include quotation;*/
     padding-top: 1rem;
 
     @include md {

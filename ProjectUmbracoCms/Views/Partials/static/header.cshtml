@@ -4,10 +4,12 @@
 
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
+    var currentPageUrl = Umbraco.AssignedContentItem.Url().TrimEnd('/');
+
     var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var siteName = settings?.Value<string>("siteName") ?? "";
 
-    var siteLogotype = settings.Value<IPublishedContent>("siteLogotype")?.Url() ?? "";
+    var siteLogotype = settings?.Value<IPublishedContent>("siteLogotype")?.Url() ?? "";
 }
 
 <header>
@@ -15,10 +17,10 @@
         <a href="/" class="logotype"><img src="@siteLogotype" alt="@siteName" /></a>
         <div class="navbar">
             <nav class="nav-menu">
-                <a href="/about-us" class="nav-link">About us</a>
-                <a href="#" class="nav-link">Services</a>
-                <a href="#" class="nav-link">About us</a>
-                <a href="#" class="nav-link">Contact</a>
+                <a href="/about-us" class="nav-link @(currentPageUrl == "/about-us" ? "active" : "")">About us</a>
+                <a href="/services" class="nav-link @(currentPageUrl == "/services" ? "active" : "")">Services</a>
+                <a href="/projects" class="nav-link @(currentPageUrl == "/projects" ? "active" : "")">Projects</a>
+                <a href="/contact" class="nav-link @(currentPageUrl == "/contact" ? "active" : "")">Contact</a>
             </nav>
         </div>
         <div class="search">
@@ -27,4 +29,3 @@
         <a href="/" class="btn-round"><i class="fa-regular fa-bars"></i></a>
     </div>
 </header>
-

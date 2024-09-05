@@ -1,0 +1,57 @@
+.breadcrumb-section {
+    position: relative;
+    display: block;
+    height: 100px;
+    @include lg {
+        height: 200px;
+    }
+
+    .breadcrumb-background-1, .breadcrumb-background-2 {
+        position: absolute;
+        z-index: 0;
+    }
+
+    .breadcrumb-background-1 {
+        display: none;
+
+        @include lg {
+            display: block;
+            bottom: 0;
+            left: 0;
+
+        }
+    }
+
+    .breadcrumb-background-2 {
+        top: 0rem;
+        right: 0;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            height: 100%;
+            text-align: center; 
+
+            h1 {
+                margin: 0; 
+            }
+
+            p {
+                margin: 0;
+
+                a {
+                    z-index: 2;
+                    position: relative;
+                }
+            }
+        }
+    }
+}
