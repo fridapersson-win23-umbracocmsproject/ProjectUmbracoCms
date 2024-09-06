@@ -33,14 +33,13 @@
     <div class="wrapper">
         @await Html.PartialAsync("partials/static/topbar.cshtml")
 
-        @* @if(currentPageUrl != "/") *@
-        @* { *@
-            @await Html.PartialAsync("partials/static/header.cshtml")
-        @* } *@
+        @await Html.PartialAsync("partials/static/header.cshtml")
 
         @await Html.PartialAsync("partials/static/breadcrumb.cshtml")
 
+
         <main>@RenderBody()</main>
+
 
         @await Html.PartialAsync("partials/static/footerBanner.cshtml")
 		
