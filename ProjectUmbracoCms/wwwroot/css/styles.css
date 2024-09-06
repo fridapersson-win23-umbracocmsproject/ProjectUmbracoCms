@@ -746,9 +746,9 @@ header .container .btn-round {
 }
 
 .breadcrumb-section {
+  display: block;
   background-color: var(--color-gray);
   position: relative;
-  display: block;
   height: 100px;
 }
 @media (min-width: 1024px) {
@@ -799,10 +799,11 @@ header .container .btn-round {
 }
 
 .hide-footer-banner {
-  display: none;
+  display: none !important;
 }
 
 #footer-banner {
+  display: block;
   background-color: var(--color-gray);
   z-index: -2;
 }

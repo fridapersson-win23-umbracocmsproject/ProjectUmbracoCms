@@ -1,8 +1,9 @@
 .hide-footer-banner {
-    display: none;
+    display: none !important;
 }
 
 #footer-banner {
+    display: block;
     background-color: var(--color-gray);
     z-index: -2;
 

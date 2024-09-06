@@ -3,9 +3,9 @@
 }
 
 .breadcrumb-section {
-    background-color: var(--color-subcolor);
-    position: relative;
     display: block;
+    background-color: var(--color-gray);
+    position: relative;
     height: 100px;
     @include lg {
         height: 200px;
