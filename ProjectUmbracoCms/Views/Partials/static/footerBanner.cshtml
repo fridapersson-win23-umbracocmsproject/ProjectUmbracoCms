@@ -1,0 +1,55 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+
+    //footer baner images
+    var footerBannerImage1 = settings?.Value<IPublishedContent>("footerBannerImage1")?.Url() ?? null;
+    var footerBannerImage2 = settings?.Value<IPublishedContent>("footerBannerImage2")?.Url() ?? null;
+
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "";
+    var officePhoneNumber = settings?.Value<string>("officePhoneNumber") ?? "";
+    var officeEmailAddress = settings?.Value<string>("officeEmailAddress") ?? "";
+
+    var googleMapsLocation = "https://www.google.se/maps/place/Klarabergsviadukten+90,+111+64+Stockholm/@59.3302571,18.0513144,17z/data=!3m1!4b1!4m6!3m5!1s0x465f9d61b5b2a595:0xd9fa560691e12d7!8m2!3d59.3302571!4d18.0538947!16s%2Fg%2F11cshmq75f?entry=ttu&g_ep=EgoyMDI0MDkwMy4wIKXMDSoASAFQAw%3D%3D";
+
+
+    var currentPageUrl = Umbraco.AssignedContentItem.Url();
+
+}
+
+
+<div id="footer-banner" class="@(currentPageUrl == "/" ? "hide-footer-banner" : "")">
+    <div class="container">
+        <div class="content">
+            <div class="banner-dot-container">
+                <img src="@footerBannerImage1" />
+            </div>
+            <div class="banner-guy-container">
+                <img src="@footerBannerImage2" />
+            </div>
+
+            <div class="onatrix-info-container">
+                <h2>Let us know about your next project</h2>
+
+                <div class="office-location">
+                    <p><span><i class="fa-sharp fa-regular fa-location-dot"></i></span> Office Location</p>
+                    <a href="@googleMapsLocation" target="_blank>"><p class="location-name">@officeLocation</p></a>
+                </div>
+
+
+                <div class="office-phone">
+                    <p><span><i class="fa-light fa-phone-flip"></i></span>Phone Number</p>
+                    <a href="tel:@officePhoneNumber"><p class="phone-number">@officePhoneNumber</p></a>
+                </div>
+                <div class="office-email">
+                    <p><span><i class="fa-light fa-envelope"></i></span>Email</p>
+                    <a href="mailto:@officeEmailAddress"><p class="email">@officeEmailAddress</p></a>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

@@ -1,0 +1,119 @@
+.hide-footer-banner {
+    display: none;
+}
+
+#footer-banner {
+    background-color: var(--color-gray);
+    z-index: -2;
+
+    .container {
+        position: relative;
+
+        .content {
+            @include lg {
+                display: flex;
+                align-content: center;
+                justify-content: space-between;
+            }
+
+
+            .banner-dot-container {
+                display: none;
+
+                @include lg {
+                    display: flex;
+                    position: absolute;
+                    z-index: -1;
+                    bottom: 0;
+                    left: 2rem;
+
+                    img {
+                        @include lg {
+                            width: 80%;
+                        }
+
+                        @include xl {
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+
+            .banner-guy-container {
+                display: none;
+
+                @include lg {
+                    display: flex;
+
+                    img {
+                        @include lg {
+                            margin-top: 2rem;
+                            width: 82%;
+                        }
+
+                        @include xl {
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+
+            .onatrix-info-container {
+                /*border: solid red 1px;*/
+
+                margin: 2rem 0;
+                display: grid;
+                justify-content: center;
+                flex-direction: column;
+                gap: 2rem;
+
+                @include lg {
+                    justify-content: center;
+                    align-content: center;
+                    width: 35%;
+                }
+
+
+                h2 {
+                    @include d6;
+                    text-align: center;
+
+                    @include lg {
+                        text-align: left;
+                    }
+                }
+
+                .office-location, .office-phone, .office-email {
+                    font-weight: 600;
+                    text-align: center;
+
+                    @include lg {
+                        margin-top: .5rem;
+                        display: flex;
+                        flex-direction: column;
+                        text-align: left;
+                    }
+
+
+                    p {
+                        margin: 0;
+                        padding: 0;
+
+                        i {
+                            font-size: 1.1rem;
+                            margin-right: .3rem;
+                        }
+                    }
+
+                    .location-name, .phone-number, .email {
+                        margin-left: 1.4rem;
+                    }
+
+                    .phone-number, .email {
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+    }
+}

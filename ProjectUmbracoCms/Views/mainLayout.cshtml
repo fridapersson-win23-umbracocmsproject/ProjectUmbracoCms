@@ -10,6 +10,9 @@
     var siteName = settings?.Value<string>("siteName") ?? "Onatrix";
     var siteTagline = settings?.Value<string>("siteTagline") ?? "Financial Solutions";
 
+    // var currentPageUrl = Umbraco.AssignedContentItem.Url().TrimEnd('/');
+
+
     var pageTitle = !string.IsNullOrEmpty(ViewBag?.Title) ? $"{ViewBag?.Title} | {siteName} - {siteTagline}" : $"{siteName} - {siteTagline}";
 }
 
@@ -30,11 +33,16 @@
     <div class="wrapper">
         @await Html.PartialAsync("partials/static/topbar.cshtml")
 
-        @await Html.PartialAsync("partials/static/header.cshtml")
+        @* @if(currentPageUrl != "/") *@
+        @* { *@
+            @await Html.PartialAsync("partials/static/header.cshtml")
+        @* } *@
 
 
 
         <main>@RenderBody()</main>
+
+        @await Html.PartialAsync("partials/static/footerBanner.cshtml")
 		
         @await Html.PartialAsync("partials/static/footer.cshtml")
     </div>
@@ -43,3 +51,4 @@
 
 </body>
 </html>
+
