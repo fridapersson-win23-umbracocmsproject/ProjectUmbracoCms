@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'fridapersson-win23-cms'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7384982A731F41EAB4BEBA6D64908D56 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: .
