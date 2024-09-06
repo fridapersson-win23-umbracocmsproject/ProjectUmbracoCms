@@ -1,0 +1,39 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+
+    //hämtar URL för aktiv sida
+    var currentPage = Umbraco.AssignedContentItem;
+    var currentPageUrl = Umbraco.AssignedContentItem.Url();
+    var breadcrumbTitle = currentPage?.Name ?? "";
+
+    var breadcrumbImage1 = settings?.Value<IPublishedContent>("breadcrumbImage1")?.Url() ?? null;
+    var breadcrumbImage2 = settings?.Value<IPublishedContent>("breadcrumbImage2")?.Url() ?? null;
+
+}
+
+<section class="breadcrumb-section @(currentPageUrl == "/" ? "hide-breacrumb-img" : null)">
+    <div class="breadcrumb-background-1">
+        <img src="@breadcrumbImage1" alt="background image" class="breadcrumb-img-1" />
+    </div>
+
+    <div class="breadcrumb-background-2">
+        <img src="@breadcrumbImage2" alt="background image" class="breadcrumb-img-2" />
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <h1>@breadcrumbTitle</h1>
+
+            <p>
+                <a href="/">Home</a>
+                >
+                <a href="@currentPageUrl" class="headline-subtheme">@breadcrumbTitle</a>
+            </p>
+        </div>
+    </div>
+</section>

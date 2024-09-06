@@ -1,4 +1,9 @@
+.hide-breacrumb-img {
+    display: none !important;
+}
+
 .breadcrumb-section {
+    background-color: var(--color-gray);
     position: relative;
     display: block;
     height: 100px;
