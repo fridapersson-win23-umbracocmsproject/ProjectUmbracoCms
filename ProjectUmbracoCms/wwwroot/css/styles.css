@@ -805,7 +805,7 @@ header .container .btn-round {
 #footer-banner {
   display: block;
   background-color: var(--color-gray);
-  z-index: -2;
+  z-index: 1;
 }
 #footer-banner .container {
   position: relative;
