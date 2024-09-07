@@ -799,7 +799,7 @@ header .container .btn-round {
 }
 
 .hide-footer-banner {
-  display: none !important;
+  display: none;
 }
 
 #footer-banner {
