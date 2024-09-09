@@ -4,7 +4,7 @@
 
     &:hover {
         background-color: var(--color-subtheme);
-        color: var(--color-dark);
+        color: var(--color-dark) !important;
     }
 }
 
@@ -30,6 +30,7 @@
 
 .btn-round {
     color: var(--color-dark);
+    background-color: transparent;
 
     &:hover {
         background-color: var(--color-subtheme);

@@ -22,9 +22,11 @@
 .btn-round {
     @include btn;
     border-radius: 50%;
+    border: none;
     display: flex;
     padding: 1rem;
     &:hover {
         text-decoration: none;
+        transition: ease-in-out .2s;
     }
 }

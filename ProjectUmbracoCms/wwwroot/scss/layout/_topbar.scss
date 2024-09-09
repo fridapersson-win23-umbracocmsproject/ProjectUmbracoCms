@@ -13,23 +13,21 @@
         .social-media {
             display: flex;
 
-            .facebook, .linkedin, .twitter {
+            .social-media-icons {
                 padding: .8rem;
                 color: var(--color-gray);
+                width: 43px;
+                height: 49px;
 
                 &:hover {
                     color: var(--color-subtheme);
                 }
-            }
 
-            .facebook {
-                border-left: solid var(--color-gray) .1px;
-                border-right: solid var(--color-gray) .1px;
-            }
+                border-left: solid var(--color-white) .1px;
 
-            .linkedin {
-                border-left: solid var(--color-gray) .1px;
-                border-right: solid var(--color-gray) .1px;
+                &:last-child {
+                    border-right: solid var(--color-white) .1px;
+                }
             }
         }
     }

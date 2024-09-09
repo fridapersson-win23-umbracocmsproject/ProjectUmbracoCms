@@ -3,30 +3,42 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
-    var selectedImages = Model?.Content.Value<IEnumerable<IPublishedContent>>("selectedImages");
-    var imageDescription = Model?.Content.Value<string>("imageDescription") ?? "";
-    var imageLink = Model?.Content.Value<string>("imageLink") ?? "";
+    var slides = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("slides");
 }
 
-<div class="image-slider">
-    <div class="image-container">
-        @if(selectedImages != null && selectedImages.Any()) 
-        {
-            @foreach(var image in selectedImages) 
+@if(slides != null)
+{
+    <div class="image-slider">
+        <div class="image-container">
+            @foreach (var img in slides!)
             {
+                var selectedImage = img?.Content.Value<IPublishedContent>("selectedImage")?.Url();
+                var imageDescription = img?.Content.Value<string>("imageDescription") ?? "";
+                var imageUrl = img?.Content.Value<string>("imageUrl") ?? null;
+                var isExternal = img!.Content.Value<bool>("isExternal");
+
                 <div class="images">
-                    @if(!string.IsNullOrEmpty(imageLink)) 
+                    @if (!string.IsNullOrEmpty(imageUrl))
                     {
-                        <a href="@imageLink">
-                            <img src="@image.Url()" alt="@imageDescription" />
-                        </a>
+                        if (isExternal)
+                        {
+                            <a href="@imageUrl" target="_blank" title="@imageDescription">
+                                <img src="@selectedImage" alt="@imageDescription" />
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@imageUrl" title="@imageDescription">
+                                <img src="@selectedImage" alt="@imageDescription" />
+                            </a>
+                        }
                     }
-                    else 
+                    else
                     {
-                        <img src="@image.Url()" alt="@imageDescription" />
+                        <img src="@selectedImage" alt="@imageDescription" />
                     }
                 </div>
             }
-        }
+        </div>
     </div>
-</div>
+}

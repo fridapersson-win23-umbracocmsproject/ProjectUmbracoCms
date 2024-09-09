@@ -24,11 +24,13 @@
   align-items: center;
   gap: 12px;
   border-radius: 50%;
+  border: none;
   display: flex;
   padding: 1rem;
 }
 .btn-round:hover {
   text-decoration: none;
+  transition: ease-in-out 0.2s;
 }
 
 .custom-spacing-top-1 {
@@ -497,7 +499,7 @@ a:hover {
 }
 .btn-theme:hover {
   background-color: var(--color-subtheme);
-  color: var(--color-dark);
+  color: var(--color-dark) !important;
 }
 
 .btn-subtheme {
@@ -520,6 +522,7 @@ a:hover {
 
 .btn-round {
   color: var(--color-dark);
+  background-color: transparent;
 }
 .btn-round:hover {
   background-color: var(--color-subtheme);
@@ -690,20 +693,18 @@ h3, h6 {
 #topbar .container .social-media {
   display: flex;
 }
-#topbar .container .social-media .facebook, #topbar .container .social-media .linkedin, #topbar .container .social-media .twitter {
+#topbar .container .social-media .social-media-icons {
   padding: 0.8rem;
   color: var(--color-gray);
+  width: 43px;
+  height: 49px;
+  border-left: solid var(--color-white) 0.1px;
 }
-#topbar .container .social-media .facebook:hover, #topbar .container .social-media .linkedin:hover, #topbar .container .social-media .twitter:hover {
+#topbar .container .social-media .social-media-icons:hover {
   color: var(--color-subtheme);
 }
-#topbar .container .social-media .facebook {
-  border-left: solid var(--color-gray) 0.1px;
-  border-right: solid var(--color-gray) 0.1px;
-}
-#topbar .container .social-media .linkedin {
-  border-left: solid var(--color-gray) 0.1px;
-  border-right: solid var(--color-gray) 0.1px;
+#topbar .container .social-media .social-media-icons:last-child {
+  border-right: solid var(--color-white) 0.1px;
 }
 
 header {

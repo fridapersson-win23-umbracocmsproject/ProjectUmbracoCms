@@ -7,9 +7,9 @@
     var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var officeLocation = settings?.Value<string>("officeLocation") ?? "";
 
-    var officeFacebookUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
-    var officeTwitterUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
-    var officeLinkedInUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
+    // var officeFacebookUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
+    // var officeTwitterUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
+    // var officeLinkedInUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
 }
 
 <div id="topbar" class="bg-theme">
@@ -17,9 +17,7 @@
         <div class="address">@officeLocation</div>
 
         <div class="social-media">
-            <a href="@officeFacebookUrl" target="_blank" class="facebook"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="" target="_blank" class="twitter"><i class="fa-brands fa-twitter"></i></a>
-            <a href="" target="_blank" class="linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+            @await Html.PartialAsync("socialmedia.cshtml")
         </div>
     </div>
 </div>

@@ -17,8 +17,8 @@
     var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var breadcrumbImage1 = settings?.Value<IPublishedContent>("breadcrumbImage1")?.Url() ?? null;
     var breadcrumbImage2 = settings?.Value<IPublishedContent>("breadcrumbImage2")?.Url() ?? null;
-    var homeDisplayName = "Home";
-    var isFirstItem = true;
+    // var homeDisplayName = "Home";
+    // var isFirstItem = true;
  }
 
 @if (selection?.Length > 0)
@@ -34,16 +34,15 @@
 
         <div class="container">
             <div class="content">
-                <h1>@Model.Name</h1>
+                <h1>@ViewBag.Title</h1>
                 <ul>
                 @foreach(var item in selection.OrderBy(x => x.Level)) {
-                    var displayName = isFirstItem ? homeDisplayName : item.Name;
                     <li>
-                        <a href="@item.Url(PublishedUrlProvider)">@displayName</a> 
+                        <a href="@item.Url(PublishedUrlProvider)">@item.Name</a> 
                     </li>
-                    isFirstItem = false;
-                }
+                    @* isFirstItem = false; *@
                     <li>></li>
+                }
                 <li class="active">@Model.Name</li>
                 </ul>
             </div>
