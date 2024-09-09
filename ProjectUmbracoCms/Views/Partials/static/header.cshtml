@@ -1,26 +1,43 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+@using Umbraco.Cms.Core
+@using Umbraco.Cms.Core.Models.PublishedContent
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+
+@inject IPublishedValueFallback PublishedValueFallback
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@*
+    This snippet displays a list of links of the pages immediately under the top-most page in the content tree.
+    This is the home page for a standard website.
+    It also highlights the current active page/section in the navigation with the CSS class "current".
+*@
 
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
-    var currentPageUrl = Umbraco.AssignedContentItem.Url().TrimEnd('/');
-
     var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var siteName = settings?.Value<string>("siteName") ?? "";
 
     var siteLogotype = settings?.Value<IPublishedContent>("siteLogotype")?.Url() ?? "";
+
+    var selection = Model.Root().Children.Where(x => x.IsVisible(PublishedValueFallback)).ToArray();
 }
+
 
 <header>
     <div class="container">
         <a href="/" class="logotype"><img src="@siteLogotype" alt="@siteName" /></a>
         <div class="navbar">
             <nav class="nav-menu">
-                <a href="/about-us" class="nav-link @(currentPageUrl == "/about-us" ? "active" : "")">About us</a>
-                <a href="/services" class="nav-link @(currentPageUrl == "/services" ? "active" : "")">Services</a>
-                <a href="/projects" class="nav-link @(currentPageUrl == "/projects" ? "active" : "")">Projects</a>
-                <a href="/contact" class="nav-link @(currentPageUrl == "/contact" ? "active" : "")">Contact</a>
+                @if (selection?.Length > 0)
+                {
+                    @foreach (var item in selection)
+                    {
+                        <a href="@item.Url(PublishedUrlProvider)" class="@(item.IsAncestorOrSelf(Model) ? "nav-link active" : "nav-link")" title="@item.Name">@item.Name</a>
+                    }
+                }
             </nav>
         </div>
         <div class="search">

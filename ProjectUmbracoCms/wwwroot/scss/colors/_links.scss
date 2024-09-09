@@ -2,10 +2,14 @@ a {
     color: var(--color-theme);
 
     &:hover {
-        color: var(--color-theme);
+        color: var(--color-subtheme) !important;
     }
 }
 
 .nav-link {
-    color: var(--color-dark);
+    color: var(--color-theme);
+}
+
+.active {
+    color: var(--color-subtheme) !important;
 }

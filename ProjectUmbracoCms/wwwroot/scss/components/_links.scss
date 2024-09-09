@@ -1,17 +1,17 @@
-a {
-    @include standard-text;
+.nav-link {
+    @include text-nav;
+    color: var(--color-theme);
     display: inline-block;
     text-decoration: none;
     transition: all 0.25s ease-in-out;
     cursor: pointer;
 
     &:hover {
-        text-decoration: underline;
+        transition: .25s ease-in-out;
+        /*color: var(--color-subtheme);*/
     }
 }
 
 
 
-.active {
-    color: var(--color-subtheme) !important;  
-}
+
