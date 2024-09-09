@@ -1,39 +1,52 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Umbraco.Cms.Core.Routing
+@using Umbraco.Extensions
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
+
+ @using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
 
-@{
+
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+
+@{ 
+    var selection = Model.Ancestors().ToArray();
+
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-
-    //hämtar URL för aktiv sida
-    var currentPage = Umbraco.AssignedContentItem;
-    var currentPageUrl = Umbraco.AssignedContentItem.Url();
-    var breadcrumbTitle = currentPage?.Name ?? "";
-
     var breadcrumbImage1 = settings?.Value<IPublishedContent>("breadcrumbImage1")?.Url() ?? null;
     var breadcrumbImage2 = settings?.Value<IPublishedContent>("breadcrumbImage2")?.Url() ?? null;
+    var homeDisplayName = "Home";
+    var isFirstItem = true;
+ }
 
-}
-
-<section class="breadcrumb-section @(currentPageUrl == "/" ? "hide-breacrumb-img" : null)">
-    <div class="breadcrumb-background-1">
-        <img src="@breadcrumbImage1" alt="background image" class="breadcrumb-img-1" />
-    </div>
-
-    <div class="breadcrumb-background-2">
-        <img src="@breadcrumbImage2" alt="background image" class="breadcrumb-img-2" />
-    </div>
-
-    <div class="container">
-        <div class="content">
-            <h1>@breadcrumbTitle</h1>
-
-            <p>
-                <a href="/" class="nav-link">Home</a>
-                >
-                <a href="@currentPageUrl" class="headline-subtheme nav-link" >@breadcrumbTitle</a>
-            </p>
+@if (selection?.Length > 0)
+{
+    <section class="breadcrumb-section ">
+        <div class="breadcrumb-background-1">
+            <img src="@breadcrumbImage1" alt="background image" class="breadcrumb-img-1" />
         </div>
-    </div>
-</section>
+
+        <div class="breadcrumb-background-2">
+            <img src="@breadcrumbImage2" alt="background image" class="breadcrumb-img-2" />
+        </div>
+
+        <div class="container">
+            <div class="content">
+                <h1>@Model.Name</h1>
+                <ul>
+                @foreach(var item in selection.OrderBy(x => x.Level)) {
+                    var displayName = isFirstItem ? homeDisplayName : item.Name;
+                    <li>
+                        <a href="@item.Url(PublishedUrlProvider)">@displayName</a> 
+                    </li>
+                    isFirstItem = false;
+                }
+                    <li>></li>
+                <li class="active">@Model.Name</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+}

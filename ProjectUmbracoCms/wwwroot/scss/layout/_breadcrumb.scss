@@ -7,6 +7,7 @@
     background-color: var(--color-gray);
     position: relative;
     height: 100px;
+
     @include lg {
         height: 200px;
     }
@@ -23,7 +24,6 @@
             display: block;
             bottom: 0;
             left: 0;
-
         }
     }
 
@@ -40,13 +40,30 @@
         .content {
             display: flex;
             flex-direction: column;
-            justify-content: center; 
+            justify-content: center;
             align-items: center;
             height: 100%;
-            text-align: center; 
+            ul {
+                display: flex;
+                gap: .5rem;
+                margin-top: 1rem;
+                padding: 0;
+
+                li {
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+
+                        &:hover {
+                            transition: ease-in-out .2s;
+                        }
+                    }
+                }
+            }
 
             h1 {
-                margin: 0; 
+                margin: 0;
             }
 
             p {

@@ -789,7 +789,21 @@ header .container .btn-round {
   justify-content: center;
   align-items: center;
   height: 100%;
-  text-align: center;
+}
+.breadcrumb-section .container .content ul {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0;
+}
+.breadcrumb-section .container .content ul li {
+  list-style: none;
+}
+.breadcrumb-section .container .content ul li a {
+  text-decoration: none;
+}
+.breadcrumb-section .container .content ul li a:hover {
+  transition: ease-in-out 0.2s;
 }
 .breadcrumb-section .container .content h1 {
   margin: 0;
