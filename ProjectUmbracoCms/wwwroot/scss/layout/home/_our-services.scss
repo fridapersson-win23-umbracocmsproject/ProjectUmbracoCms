@@ -1,4 +1,4 @@
-#our-services {
+/*#our-services {
     .container {
         @include flex;
         flex-wrap: wrap;
@@ -59,6 +59,55 @@
                 img {
                     width: 100%;
                     transition: transform 0.3s ease, filter 0.3s ease; 
+                }
+            }
+        }
+    }
+}
+*/
+
+#our-services {
+    .container {
+        .headline-theme {
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            /*width: 30%;*/
+            @include md {
+                flex-wrap: nowrap;
+            }
+
+            a {
+                text-decoration: none;
+
+                .service-item {
+                    border: solid gray 1px;
+
+
+                    .thumbnail-header {
+                        h4 {
+                            margin-top: 1rem;
+                            margin-left: 1rem;
+                        }
+                    }
+
+                    .thumbnail-image {
+                        img {
+                            object-fit: cover;
+                            width: 100%;
+                            /*max-width: 370px;*/
+                        }
+                    }
+
+                    .thumbnail-footer {
+                        p {
+                            margin-top: 1rem;
+                            margin-left: 1rem;
+                        }
+                    }
                 }
             }
         }

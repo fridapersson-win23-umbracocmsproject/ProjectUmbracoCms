@@ -1012,78 +1012,102 @@ footer .container .copy-right p {
   font-style: italic;
 }
 
-#our-services .container {
+/*#our-services {
+    .container {
+        @include flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+
+        @include md {
+            width: 80%;
+        }
+
+        .clickable-dynamic-container {
+            display: flex;
+            padding: 1rem;
+
+            @include md {
+                width: 70%;
+                margin: 0 auto;
+            }
+
+            @include lg {
+                width: 100%;
+            }
+
+            .content {
+                background-color: var(--color-white);
+                border: solid var(--color-white) 1px;
+                text-align: left;
+
+                &:hover {
+                    img {
+                        transform:rotateZ(5deg);
+                        filter: brightness(.7);
+                    }
+                }
+
+
+
+                h5 {
+                    margin-left: 1rem;
+
+                    @include lg {
+                        @include h6;
+                        margin: .5rem;
+                    }
+
+                    @include xl {
+                        @include h5;
+                    }
+                }
+
+                p {
+                    @include text-s;
+                    margin-left: 1rem;
+                    margin-top: 1rem;
+                    width: 90%;
+                }
+
+                img {
+                    width: 100%;
+                    transition: transform 0.3s ease, filter 0.3s ease; 
+                }
+            }
+        }
+    }
+}
+*/
+#our-services .container .services {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 1rem;
+  /*width: 30%;*/
 }
 @media (min-width: 768px) {
-  #our-services .container {
-    width: 80%;
+  #our-services .container .services {
+    flex-wrap: nowrap;
   }
 }
-#our-services .container .clickable-dynamic-container {
-  display: flex;
-  padding: 1rem;
+#our-services .container .services a {
+  text-decoration: none;
 }
-@media (min-width: 768px) {
-  #our-services .container .clickable-dynamic-container {
-    width: 70%;
-    margin: 0 auto;
-  }
+#our-services .container .services a .service-item {
+  border: solid gray 1px;
 }
-@media (min-width: 1024px) {
-  #our-services .container .clickable-dynamic-container {
-    width: 100%;
-  }
-}
-#our-services .container .clickable-dynamic-container .content {
-  background-color: var(--color-white);
-  border: solid var(--color-white) 1px;
-  text-align: left;
-}
-#our-services .container .clickable-dynamic-container .content:hover img {
-  transform: rotateZ(5deg);
-  filter: brightness(0.7);
-}
-#our-services .container .clickable-dynamic-container .content h5 {
-  margin-left: 1rem;
-}
-@media (min-width: 1024px) {
-  #our-services .container .clickable-dynamic-container .content h5 {
-    font-weight: 400;
-    /*color: var(--color-theme);*/
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    font-weight: 700 !important;
-    font-size: 16px !important;
-    margin: 0.5rem;
-  }
-}
-@media (min-width: 1200px) {
-  #our-services .container .clickable-dynamic-container .content h5 {
-    font-weight: 400;
-    /*color: var(--color-theme);*/
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    font-weight: 700 !important;
-    font-size: 20px !important;
-  }
-}
-#our-services .container .clickable-dynamic-container .content p {
-  font-weight: 400;
-  /*color: var(--color-theme);*/
-  font-family: "Poppins", sans-serif;
-  font-size: 16px;
-  font-size: 14px !important;
-  margin-left: 1rem;
+#our-services .container .services a .service-item .thumbnail-header h4 {
   margin-top: 1rem;
-  width: 90%;
+  margin-left: 1rem;
 }
-#our-services .container .clickable-dynamic-container .content img {
+#our-services .container .services a .service-item .thumbnail-image img {
+  object-fit: cover;
   width: 100%;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  /*max-width: 370px;*/
+}
+#our-services .container .services a .service-item .thumbnail-footer p {
+  margin-top: 1rem;
+  margin-left: 1rem;
 }
 
 #our-story .background-image {

@@ -1,5 +1,12 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = null;
+	Layout = "mainLayout.cshtml";
+    ViewBag.Title = Model.Name ?? null;
 }
+
+<section id="service-details">
+    <div class="container">
+        @Model.Value("content")
+    </div>
+</section>
