@@ -1,11 +1,12 @@
 #about-us {
     .container {
-        display: flex;
 
-        blockquote {
-        }
+
 
         .content {
+            display: flex;
+            gap: 3rem;
+
             .hide-on-mobile {
                 display: none;
 
@@ -14,54 +15,52 @@
                 }
             }
 
-            p {
-                text-align: left !important;
-
-                @include xl {
-                    font-size: 15px !important;
-                }
-            }
-
             .tina-fox {
-                font-style: italic;
-                @include text-xs;
-                @include center-content;
+                display: grid;
+                grid-template-columns: auto 1fr;
 
-                @include xl {
-                    @include left-content;
-                    @include text-s;
+                .image-container {
+                    display: none;
+
+                    @include lg {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    img {
+                        width: 100%;
+
+                        @include lg {
+                            width: 90%;
+                        }
+
+                        @include xl {
+                            width: 86%;
+                        }
+                    }
+
+                    p {
+                        @include lg {
+                            margin-top: .5rem;
+                            @include text-s;
+                        }
+                    }
+                }
+
+                .text-content {
+                    @include lg {
+                        width: 75%;
+                    }
+
+                    blockquote {
+                        margin-bottom: .8rem;
+                    }
+
+                    p {
+                        @include text-s;
+                    }
                 }
             }
-        }
-
-        .image-container {
-            @include center-content;
-
-            @include xl {
-                @include left-content;
-            }
-
-            img {
-                /*justify-content: center;*/
-                width: 40%;
-
-/*                @include md {
-                    width: 100%;
-                }*/
-
-                @include lg {
-                    width: 90%;
-                }
-
-                @include xl {
-                    width: 82%;
-                }
-            }
-        }
-
-        p {
-            /*@include text-xxs;
-            @include center-content;*/
         }
     }
 }

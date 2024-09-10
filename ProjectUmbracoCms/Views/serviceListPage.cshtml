@@ -1,7 +1,7 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
 @{
-
 	Layout = "mainLayout.cshtml";
 
 	ViewBag.Title = Model?.Value("pageTitle") ?? null;
@@ -9,18 +9,24 @@
 
 
 @{
-	var selection = Umbraco.Content(Guid.Parse("dd3cbc75-a2c5-41a0-83d6-b8a267c25967"))
-    .ChildrenOfType("serviceItemTemplate")
-    .Where(x => x.IsVisible());
+
+
+
+	var selection = Umbraco.Content(Guid.Parse("dd3cbc75-a2c5-41a0-83d6-b8a267c25967"))?
+	.ChildrenOfType("serviceItemTemplate")?
+	.Where(x => x.IsVisible());
 }
 
 
 <section id="our-services">
 	<div class="container">
-		@if(!string.IsNullOrEmpty(Model.Value("customHeadline").ToString()))
+
+
+
+		@if(!string.IsNullOrEmpty(Model?.Value("customHeadline")?.ToString()))
 		{
 			<div class="headline-theme">
-				<h2>@Model.Value("customeHeadline")</h2>
+				<h2>@Model.Value("customHeadline")</h2>
 			</div>
 		}
 		<div class="services">

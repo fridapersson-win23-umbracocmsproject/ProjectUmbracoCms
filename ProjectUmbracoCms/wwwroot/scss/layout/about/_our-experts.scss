@@ -1,4 +1,4 @@
-#our-experts {
+/*#our-experts {
     @include center-content;
 
     .container {
@@ -16,9 +16,9 @@
                     text-align: left;
                 }
 
-                gap: 1rem;
+                gap: 1rem;*/
                 /*border: solid red 1px;*/
-                .expert-container {
+                /*.expert-container {
                     @include md {
                         border: solid var(--color-gray) 1px;
                     }
@@ -67,6 +67,51 @@
                     }
 
                     p {
+                    }
+                }
+            }
+        }
+    }
+}*/
+
+
+#our-experts {
+    .container {
+
+        h6 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .image-slider {
+            .image-container {
+
+                @include md {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                }
+
+                .image-card {
+                    border: solid #9C9EA6 1px;
+                    margin-bottom: 2rem;
+
+                    img {
+                        width: 100%;
+                    }
+
+                    h4 {
+                        margin-top: 1rem;
+                        margin-left: 1rem;
+                    }
+
+                    p {
+                        @include text-s;
+                        margin-left: 1rem;
+                        color: #9C9EA6;
                     }
                 }
             }

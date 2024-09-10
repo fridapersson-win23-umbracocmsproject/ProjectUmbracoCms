@@ -17,7 +17,10 @@
                 var imageUrl = img?.Content.Value<string>("imageUrl") ?? null;
                 var isExternal = img!.Content.Value<bool>("isExternal");
 
-                <div class="images">
+                var employeeName = img?.Content.Value<string>("employeeName") ?? null;
+                var employeeTitle = img?.Content.Value<string>("employeeTitle") ?? null;
+
+                <div class="image-card">
                     @if (!string.IsNullOrEmpty(imageUrl))
                     {
                         if (isExternal)
@@ -36,6 +39,12 @@
                     else
                     {
                         <img src="@selectedImage" alt="@imageDescription" />
+                    }
+
+                    @if (!string.IsNullOrEmpty(employeeName) || !string.IsNullOrEmpty(employeeTitle))
+                    {
+                        <h4>@employeeName</h4>
+                        <p>@employeeTitle</p>
                     }
                 </div>
             }

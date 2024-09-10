@@ -1,0 +1,44 @@
+#service-details {
+    margin: 2rem 0;
+
+    .container {
+        display: flex;
+
+        .aside-content {
+            display: none;
+
+            @include xl {
+                display: flex;
+                flex-direction: column;
+            }
+
+            img {
+                width: 100%;
+            }
+
+            p {
+                width: 90%;
+            }
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+
+            @include xl {
+                padding-left: 3rem;
+                border-left: solid var(--color-gray) 1px;
+            }
+
+            img {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                @include md {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

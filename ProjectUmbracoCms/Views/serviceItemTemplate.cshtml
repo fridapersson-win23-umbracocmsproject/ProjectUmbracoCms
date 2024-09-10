@@ -3,10 +3,24 @@
 @{
 	Layout = "mainLayout.cshtml";
     ViewBag.Title = Model.Name ?? null;
+
+
 }
 
 <section id="service-details">
     <div class="container">
-        @Model.Value("content")
+        <div class="aside-content">
+            @Model.Value("asideContent")
+
+            <div class="aside-form">
+                @Model.Value("asideContent")
+            </div>
+        </div>
+        <div class="content">
+            @Model.Value("content")
+        </div>
+        <div class="form">
+
+        </div>
     </div>
 </section>
