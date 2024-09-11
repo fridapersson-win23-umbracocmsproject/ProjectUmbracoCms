@@ -1,0 +1,116 @@
+#our-projects {
+    margin: 3rem 0;
+
+    .container {
+        display: flex;
+
+        .projects {
+            display: grid;
+            gap: 2rem;
+            border: solid red 1px;
+
+            @include xl {
+                width: 80%;
+            }
+
+
+            .project-item {
+                display: grid;
+                border-bottom: solid gray 1px;
+                text-align: center;
+
+
+                @include md {
+                    grid-template-columns: 1fr 1fr;
+                    gap: 1rem;
+                    text-align: left;
+                }
+
+                @include lg {
+                    /*border: solid red 1px;*/
+                }
+
+                .thumbnail-image {
+                    /*border: solid red 1px;*/
+
+                    img {
+                        @include lg {
+                            object-fit: cover;
+                            width: 100%;
+                            margin-bottom: 2rem;
+                        }
+
+                        @include xl {
+                            /*object-fit: cover;*/
+                            /*width: 90%;*/
+                            /*margin-bottom: 2rem;*/
+                        }
+                    }
+                }
+
+                .thumbnail-content {
+                    /*border: solid red 1px;*/
+                    @include lg {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                    }
+
+                    .thumbnail-content-text {
+                        @include lg {
+                            /*                            display: flex;
+                            flex-direction:column;
+                            justify-content:space-evenly;*/
+                        }
+
+                        h4 {
+                        }
+
+                        .date {
+                        }
+
+                        .thumbnail-text {
+                            /*width: 90%;*/
+                        }
+                    }
+
+                    .read-more-link {
+                        a {
+
+                            &:hover {
+                            }
+
+                            .read-more {
+                                display: inline-flex;
+                                justify-content: center;
+                                align-items: center;
+                                gap: .5rem;
+                                font-weight: 600;
+
+                                &:hover {
+                                    i {
+                                        transition: ease-in-out .2s;
+                                        margin-left: .5rem;
+                                    }
+                                }
+
+                                i {
+                                    color: var(--color-subtheme);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .aside-content {
+            display: none;
+
+            @include xl {
+                display: block;
+                border: solid red 1px;
+            }
+        }
+    }
+}

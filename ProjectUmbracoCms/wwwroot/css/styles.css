@@ -1368,6 +1368,11 @@ footer .container .copy-right p {
 #our-experts .container .image-slider .image-container .image-card {
   border: solid #9C9EA6 1px;
   margin-bottom: 2rem;
+  overflow: hidden;
+}
+#our-experts .container .image-slider .image-container .image-card:hover img {
+  transition: ease-in-out 0.2s;
+  transform: scale(1.1);
 }
 #our-experts .container .image-slider .image-container .image-card img {
   width: 100%;
@@ -1433,7 +1438,7 @@ footer .container .copy-right p {
   text-decoration: none;
 }
 #our-services .container .services a:hover img {
-  transform: rotate(2deg) scale(1.1);
+  transform: rotate(1deg) scale(1.1);
   transition: ease-in-out 0.2s;
   filter: brightness(0.7);
 }
@@ -1504,6 +1509,148 @@ footer .container .copy-right p {
   #service-details .container .content img {
     width: 100%;
   }
+}
+
+#our-projects {
+  margin: 3rem 0;
+}
+#our-projects .container {
+  display: flex;
+}
+#our-projects .container .projects {
+  display: grid;
+  gap: 2rem;
+  border: solid red 1px;
+}
+@media (min-width: 1200px) {
+  #our-projects .container .projects {
+    width: 80%;
+  }
+}
+#our-projects .container .projects .project-item {
+  display: grid;
+  border-bottom: solid gray 1px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #our-projects .container .projects .project-item {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-align: left;
+  }
+}
+@media (min-width: 1024px) {
+  #our-projects .container .projects .project-item {
+    /*border: solid red 1px;*/
+  }
+}
+#our-projects .container .projects .project-item .thumbnail-image {
+  /*border: solid red 1px;*/
+}
+@media (min-width: 1024px) {
+  #our-projects .container .projects .project-item .thumbnail-image img {
+    object-fit: cover;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  #our-projects .container .projects .project-item .thumbnail-image img {
+    /*object-fit: cover;*/
+    /*width: 90%;*/
+    /*margin-bottom: 2rem;*/
+  }
+}
+#our-projects .container .projects .project-item .thumbnail-content {
+  /*border: solid red 1px;*/
+}
+@media (min-width: 1024px) {
+  #our-projects .container .projects .project-item .thumbnail-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+@media (min-width: 1024px) {
+  #our-projects .container .projects .project-item .thumbnail-content .thumbnail-content-text {
+    /*                            display: flex;
+    flex-direction:column;
+    justify-content:space-evenly;*/
+  }
+}
+#our-projects .container .projects .project-item .thumbnail-content .thumbnail-content-text .thumbnail-text {
+  /*width: 90%;*/
+}
+#our-projects .container .projects .project-item .thumbnail-content .read-more-link a .read-more {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+#our-projects .container .projects .project-item .thumbnail-content .read-more-link a .read-more:hover i {
+  transition: ease-in-out 0.2s;
+  margin-left: 0.5rem;
+}
+#our-projects .container .projects .project-item .thumbnail-content .read-more-link a .read-more i {
+  color: var(--color-subtheme);
+}
+#our-projects .container .aside-content {
+  display: none;
+}
+@media (min-width: 1200px) {
+  #our-projects .container .aside-content {
+    display: block;
+    border: solid red 1px;
+  }
+}
+
+.pagination {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.pagination .container {
+  /*width: fit-content;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+}
+.pagination .container .change {
+  color: var(--color-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+.pagination .container .inactive {
+  color: #EAEAEA;
+}
+.pagination .container .active {
+  border: solid #EAEAEA 1px;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: var(--color-dark);
+  font-weight: 500;
+  font-size: 1rem;
+}
+.pagination .container ul {
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0.5rem;
+}
+.pagination .container ul li {
+  display: flex;
+  list-style: none;
+  align-items: center;
+}
+.pagination .container ul li a {
+  text-decoration: none;
+  padding: 0.5rem;
 }
 
 .umb-block-grid__layout-container {

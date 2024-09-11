@@ -98,6 +98,14 @@
                 .image-card {
                     border: solid #9C9EA6 1px;
                     margin-bottom: 2rem;
+                    overflow: hidden;
+
+                    &:hover {
+                        img {
+                            transition: ease-in-out .2s;
+                            transform: scale(1.1);
+                        }
+                    }
 
                     img {
                         width: 100%;

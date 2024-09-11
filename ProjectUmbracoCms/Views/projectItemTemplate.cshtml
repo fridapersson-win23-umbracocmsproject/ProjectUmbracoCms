@@ -1,5 +1,42 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = null;
+
+	Layout = "mainLayout.cshtml";
+
+	ViewBag.Title = Model?.Name ?? null;
+
+
+
+    var thumbnailDate = Model?.Value<DateTime>("thumbnailDate");
+
+    if (!thumbnailDate.HasValue)
+
+    {
+
+        thumbnailDate = DateTime.Now;
+
+    }
+
+    //datumformattering
+
+    var displayDate = thumbnailDate.Value.ToString("MMMM d, yyyy");
 }
+
+<section id="project-details">
+    <div class="container">
+        <div class="aside-content">
+            @Model?.Value("asideContent")
+
+            <div class="aside-form">
+                @Model?.Value("asideContent")
+            </div>
+        </div>
+        <div class="content">
+            <p class="date"><i class="fa-sharp fa-solid fa-calendar-days"></i> @displayDate</p>
+            @Model?.Value("content")
+        </div>
+        <div class="form">
+        </div>
+    </div>
+</section>

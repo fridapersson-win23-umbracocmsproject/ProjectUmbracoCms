@@ -1,0 +1,56 @@
+@mixin pagination {
+    .pagination {
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+
+        .container {
+            /*width: fit-content;*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 2rem;
+
+            .change {
+                color: var(--color-dark);
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+            .inactive {
+                color: #EAEAEA;
+            }
+
+            .active {
+                border: solid #EAEAEA 1px;
+                width: 2.5rem;
+                height: 2.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+                color: var(--color-dark);
+                font-weight: 500;
+                font-size: 1rem;
+            }
+
+            ul {
+                display: flex;
+                gap: 1rem;
+                margin: 0;
+                padding: .5rem;
+
+                li {
+                    display: flex;
+                    list-style: none;
+                    align-items: center;
+
+                    a {
+                        text-decoration: none;
+                        padding: .5rem;
+                    }
+                }
+            }
+        }
+    }
+}

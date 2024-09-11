@@ -1,5 +1,113 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-	Layout = null;
+	Layout = "mainLayout.cshtml";
+
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
 }
+
+
+@{
+	var selection = Umbraco.Content(Guid.Parse("6ed1109e-293f-4da9-a45f-f88afc07bf57"))
+    .ChildrenOfType("projectItemTemplate")
+    .Where(x => x.IsVisible());
+
+
+	var itemsPerPage = 4;
+
+	if (!int.TryParse(Context.Request.Query["page"], out int currentPage))
+	{
+		currentPage = 1;
+	}
+
+	var totalItems = selection?.Count() ?? 0;
+	var pagedItems = selection?.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
+}
+
+<section id="our-projects">
+	<div class="container">
+		<div class="projects">
+			@foreach (var project in pagedItems)
+			{
+				var thumbnailImage = project?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? null;
+
+				var thumbnailDate = project?.Value<DateTime>("thumbnailDate");
+				if(!thumbnailDate.HasValue)
+				{
+					thumbnailDate = DateTime.Now;
+				}
+				//datumformattering
+				var displayDate = thumbnailDate.Value.ToString("MMMM d, yyyy");
+
+				var customHeadline = project?.Value<string>("customHeadline") ?? null;
+				var thumbnailText = project?.Value<string>("thumbnailText") ?? null;
+
+				<div class="project-item">
+					<div class="thumbnail-image">
+						<img src="@thumbnailImage" />
+					</div>
+						<div class="thumbnail-content">
+							<div class="thumbnail-content-text">
+							<h4>@customHeadline</h4>
+							<p class="date"><i class="fa-sharp fa-solid fa-calendar-days"></i> @displayDate</p>
+							<p class="thumbnail-text">@thumbnailText</p>
+						</div>
+							<div class="read-more-link">
+							<a href="@project?.Url()">
+								<p class="read-more">Read More <i class="fa-regular fa-arrow-right"></i></p>
+							</a>
+						</div>
+					</div>
+				</div>
+			}
+		</div>
+		<aside class="aside-content">
+			<div class="tags">
+				<h1>Tags</h1>
+				<p>Report</p>
+				<p>Busines plans</p>
+				<p>Insights</p>
+				<p>Business</p>
+				<p>App</p>
+				<p>Project</p>
+				<p>Finance</p>
+				<p>Pricing</p>
+			</div>
+			<div class="form">
+				<h1>FORM</h1>
+			</div>
+		</aside>
+	</div>
+</section>
+
+<section class="pagination">
+	<div class="container">
+		@if (currentPage > 1)
+		{
+			<a href="?page=@(currentPage - 1)" class="change">PREV</a>
+		}
+		else
+		{
+			<span class="change inactive">PREV</span>
+		}
+
+		<ul class="pages">
+			@for (int i = 1; i <= Math.Ceiling((decimal)totalItems / itemsPerPage); i++)
+			{
+				<li class="@((i == currentPage) ? "number active" : "number")">
+					<a href="?page=@i">@i</a>
+				</li>
+			}
+		</ul>
+
+		@if (currentPage < Math.Ceiling((decimal)totalItems / itemsPerPage))
+		{
+			<a class="change" href="?page=@(currentPage + 1)">NEXT</a>
+		}
+		else
+		{
+			<span class="change inactive">NEXT</span>
+		}
+
+	</div>
+</section>
