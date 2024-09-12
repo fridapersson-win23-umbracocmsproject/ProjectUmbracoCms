@@ -28,10 +28,12 @@
         <div class="aside-content">
             @Model?.Value("asideContent")
 
-            <div class="aside-form">
-                @Model?.Value("asideContent")
-            </div>
+            <aside class="aside-form bg-theme">
+                @await Html.PartialAsync("partials/static/asideForm.cshtml")
+            </aside>
+
         </div>
+
         <div class="content">
             <p class="date"><i class="fa-sharp fa-solid fa-calendar-days"></i> @displayDate</p>
             @Model?.Value("content")

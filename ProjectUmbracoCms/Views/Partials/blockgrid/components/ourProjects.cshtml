@@ -1,0 +1,52 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using contentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@{
+	var selection = Umbraco.Content(Guid.Parse("6ed1109e-293f-4da9-a45f-f88afc07bf57"))
+	.ChildrenOfType("projectItemTemplate")
+	.Where(x => x.IsVisible())
+	.Take(4);
+
+	var pageTitle = Model.Content.Value<string>("pageTitle") ?? null;
+	var sectionId = pageTitle?.ToString().ToLower().Trim().Replace(" ", "-");
+
+	var headline = Model.Content.Value<string>("headline") ?? null;
+
+}
+@* <ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name()</a>
+		</li>
+	}
+</ul> *@
+
+<section id="our-recent-projects">
+		<div class="container">
+			<div class="headline-text">
+				<h6>@pageTitle</h6>
+				<h2>@headline</h2>
+			</div>
+		</div>
+	<div class="projects">
+
+		@foreach(var project in selection)
+		{
+			var thumbnailImage = project?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? null;
+			var pagelTitle = project?.Value<string>("pageTitle") ?? null;
+			<a href="@project?.Url()">
+				<div class="thumbnail-image">
+					<img src="@thumbnailImage" />
+					<div class="text-content">
+						<h6>@pagelTitle <span class="arrow-symbol">></span></h6>
+						<p>Financial Services</p>
+					</div>
+				</div>
+			</a>
+		}
+
+	</div>
+</section>
+

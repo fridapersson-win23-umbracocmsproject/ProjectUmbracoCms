@@ -61,22 +61,15 @@
 				</div>
 			}
 		</div>
-		<aside class="aside-content">
-			<div class="tags">
-				<h1>Tags</h1>
-				<p>Report</p>
-				<p>Busines plans</p>
-				<p>Insights</p>
-				<p>Business</p>
-				<p>App</p>
-				<p>Project</p>
-				<p>Finance</p>
-				<p>Pricing</p>
-			</div>
-			<div class="form">
-				<h1>FORM</h1>
-			</div>
-		</aside>
+
+		<div class="aside-content">
+			@Model?.Value("asideContent")
+
+			<aside class="aside-form bg-theme">
+				@await Html.PartialAsync("partials/static/asideForm.cshtml")
+			</aside>
+
+		</div>
 	</div>
 </section>
 

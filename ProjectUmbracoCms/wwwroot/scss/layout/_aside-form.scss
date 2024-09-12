@@ -1,0 +1,59 @@
+.aside-form {
+    position: relative;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    margin-right: 1.5rem;
+
+    @include xxl {
+        width: 90%;
+    }
+
+    .form-text {
+        @include xl {
+            @include grid;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            @include xl {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    .form-input {
+        @include xl {
+            position: relative;
+        }
+
+        input {
+            @include xl {
+                padding: .8rem;
+                border: solid var(--color-theme) 1px;
+                border-radius: .5rem;
+                margin-left: 1rem;
+                width: 90%;
+                font-style: italic;
+                padding-left: 1.5rem;
+            }
+        }
+
+        i {
+            @include xl {
+                position: absolute;
+                top: .8rem;
+                left: 15rem;
+                color: var(--color-theme);
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .form-background-image {
+        position: absolute;
+        bottom: -1rem;
+        right: 0;
+        width: 60%;
+    }
+}

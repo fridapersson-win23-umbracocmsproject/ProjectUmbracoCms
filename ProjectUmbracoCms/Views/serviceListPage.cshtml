@@ -10,8 +10,8 @@
 
 @{
 	var selection = Umbraco.Content(Guid.Parse("dd3cbc75-a2c5-41a0-83d6-b8a267c25967"))?
-	.ChildrenOfType("serviceItemTemplate")?
-	.Where(x => x.IsVisible());
+			.ChildrenOfType("serviceItemTemplate")?
+			.Where(x => x.IsVisible());
 
 
 

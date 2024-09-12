@@ -1,0 +1,90 @@
+#our-recent-projects {
+    margin: 3rem 0;
+    .container {
+        .headline-text {
+            margin-bottom: 1rem;
+            h6 {
+            }
+
+            h2 {
+            }
+        }
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+
+        @include md {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include lg {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @include xl {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+
+        }
+
+        a {
+            &:hover {
+                .text-content {
+                    transition: ease-in-out .2s;
+                    background: rgba(79, 89, 85, 1);
+
+                    h6{
+                        color: var(--color-subtheme);
+                    }
+                    .arrow-symbol {
+                        display: block;
+                        transition: ease-in-out .2s;
+                        color: var(--color-white);
+                    }
+                }
+            }
+
+            .thumbnail-image {
+                position: relative;
+
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                }
+            }
+
+            .text-content {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                padding: 1rem;
+                background: rgba(79, 89, 85, 0.5);
+                color: var(--color-white);
+
+
+
+                h6 {
+                    color: var(--color-white);
+                    position: relative;
+
+
+
+                    .arrow-symbol {
+                        display: none;
+                        position: absolute;
+                        top: -1rem;
+                        right: 1rem;
+                        font-size: 5rem;
+                        font-weight: 300;
+                    }
+                }
+
+                p {
+                }
+            }
+        }
+    }
+}
