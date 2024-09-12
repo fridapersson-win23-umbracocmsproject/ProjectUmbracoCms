@@ -1,70 +1,94 @@
-#our-services {
-    .container {
-        @include flex;
-        flex-wrap: wrap;
-        justify-content: center;
 
+/*#our-services {
+    margin: 2rem 0;
 
-        @include md {
-            width: 80%;
-        }
+    .container {*/
+/*        .headline-theme {
+            margin: 1rem 0;
+            @include flex;
+            @include center-content;
 
-        .clickable-dynamic-container {
-            display: flex;
-            padding: 1rem;
 
             @include md {
-                width: 70%;
+                max-width: 600px;
                 margin: 0 auto;
             }
 
             @include lg {
-                width: 100%;
+                max-width: 500px;
             }
 
-            .content {
-                background-color: var(--color-white);
-                border: solid var(--color-white) 1px;
-                text-align: left;
-                overflow: hidden;
+            @include xxl {
+                max-width: 470px;
+            }*/
+        /*}*/
+
+        /*.services {
+            display: grid;
+            gap: 1rem;
+
+            @include md {
+                margin: 2rem 0;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @include xl {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            a {
+                text-decoration: none;
 
                 &:hover {
                     img {
-                        transform:rotateZ(2deg) scale(1.1);
+                        transform: rotate(1deg) scale(1.1);
                         transition: ease-in-out .2s;
                         filter: brightness(.7);
                     }
                 }
 
+                .service-item {
+                    border: solid gray 1px;
+                    overflow: hidden;
 
+                    .thumbnail-header {
+                        h4 {
+                            margin-top: 1rem;
+                            margin-left: 1rem;
+                            margin-bottom: 1rem;
 
-                h5 {
-                    margin-left: 1rem;
+                            @include md {
+                                margin-bottom: 1rem;*/
+                                /*@include h4;*/
+                            /*}
 
-                    @include lg {
-                        @include h6;
-                        margin: .5rem;
+                            @include xl {*/
+                                /*margin: 1.5rem 2rem;*/
+                            /*}
+                        }
                     }
 
-                    @include xl {
-                        @include h5;
+                    .thumbnail-image {
+                        img {
+                            object-fit: cover;
+                            width: 100%;
+                        }
                     }
-                }
 
-                p {
-                    @include text-s;
-                    margin-left: 1rem;
-                    margin-top: 1rem;
-                    width: 90%;
-                }
+                    .thumbnail-footer {
+                        p {
+                            margin-top: 1rem;
+                            margin-left: 1rem;
 
-                img {
-                    width: 100%;
-                    transition: transform 0.3s ease, filter 0.3s ease; 
+                            @include lg {
+                            }
+
+                            @include xl {
+                            }
+                        }
+                    }
                 }
             }
-        }
-    }
-}
-
-
+        }*/
+    /*}
+}*/

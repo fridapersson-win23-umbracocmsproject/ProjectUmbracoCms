@@ -1,0 +1,90 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using contentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
+@{
+	var selection = Umbraco.Content(Guid.Parse("dd3cbc75-a2c5-41a0-83d6-b8a267c25967"))
+	.ChildrenOfType("serviceItemTemplate")
+	.Where(x => x.IsVisible())
+	.Take(6);
+
+
+	var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? null;
+	var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
+	
+	var headline = Model?.Content.Value<string>("headline") ?? null;
+
+
+	//bakgrundsfärg
+	var sectionBackgroundColorLabel = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("sectionBackgroundColor")?.Label.ToLower() ?? null;
+	var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{sectionBackgroundColorLabel}" : null;
+
+	//formatting
+	var spacingTopClass = (Model!.Content.Value<bool>("addSpaceToTop")) ? "section-spacing-top" : null;
+	var spacingBottomClass = (Model!.Content.Value<bool>("addSpaceToBottom")) ? "section-spacing-bottom" : null;
+	var centerContentClass = (Model!.Content.Value<bool>("centerContentOnPage")) ? "center" : null;
+
+	//custom dynamic formatting
+	var customSpacingTop = Model?.Content.Value<int>("customAddSpaceToTop") ?? 0;
+	var customSpacingBottom = Model?.Content.Value<int>("customAddSpaceToBottom") ?? 0;
+
+	var customSpacingTopClass = customSpacingTop > 0 ? $"custom-spacing-top-{customSpacingTop}" : null;
+	var customSpacingBottomClass = customSpacingBottom > 0 ? $"custom-spacing-bottom-{customSpacingBottom}" : null;
+}
+
+
+
+<section id="@sectionId" class="@spacingTopClass @spacingBottomClass @backgroundColorClass @customSpacingTopClass @customSpacingBottomClass">
+	<div class="container @centerContentClass">
+		@if (!string.IsNullOrEmpty(sectionTitle))
+		{
+			<div class="headline-theme">
+				<h6>@sectionTitle</h6>
+				<h2>@headline</h2>
+			</div>
+		}
+		<div class="services">
+
+				@foreach (var service in selection)
+				{
+					var thumbnailImage = service?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? null;
+
+					var thumbnailText = service?.Value<string>("thumbnailText") ?? null;
+
+					<a href="@service?.Url()">
+						<div class="service-item">
+							<div class="thumbnail-header">
+								<h4>@service?.Name</h4>
+							</div>
+							<div class="thumbnail-image">
+								<img src="@thumbnailImage" alt="@service?.Name" />
+							</div>
+							<div class="thumbnail-footer">
+								<p>@thumbnailText</p>
+							</div>
+						</div>
+					</a>
+				}
+			
+
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+@* <ul>
+	@foreach (var item in selection)
+	{
+		<li>
+			<a href="@item.Url()">@item.Name()</a>
+		</li>
+	}
+</ul> *@
+

@@ -3,10 +3,10 @@
     margin: 2rem 0;
 
     .container {
+            display: flex;
+            flex-direction: column;
         .headline-theme {
             margin: 1rem 0;
-            @include flex;
-            @include center-content;
 
 
             @include md {
@@ -20,6 +20,9 @@
 
             @include xxl {
                 max-width: 470px;
+            }
+            h6{
+                margin-bottom: .5rem;
             }
         }
 
@@ -59,6 +62,7 @@
 
                             @include md {
                                 margin-bottom: 1rem;
+                                /*@include h4;*/
                             }
 
                             @include xl {
@@ -92,3 +96,4 @@
     }
 }
 
+@include pagination;
