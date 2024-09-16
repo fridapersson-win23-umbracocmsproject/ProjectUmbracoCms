@@ -1,0 +1,59 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@* @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels; *@
+@{
+
+	Layout = "mainLayout.cshtml";
+
+	ViewBag.Title = Model.Value("pageTitle");
+
+
+
+}
+
+<div class="container">
+	<h1>@ViewBag.Title</h1>
+
+	@if(ViewData["success"] == null)
+	{
+		@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+		{
+			<div class="form-input-group">
+				<label class="form-label" for="name">Name</label>
+				<input id="name" class="form-input" name="name" type="text" placeholder="Enter your name" value="@TempData["name"]" />
+				@if (TempData["error_name"] != null && (bool)TempData["error_name"]!)
+				{
+					<span class="form-error">You have to enter a valid name</span>
+				}
+			</div>
+
+			<div class="form-input-group">
+				<label class="form-label" for="email">E-mail address</label>
+				<input id="email" class="form-input" name="email" type="email" placeholder="Enter your e-mail address" value="@TempData["email"]" />
+				@if (TempData["error_email"] != null && (bool)TempData["error_email"]!)
+				{
+					<span class="form-error">You have to enter a valid email</span>
+				}
+			</div>
+
+			<div class="form-input-group">
+				<label class="form-label" for="message">Message</label>
+				<input id="message" class="form-input" name="message" type="text" placeholder="Enter your message..." value="@TempData["message"]" />
+				@if (TempData["error_message"] != null && (bool)TempData["error_message"]!)
+				{
+					<span class="form-error">You have to enter a message</span>
+				}
+			</div>
+
+			<button class="btn-theme" type="submit">SEND</button>
+		}
+	}
+	else
+	{
+		<div class="form-success">@ViewData["success"]</div>
+	}
+</div>
+
+
+		@* @Html.GetBlockListHtml(Model.contactForm) *@
+		@* @await Html.GetBlockListHtmlAsync(Model?.Value<Umbraco.Cms.Core.Models.Blocks.BlockListModel>("contactForm")) @* funkar *@ 
