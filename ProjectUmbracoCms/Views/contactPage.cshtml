@@ -1,57 +1,89 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@* @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels; *@
+
 @{
 
 	Layout = "mainLayout.cshtml";
 
 	ViewBag.Title = Model.Value("pageTitle");
 
-
-
+	var options = new HashSet<string> { "Financial consulting", "Option 2", "Other" };
+	var selectedOption = TempData["selectedOptions"]?.ToString() ?? "";
 }
 
-<div class="container">
-	<h1>@ViewBag.Title</h1>
 
-	@if(ViewData["success"] == null)
-	{
-		@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+
+
+<section id="contact">
+	@await Html.PartialAsync("partials/static/footerBanner.cshtml")
+
+	<div class="container">
+
+		@if(ViewData["success"] == null)
 		{
-			<div class="form-input-group">
-				<label class="form-label" for="name">Name</label>
-				<input id="name" class="form-input" name="name" type="text" placeholder="Enter your name" value="@TempData["name"]" />
-				@if (TempData["error_name"] != null && (bool)TempData["error_name"]!)
-				{
-					<span class="form-error">You have to enter a valid name</span>
-				}
-			</div>
+			@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+			{
+				<div class="form-input-group">
+					@* <label class="form-label" for="name">Name</label> *@
+					<input id="name" class="form-input" name="name" type="text" placeholder="Name" value="@TempData["name"]" />
+					@if (TempData["error_name"] != null && (bool)TempData["error_name"]!)
+					{
+						<span class="form-error">You have to enter a valid name</span>
+					}
+				</div>
 
-			<div class="form-input-group">
-				<label class="form-label" for="email">E-mail address</label>
-				<input id="email" class="form-input" name="email" type="email" placeholder="Enter your e-mail address" value="@TempData["email"]" />
-				@if (TempData["error_email"] != null && (bool)TempData["error_email"]!)
-				{
-					<span class="form-error">You have to enter a valid email</span>
-				}
-			</div>
+				<div class="form-input-group">
+					@* <label class="form-label" for="email">E-mail address</label> *@
+					<input id="phone" class="form-input" name="phone" type="number" placeholder="Phone" value="@TempData["phone"]" />
+					@if (TempData["error_phone"] != null && (bool)TempData["error_phone"]!)
+					{
+						<span class="form-error">You have to enter a valid phone number</span>
+					}
+				</div>
 
-			<div class="form-input-group">
-				<label class="form-label" for="message">Message</label>
-				<input id="message" class="form-input" name="message" type="text" placeholder="Enter your message..." value="@TempData["message"]" />
-				@if (TempData["error_message"] != null && (bool)TempData["error_message"]!)
-				{
-					<span class="form-error">You have to enter a message</span>
-				}
-			</div>
+				<div class="form-input-group">
+					@* <label class="form-label" for="email">E-mail address</label> *@
+					<input id="email" class="form-input" name="email" type="email" placeholder="Enter your e-mail address" value="@TempData["email"]" />
+					@if (TempData["error_email"] != null && (bool)TempData["error_email"]!)
+					{
+						<span class="form-error">You have to enter a valid email</span>
+					}
+				</div>
 
-			<button class="btn-theme" type="submit">SEND</button>
+				<div class="form-input-group">
+					<select id="selectedOption" class="form-input" name="selectedOption">
+						<option value="" disabled selected>Choose a topic</option>
+						@foreach (var option in options)
+						{
+							<option value="@option">@option</option>
+						}
+					</select>
+					@if (TempData["error_selectedOption"] != null && (bool)TempData["error_selectedOption"]!)
+					{
+						<span class="form-error">Please choose a topic</span>
+					}
+				</div>
+
+@* 				<div class="form-input-group">
+					<label class="form-label" for="message">Message</label>
+					<input id="message" class="form-input" name="message" type="text" placeholder="Enter your message..." value="@TempData["message"]" />
+					@if (TempData["error_message"] != null && (bool)TempData["error_message"]!)
+					{
+						<span class="form-error">You have to enter a message</span>
+					}
+				</div> *@
+
+				<button class="btn-theme" type="submit">SEND</button>
+			}
 		}
-	}
-	else
-	{
-		<div class="form-success">@ViewData["success"]</div>
-	}
+		else
+		{
+			<div class="form-success">@ViewData["success"]</div>
+		}
+	</div>
+</section>
+<div class="google-maps-location">
+	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.161524189858!2d18.0513197780599!3d59.33025707461476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d61b5b2a595%3A0xd9fa560691e12d7!2sKlarabergsviadukten%2090%2C%20111%2064%20Stockholm!5e0!3m2!1ssv!2sse!4v1726575943817!5m2!1ssv!2sse" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 

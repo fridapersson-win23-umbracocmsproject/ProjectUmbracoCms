@@ -40,7 +40,7 @@
 
         <main>@RenderBody()</main>
 
-        @if (currentPageUrl != "/")
+        @if (currentPageUrl != "/" && currentPageUrl != "/contact/")
         {
             @await Html.PartialAsync("partials/static/footerBanner.cshtml")
         }

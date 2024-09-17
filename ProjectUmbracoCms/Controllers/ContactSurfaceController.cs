@@ -22,11 +22,15 @@ public class ContactSurfaceController : SurfaceController
 		{
 			TempData["name"] = form.Name;
 			TempData["email"] = form.Email;
-			TempData["message"] = form.Message;
+			//TempData["message"] = form.Message;
+			TempData["phone"] = form.Phone;
+			TempData["selectedOption"] = form.SelectedOption;
 
 			TempData["error_name"] = string.IsNullOrEmpty(form.Name);
 			TempData["error_email"] = string.IsNullOrEmpty(form.Email);
-			TempData["error_message"] = string.IsNullOrEmpty(form.Message);
+			//TempData["error_message"] = string.IsNullOrEmpty(form.Message);
+			TempData["error_phone"] = string.IsNullOrEmpty(form.Phone);
+			TempData["error_selectedOption"] = string.IsNullOrEmpty(form.SelectedOption);
 
 			return CurrentUmbracoPage();
 		}
