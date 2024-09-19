@@ -10,9 +10,27 @@
     <h4>How can we help you?</h4>
     <p>online support 24/7, we are here to help you</p>
 </div>
-<div class="form-input">
-    <input type="email" placeholder="E-mail address" /><i class="fa-regular fa-envelope"></i>
-</div>
+
+@if (ViewData["success"] == null)
+{
+	@using (Html.BeginUmbracoForm("HandleSupportFormSubmit", "ContactSurface", FormMethod.Post))
+	{
+		<div class="form-input-group">
+			<input type="hidden" name="Type" value="Support" />
+			<input id="email" class="form-input" name="email" type="email" placeholder="Enter your e-mail address" value="@TempData["email"]" />
+			@if (TempData["error_email"] != null && (bool)TempData["error_email"]!)
+			{
+				<span class="form-error">You have to enter a valid email</span>
+			}
+		</div>
+
+		@* <button class="btn-theme" type="submit">SEND</button> *@
+	}
+}
+else
+{
+	<div class="form-success">@ViewData["success"]</div>
+}
 <div class="form-background-image">
     <img src="/media/4byituoo/mail.svg" alt="" />
 </div>
