@@ -14,7 +14,7 @@ builder.CreateUmbracoBuilder()
     .Build();
 
 
-
+//test
 builder.Services.AddSingleton<ServiceBusClient>(provider =>
 {
 	var config = provider.GetRequiredService<IConfiguration>();
