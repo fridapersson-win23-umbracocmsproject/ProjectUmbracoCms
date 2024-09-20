@@ -21,12 +21,21 @@
     //datumformattering
 
     var displayDate = thumbnailDate.Value.ToString("MMMM d, yyyy");
+
+
+
+
+
+    var selection = Umbraco.Content(Guid.Parse("6ed1109e-293f-4da9-a45f-f88afc07bf57"))
+        .ChildrenOfType("projectItemTemplate")
+        .Where(x => x.IsVisible())
+        .Take(4);
 }
 
 <section id="project-details">
     <div class="container">
         <div class="aside-content">
-            @Model?.Value("asideContent")
+            @Model.Value("asideContent")
 
             <aside class="aside-form bg-theme">
                 @await Html.PartialAsync("partials/static/asideForm.cshtml")

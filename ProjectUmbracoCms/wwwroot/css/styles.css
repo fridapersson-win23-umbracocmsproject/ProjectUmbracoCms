@@ -1793,6 +1793,10 @@ footer .container .copy-right p {
   }
 }
 
+#project-details .container {
+  display: flex;
+  flex-direction: row-reverse;
+}
 #contact #footer-banner {
   background-color: var(--color-white);
 }
