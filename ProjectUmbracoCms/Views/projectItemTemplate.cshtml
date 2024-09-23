@@ -2,33 +2,25 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 
-	Layout = "mainLayout.cshtml";
+    Layout = "mainLayout.cshtml";
 
-	ViewBag.Title = Model?.Name ?? null;
+    ViewBag.Title = Model?.Name ?? null;
 
 
 
     var thumbnailDate = Model?.Value<DateTime>("thumbnailDate");
 
     if (!thumbnailDate.HasValue)
-
     {
-
         thumbnailDate = DateTime.Now;
-
     }
-
-    //datumformattering
-
     var displayDate = thumbnailDate.Value.ToString("MMMM d, yyyy");
-
-
-
 
 
     var selection = Umbraco.Content(Guid.Parse("6ed1109e-293f-4da9-a45f-f88afc07bf57"))
         .ChildrenOfType("projectItemTemplate")
         .Where(x => x.IsVisible())
+        .OrderBy(x => x.CreateDate)
         .Take(4);
 }
 
@@ -37,8 +29,38 @@
         <div class="aside-content">
             @Model.Value("asideContent")
 
-            <aside class="aside-form bg-theme">
-                @await Html.PartialAsync("partials/static/asideForm.cshtml")
+            <aside class="bg-theme">
+                <div class="recent-projects">
+                    <h5>Recent projects</h5>
+
+                    @foreach (var project in selection)
+                    {
+                        var projectDate = project?.Value<DateTime>("thumbnailDate") ?? project!.CreateDate;
+
+                        var formattedProjectDate = projectDate.ToString("MMMM d, yyyy");
+
+
+                        var thumbnailImage = project?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? null;
+                        var pageTitle = project?.Value<string>("pageTitle") ?? null;
+                        <div class="project-item">
+                            <a class="link-container" href="@project!.Url()">
+                                <div class="thumbnail-image">
+                                    <img src="@thumbnailImage" />
+                                </div>
+                                <div class="thumbnail-content">
+                                    <div class="thumbnail-content-text">
+                                        <h4>@pageTitle</h4>
+                                        <p class="date"><i class="fa-sharp fa-solid fa-calendar-days"></i> @formattedProjectDate</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+
+                <div class="aside-form">
+                    @await Html.PartialAsync("partials/static/asideForm.cshtml")
+                </div>
             </aside>
 
         </div>

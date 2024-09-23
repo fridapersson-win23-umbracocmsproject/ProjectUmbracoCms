@@ -1796,7 +1796,99 @@ footer .container .copy-right p {
 #project-details .container {
   display: flex;
   flex-direction: row-reverse;
+  margin-top: 3rem;
 }
+#project-details .container .content {
+  padding: 1rem;
+}
+#project-details .container .content .img-text {
+  margin-left: 24rem;
+  padding: 0.2rem;
+}
+#project-details .container .aside-content {
+  width: 80%;
+  border-left: solid var(--color-gray) 1px;
+  padding-left: 1.5rem;
+}
+#project-details .container .aside-content aside {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+#project-details .container .aside-content aside .aside-form {
+  background-color: var(--color-theme);
+  width: 100%;
+}
+@media (min-width: 1400px) {
+  #project-details .container .aside-content aside .aside-form form input {
+    width: 90%;
+    margin-left: 1rem;
+    border-radius: 0.4rem;
+  }
+}
+@media (min-width: 1400px) {
+  #project-details .container .aside-content aside .aside-form .form-background-image {
+    position: absolute;
+    bottom: 0;
+    right: -2.6rem;
+  }
+}
+#project-details .container .aside-content aside h5 {
+  color: var(--color-theme);
+  margin-bottom: 1.5rem;
+}
+#project-details .container .aside-content aside .recent-projects {
+  margin-bottom: 3rem;
+  background-color: var(--color-white);
+}
+@media (min-width: 1400px) {
+  #project-details .container .aside-content aside .recent-projects .project-item {
+    margin-bottom: 1rem;
+    border-bottom: solid black 1px;
+    /*padding-bottom: .5rem;*/
+  }
+}
+#project-details .container .aside-content aside .recent-projects .project-item .link-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-decoration: none;
+}
+#project-details .container .aside-content aside .recent-projects .project-item .link-container:hover {
+  text-decoration: underline;
+}
+#project-details .container .aside-content aside .recent-projects .project-item .link-container:hover img {
+  transform: scale(1.2);
+  transition: ease-in-out 0.2s;
+}
+#project-details .container .aside-content aside .recent-projects .project-item .link-container .thumbnail-image {
+  overflow: hidden;
+}
+#project-details .container .aside-content aside .recent-projects .project-item .link-container .thumbnail-image img {
+  object-fit: contain;
+  width: 85%;
+  margin: 0;
+  padding: 0;
+}
+#project-details .container .aside-content aside .recent-projects .project-item .link-container .thumbnail-content .thumbnail-content-text {
+  /*border: solid red 1px;*/
+}
+#project-details .container .aside-content aside .recent-projects .project-item .link-container .thumbnail-content .thumbnail-content-text h4 {
+  font-weight: 400;
+  /*color: var(--color-theme);*/
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-size: 16px !important;
+  color: var(--color-dark);
+}
+#project-details .container .aside-content aside .recent-projects .project-item .link-container .thumbnail-content .thumbnail-content-text .date {
+  color: var(--color-dark);
+  font-weight: 400;
+  /*color: var(--color-theme);*/
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-size: 14px !important;
+}
+
 #contact #footer-banner {
   background-color: var(--color-white);
 }

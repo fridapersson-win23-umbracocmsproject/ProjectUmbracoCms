@@ -1,12 +1,121 @@
 #project-details {
     .container {
-            display: flex;
-            flex-direction: row-reverse;
+        display: flex;
+        flex-direction: row-reverse;
+        margin-top: 3rem;
+
         .content {
+            padding: 1rem;
+
+            .img-text {
+                margin-left: 24rem;
+                padding: .2rem;
+            }
         }
+
         .aside-content {
-            .aside-form {
-                
+            width: 80%;
+            border-left: solid var(--color-gray) 1px;
+            padding-left: 1.5rem;
+
+            aside {
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+
+
+                .aside-form {
+                    background-color: var(--color-theme);
+                    width: 100%;
+
+                    form {
+                        input {
+                            @include xxl {
+                                width: 90%;
+                                margin-left: 1rem;
+                                border-radius: .4rem;
+                            }
+                        }
+                    }
+
+                    .form-input-group {
+                        .envelope-icon {
+                        }
+                    }
+
+                    .form-background-image {
+                        @include xxl {
+                            position: absolute;
+                            bottom: 0;
+                            right: -2.6rem;
+                        }
+
+                        img {
+                        }
+                    }
+                }
+
+                h5 {
+                    color: var(--color-theme);
+                    margin-bottom: 1.5rem;
+                }
+
+                .recent-projects {
+                    margin-bottom: 3rem;
+                    background-color: var(--color-white);
+
+                    .project-item {
+                        @include xxl {
+                            margin-bottom: 1rem;
+                            border-bottom: solid black 1px;
+                            /*padding-bottom: .5rem;*/
+                        }
+
+
+                        .link-container {
+                            display: grid;
+                            grid-template-columns: 1fr 1fr;
+                            text-decoration: none;
+
+
+                            &:hover {
+                                text-decoration: underline;
+
+                                img {
+                                    transform: scale(1.2);
+                                    transition: ease-in-out .2s;
+                                }
+                            }
+
+                            .thumbnail-image {
+                                overflow: hidden;
+
+                                img {
+                                    object-fit: contain;
+                                    width: 85%;
+                                    margin: 0;
+                                    padding: 0;
+                                }
+                            }
+
+                            .thumbnail-content {
+                                .thumbnail-content-text {
+                                    /*border: solid red 1px;*/
+
+                                    h4 {
+                                        @include text-m;
+                                        color: var(--color-dark);
+                                    }
+
+                                    .date {
+                                        color: var(--color-dark);
+                                        @include text-s;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
