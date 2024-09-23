@@ -7,10 +7,12 @@
         .projects {
             display: grid;
             gap: 2rem;
-            border: solid red 1px;
+            /*border: solid red 1px;*/
 
             @include xl {
                 width: 80%;
+                border-right: solid var(--color-gray) 1px;
+                padding-right: 2rem;
             }
 
 
@@ -106,10 +108,28 @@
 
         .aside-content {
             display: none;
+            /*border: solid red 1px;*/
 
             @include xl {
                 display: block;
-                border: solid red 1px;
+                padding-left: 2rem;
+            }
+
+            .aside-form {
+                width: 100%;
+                .form-text{
+                    h4{
+
+                    }
+                    p{
+                        width: 90%;
+                    }
+                }
+                .form-background-image {
+                    position: absolute;
+                    bottom: 0;
+                    right: -2.3rem;
+                }
             }
         }
     }

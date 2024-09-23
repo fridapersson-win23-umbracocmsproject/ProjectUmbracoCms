@@ -943,10 +943,11 @@ footer .container .copy-right p {
   padding: 2rem 0;
   margin-top: 2rem;
   margin-right: 1.5rem;
+  border-radius: 0.2rem;
 }
 @media (min-width: 1400px) {
   .aside-form {
-    width: 90%;
+    width: 95%;
   }
 }
 @media (min-width: 1200px) {
@@ -963,28 +964,33 @@ footer .container .copy-right p {
   }
 }
 @media (min-width: 1200px) {
-  .aside-form .form-input {
+  .aside-form .form-input-group {
     position: relative;
+    width: 90%;
+    z-index: 2;
+    margin-left: 1rem;
   }
 }
 @media (min-width: 1200px) {
-  .aside-form .form-input input {
+  .aside-form .form-input-group input {
     padding: 0.8rem;
     border: solid var(--color-theme) 1px;
     border-radius: 0.5rem;
-    margin-left: 1rem;
-    width: 90%;
+    width: 100%;
     font-style: italic;
     padding-left: 1.5rem;
+    position: relative;
+    z-index: 3;
   }
 }
 @media (min-width: 1200px) {
-  .aside-form .form-input i {
+  .aside-form .form-input-group i {
     position: absolute;
     top: 0.8rem;
-    left: 15rem;
+    right: 2rem;
     color: var(--color-theme);
     font-size: 1.5rem;
+    z-index: 3;
   }
 }
 .aside-form .form-background-image {
@@ -992,6 +998,7 @@ footer .container .copy-right p {
   bottom: -1rem;
   right: 0;
   width: 60%;
+  z-index: 1;
 }
 
 #hero-slider {
@@ -1708,11 +1715,13 @@ footer .container .copy-right p {
 #our-projects .container .projects {
   display: grid;
   gap: 2rem;
-  border: solid red 1px;
+  /*border: solid red 1px;*/
 }
 @media (min-width: 1200px) {
   #our-projects .container .projects {
     width: 80%;
+    border-right: solid var(--color-gray) 1px;
+    padding-right: 2rem;
   }
 }
 #our-projects .container .projects .project-item {
@@ -1785,12 +1794,24 @@ footer .container .copy-right p {
 }
 #our-projects .container .aside-content {
   display: none;
+  /*border: solid red 1px;*/
 }
 @media (min-width: 1200px) {
   #our-projects .container .aside-content {
     display: block;
-    border: solid red 1px;
+    padding-left: 2rem;
   }
+}
+#our-projects .container .aside-content .aside-form {
+  width: 100%;
+}
+#our-projects .container .aside-content .aside-form .form-text p {
+  width: 90%;
+}
+#our-projects .container .aside-content .aside-form .form-background-image {
+  position: absolute;
+  bottom: 0;
+  right: -2.3rem;
 }
 
 #project-details .container {
@@ -1801,9 +1822,16 @@ footer .container .copy-right p {
 #project-details .container .content {
   padding: 1rem;
 }
+#project-details .container .content p {
+  width: 95%;
+}
+#project-details .container .content h4 {
+  width: 95%;
+}
 #project-details .container .content .img-text {
   margin-left: 24rem;
   padding: 0.2rem;
+  width: 55%;
 }
 #project-details .container .aside-content {
   width: 80%;
@@ -1817,12 +1845,10 @@ footer .container .copy-right p {
 }
 #project-details .container .aside-content aside .aside-form {
   background-color: var(--color-theme);
-  width: 100%;
+  width: 110%;
 }
 @media (min-width: 1400px) {
   #project-details .container .aside-content aside .aside-form form input {
-    width: 90%;
-    margin-left: 1rem;
     border-radius: 0.4rem;
   }
 }

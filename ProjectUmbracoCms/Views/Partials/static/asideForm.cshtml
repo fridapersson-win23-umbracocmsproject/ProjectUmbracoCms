@@ -17,7 +17,10 @@
 	{
 		<div class="form-input-group">
 			<input type="hidden" name="Type" value="Support" />
-			<input id="email" class="form-input" name="email" type="email" placeholder="Enter your e-mail address" value="@TempData["email"]" />
+			<input id="email" class="form-input" name="email" type="email" placeholder="E-mail address" value="@TempData["email"]" />
+			<div class="envelope-icon">
+				<i class="fa-regular fa-envelope"></i>
+			</div>
 			@if (TempData["error_email"] != null && (bool)TempData["error_email"]!)
 			{
 				<span class="form-error">You have to enter a valid email</span>

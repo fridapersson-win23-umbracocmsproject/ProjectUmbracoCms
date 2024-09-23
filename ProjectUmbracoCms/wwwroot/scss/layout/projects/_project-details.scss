@@ -6,10 +6,16 @@
 
         .content {
             padding: 1rem;
-
+            p{
+                width: 95%;
+            }
+            h4{
+                width: 95%;
+            }
             .img-text {
                 margin-left: 24rem;
                 padding: .2rem;
+                width: 55%;
             }
         }
 
@@ -26,13 +32,11 @@
 
                 .aside-form {
                     background-color: var(--color-theme);
-                    width: 100%;
+                    width: 110%;
 
                     form {
                         input {
                             @include xxl {
-                                width: 90%;
-                                margin-left: 1rem;
                                 border-radius: .4rem;
                             }
                         }

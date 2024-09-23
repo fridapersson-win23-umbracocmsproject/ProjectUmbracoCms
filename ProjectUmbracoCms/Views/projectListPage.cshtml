@@ -9,9 +9,8 @@
 
 @{
 	var selection = Umbraco.Content(Guid.Parse("6ed1109e-293f-4da9-a45f-f88afc07bf57"))
-    .ChildrenOfType("projectItemTemplate")
-    .Where(x => x.IsVisible())
-	.Take(4);
+			.ChildrenOfType("projectItemTemplate")
+			.Where(x => x.IsVisible());
 
 
 	var itemsPerPage = 4;
