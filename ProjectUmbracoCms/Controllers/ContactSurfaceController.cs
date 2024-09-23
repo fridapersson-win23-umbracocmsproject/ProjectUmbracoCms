@@ -22,22 +22,21 @@ public class ContactSurfaceController : SurfaceController
 	[HttpPost]
 	public async Task<IActionResult> HandleSubmit(ContactFormModel form)
 	{
-		if (!ModelState.IsValid) 
+		if (!ModelState.IsValid)
 		{
 			TempData["name"] = form.Name;
 			TempData["email"] = form.Email;
-			//TempData["message"] = form.Message;
 			TempData["phone"] = form.Phone;
 			TempData["selectedOption"] = form.SelectedOption;
 
 			TempData["error_name"] = string.IsNullOrEmpty(form.Name);
 			TempData["error_email"] = string.IsNullOrEmpty(form.Email);
-			//TempData["error_message"] = string.IsNullOrEmpty(form.Message);
 			TempData["error_phone"] = string.IsNullOrEmpty(form.Phone);
 			TempData["error_selectedOption"] = string.IsNullOrEmpty(form.SelectedOption);
 
 			return CurrentUmbracoPage();
 		}
+
 		var emailRequest = new EmailRequest
 		{
 			To = form.Email,
@@ -48,9 +47,8 @@ public class ContactSurfaceController : SurfaceController
 
 		await _emailService.PublishAsync(emailRequest);
 
-		ViewData["success"] = "Form submittet successfully!";
+		ViewData["success"] = "Form submitted successfully!";
 		return CurrentUmbracoPage();
-
 	}
 
 

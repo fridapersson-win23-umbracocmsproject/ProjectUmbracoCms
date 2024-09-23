@@ -14,21 +14,20 @@ builder.CreateUmbracoBuilder()
     .Build();
 
 
-//test
-builder.Services.AddSingleton<ServiceBusClient>(provider =>
+builder.Services.AddSingleton<ServiceBusClient>(serviceProvider =>
 {
-	var config = provider.GetRequiredService<IConfiguration>();
+	var config = serviceProvider.GetRequiredService<IConfiguration>();
 	var connectionString = config.GetConnectionString("ServiceBusConnection");
-	return new ServiceBusClient(connectionString);  
+	return new ServiceBusClient(connectionString);
 });
 
-builder.Services.AddSingleton<ServiceBusEmailService>(provider =>
+builder.Services.AddTransient<ServiceBusEmailService>(serviceProvider =>
 {
-	var serviceBusClient = provider.GetRequiredService<ServiceBusClient>(); 
-	var logger = provider.GetRequiredService<ILogger<ServiceBusEmailService>>();
-	var queueName = "email_request";  
-
-	return new ServiceBusEmailService(serviceBusClient, queueName, logger);
+	var client = serviceProvider.GetRequiredService<ServiceBusClient>();
+	var config = serviceProvider.GetRequiredService<IConfiguration>();
+	var queueName = config["ServiceBus:QueueName"];
+	var logger = serviceProvider.GetRequiredService<ILogger<ServiceBusEmailService>>();
+	return new ServiceBusEmailService(client, queueName, logger);
 });
 
 
