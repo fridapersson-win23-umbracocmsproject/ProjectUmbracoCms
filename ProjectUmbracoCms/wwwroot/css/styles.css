@@ -717,6 +717,7 @@ header .container {
   margin-top: 0.5rem;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 @media (min-width: 1024px) {
   header .container {
@@ -725,15 +726,43 @@ header .container {
 }
 header .container .navbar {
   display: none;
+  overflow: hidden;
 }
 @media (min-width: 1024px) {
   header .container .navbar {
     display: flex;
+    position: relative;
+    top: 0;
+    width: auto;
+    background-color: transparent;
+    padding: 0;
+    max-height: none;
   }
+}
+header .container .navbar.toggle-mobile-menu-active {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  padding: 2rem;
+  z-index: 1000;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  text-align: center;
+}
+header .container .navbar.toggle-mobile-menu-active {
+  max-height: 500px;
+}
+header .container .navbar .nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 @media (min-width: 1024px) {
   header .container .navbar .nav-menu {
-    display: flex;
+    flex-direction: row;
     gap: 3rem;
   }
 }
@@ -754,7 +783,7 @@ header .container .btn-round {
   display: block;
   background-color: var(--color-gray);
   position: relative;
-  height: 100px;
+  height: 200px;
 }
 @media (min-width: 1024px) {
   .breadcrumb-section {
@@ -940,66 +969,63 @@ footer .container .copy-right p {
 }
 
 .aside-form {
-  position: relative;
   padding: 2rem 0;
+  /*margin-right: 1.5rem;*/
+  position: relative;
   margin-top: 2rem;
-  margin-right: 1.5rem;
   border-radius: 0.2rem;
+  /*margin-left: 1.5rem;*/
 }
 @media (min-width: 1400px) {
   .aside-form {
     width: 95%;
   }
 }
-@media (min-width: 1200px) {
-  .aside-form .form-text {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin-left: 1rem;
-    margin-bottom: 1rem;
-  }
+.aside-form .form-text {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
-@media (min-width: 1200px) {
-  .aside-form .form-text h4 {
-    margin-bottom: 1rem;
-  }
+.aside-form .form-text h4 {
+  margin-bottom: 1rem;
 }
-@media (min-width: 1200px) {
-  .aside-form .form-input-group {
-    position: relative;
-    width: 90%;
-    z-index: 2;
-    margin-left: 1rem;
-  }
+.aside-form .form-input-group {
+  position: relative;
+  width: 90%;
+  z-index: 2;
+  margin-left: 1rem;
 }
-@media (min-width: 1200px) {
-  .aside-form .form-input-group input {
-    padding: 0.8rem;
-    border: solid var(--color-theme) 1px;
-    border-radius: 0.5rem;
-    width: 100%;
-    font-style: italic;
-    padding-left: 1.5rem;
-    position: relative;
-    z-index: 3;
-  }
+.aside-form .form-input-group input {
+  padding: 0.8rem;
+  border: solid var(--color-theme) 1px;
+  border-radius: 0.5rem;
+  width: 100%;
+  font-style: italic;
+  padding-left: 1.5rem;
+  position: relative;
+  z-index: 3;
 }
-@media (min-width: 1200px) {
-  .aside-form .form-input-group i {
-    position: absolute;
-    top: 0.8rem;
-    right: 2rem;
-    color: var(--color-theme);
-    font-size: 1.5rem;
-    z-index: 3;
-  }
+.aside-form .form-input-group i {
+  position: absolute;
+  top: 0.8rem;
+  right: 2rem;
+  color: var(--color-theme);
+  font-size: 1.5rem;
+  z-index: 3;
 }
 .aside-form .form-background-image {
-  position: absolute;
-  bottom: -1rem;
-  right: 0;
-  width: 60%;
-  z-index: 1;
+  display: none;
+}
+@media (min-width: 1200px) {
+  .aside-form .form-background-image {
+    display: flex;
+    position: absolute;
+    bottom: -1rem;
+    right: 0;
+    width: 60%;
+    z-index: 1;
+  }
 }
 
 #hero-slider {
@@ -1817,8 +1843,13 @@ footer .container .copy-right p {
 
 #project-details .container {
   display: flex;
-  flex-direction: row-reverse;
-  margin-top: 3rem;
+  flex-direction: column;
+}
+@media (min-width: 1200px) {
+  #project-details .container {
+    flex-direction: row-reverse;
+    margin-top: 3rem;
+  }
 }
 #project-details .container .content {
   padding: 1rem;
@@ -1829,15 +1860,22 @@ footer .container .copy-right p {
 #project-details .container .content h4 {
   width: 95%;
 }
-#project-details .container .content .img-text {
-  margin-left: 24rem;
-  padding: 0.2rem;
-  width: 55%;
+@media (min-width: 1200px) {
+  #project-details .container .content .img-text {
+    margin-left: 24rem;
+    padding: 0.2rem;
+    width: 55%;
+  }
 }
-#project-details .container .aside-content {
-  width: 80%;
-  border-left: solid var(--color-gray) 1px;
-  padding-left: 1.5rem;
+#project-details .container .content img {
+  width: 20%;
+}
+@media (min-width: 1200px) {
+  #project-details .container .aside-content {
+    width: 80%;
+    border-left: solid var(--color-gray) 1px;
+    padding-left: 1.5rem;
+  }
 }
 #project-details .container .aside-content aside {
   display: flex;
@@ -1864,11 +1902,16 @@ footer .container .copy-right p {
   color: var(--color-theme);
   margin-bottom: 1.5rem;
 }
-#project-details .container .aside-content aside .recent-projects {
-  margin-bottom: 3rem;
-  background-color: var(--color-white);
+@media (min-width: 1200px) {
+  #project-details .container .aside-content aside .recent-projects {
+    margin-bottom: 3rem;
+    background-color: var(--color-white);
+  }
 }
-@media (min-width: 1400px) {
+#project-details .container .aside-content aside .recent-projects .project-item {
+  display: flex;
+}
+@media (min-width: 1200px) {
   #project-details .container .aside-content aside .recent-projects .project-item {
     margin-bottom: 1rem;
     border-bottom: solid black 1px;
@@ -1877,8 +1920,12 @@ footer .container .copy-right p {
 }
 #project-details .container .aside-content aside .recent-projects .project-item .link-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-decoration: none;
+}
+@media (min-width: 1200px) {
+  #project-details .container .aside-content aside .recent-projects .project-item .link-container {
+    grid-template-columns: 1fr 1fr;
+    text-decoration: none;
+  }
 }
 #project-details .container .aside-content aside .recent-projects .project-item .link-container:hover {
   text-decoration: underline;
@@ -1892,9 +1939,13 @@ footer .container .copy-right p {
 }
 #project-details .container .aside-content aside .recent-projects .project-item .link-container .thumbnail-image img {
   object-fit: contain;
-  width: 85%;
-  margin: 0;
-  padding: 0;
+}
+@media (min-width: 1200px) {
+  #project-details .container .aside-content aside .recent-projects .project-item .link-container .thumbnail-image img {
+    width: 85%;
+    margin: 0;
+    padding: 0;
+  }
 }
 #project-details .container .aside-content aside .recent-projects .project-item .link-container .thumbnail-content .thumbnail-content-text {
   /*border: solid red 1px;*/

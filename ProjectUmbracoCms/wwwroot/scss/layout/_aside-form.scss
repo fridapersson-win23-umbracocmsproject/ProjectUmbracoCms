@@ -1,65 +1,75 @@
 .aside-form {
-    position: relative;
     padding: 2rem 0;
+    /*margin-right: 1.5rem;*/
+    position: relative;
     margin-top: 2rem;
-    margin-right: 1.5rem;
     border-radius: .2rem;
+    /*margin-left: 1.5rem;*/
+    @include xl {
+    }
+
     @include xxl {
         width: 95%;
     }
 
     .form-text {
+        @include grid;
+        margin-left: 1rem;
+        margin-bottom: 1rem;
+
         @include xl {
-            @include grid;
-            margin-left: 1rem;
-            margin-bottom: 1rem;
         }
 
         h4 {
+            margin-bottom: 1rem;
+
             @include xl {
-                margin-bottom: 1rem;
             }
         }
     }
 
     .form-input-group {
+        position: relative;
+        width: 90%;
+        z-index: 2;
+        margin-left: 1rem;
+
         @include xl {
-            position: relative;
-            width: 90%;
-            z-index: 2;
-            margin-left: 1rem;
         }
 
         input {
-            @include xl {
-                padding: .8rem;
-                border: solid var(--color-theme) 1px;
-                border-radius: .5rem;
-                width: 100%; 
-                font-style: italic;
-                padding-left: 1.5rem;
-                position: relative;
-                z-index: 3;
-            }
+            padding: .8rem;
+            border: solid var(--color-theme) 1px;
+            border-radius: .5rem;
+            width: 100%;
+            font-style: italic;
+            padding-left: 1.5rem;
+            position: relative;
+            z-index: 3;
         }
 
         i {
+            position: absolute;
+            top: .8rem;
+            right: 2rem;
+            color: var(--color-theme);
+            font-size: 1.5rem;
+            z-index: 3;
+
             @include xl {
-                position: absolute;
-                top: .8rem;
-                right: 2rem; 
-                color: var(--color-theme);
-                font-size: 1.5rem;
-                z-index: 3;
             }
         }
     }
 
     .form-background-image {
-        position: absolute;
-        bottom: -1rem;
-        right: 0;
-        width: 60%;
-        z-index: 1; 
+        display: none;
+        @include xl {
+            display: flex;
+            position: absolute;
+            bottom: -1rem;
+            right: 0;
+            width: 60%;
+            z-index: 1;
+        }
     }
 }

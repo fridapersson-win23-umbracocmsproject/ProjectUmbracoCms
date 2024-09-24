@@ -1,28 +1,46 @@
 #project-details {
     .container {
         display: flex;
-        flex-direction: row-reverse;
-        margin-top: 3rem;
+        flex-direction: column;
+
+        @include xl {
+            flex-direction: row-reverse;
+            margin-top: 3rem;
+        }
+
 
         .content {
             padding: 1rem;
-            p{
+
+            p {
                 width: 95%;
             }
-            h4{
+
+            h4 {
                 width: 95%;
             }
+
             .img-text {
-                margin-left: 24rem;
-                padding: .2rem;
-                width: 55%;
+                
+                @include xl {
+                    margin-left: 24rem;
+                    padding: .2rem;
+                    width: 55%;
+                }
+            }
+
+            img {
+                width: 20%;
             }
         }
 
         .aside-content {
-            width: 80%;
-            border-left: solid var(--color-gray) 1px;
-            padding-left: 1.5rem;
+            @include xl {
+                width: 80%;
+                border-left: solid var(--color-gray) 1px;
+                padding-left: 1.5rem;
+            }
+
 
             aside {
                 display: flex;
@@ -65,11 +83,16 @@
                 }
 
                 .recent-projects {
-                    margin-bottom: 3rem;
-                    background-color: var(--color-white);
+                    @include xl {
+                        margin-bottom: 3rem;
+                        background-color: var(--color-white);
+                    }
+
 
                     .project-item {
-                        @include xxl {
+                        display: flex;
+
+                        @include xl {
                             margin-bottom: 1rem;
                             border-bottom: solid black 1px;
                             /*padding-bottom: .5rem;*/
@@ -78,8 +101,12 @@
 
                         .link-container {
                             display: grid;
-                            grid-template-columns: 1fr 1fr;
-                            text-decoration: none;
+
+                            @include xl {
+                                grid-template-columns: 1fr 1fr;
+                                text-decoration: none;
+                            }
+
 
 
                             &:hover {
@@ -96,9 +123,12 @@
 
                                 img {
                                     object-fit: contain;
-                                    width: 85%;
-                                    margin: 0;
-                                    padding: 0;
+
+                                    @include xl {
+                                        width: 85%;
+                                        margin: 0;
+                                        padding: 0;
+                                    }
                                 }
                             }
 
