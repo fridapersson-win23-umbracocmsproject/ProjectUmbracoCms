@@ -1,8 +1,11 @@
+using Azure.Identity;
 using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.DependencyInjection;
 using ProjectUmbracoCms.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.ConfigureKeyVault();
 
 builder.CreateUmbracoBuilder()
     .AddBackOffice()
@@ -17,7 +20,7 @@ builder.CreateUmbracoBuilder()
 builder.Services.AddSingleton<ServiceBusClient>(serviceProvider =>
 {
 	var config = serviceProvider.GetRequiredService<IConfiguration>();
-	var connectionString = config.GetConnectionString("ServiceBusConnection");
+	var connectionString = config["ServiceBusConnection"]; 
 	return new ServiceBusClient(connectionString);
 });
 
@@ -55,3 +58,26 @@ app.UseUmbraco()
     });
 
 await app.RunAsync();
+
+
+
+
+public static class WebApplicationBuilderExtensions
+{
+	public static WebApplicationBuilder ConfigureKeyVault(this WebApplicationBuilder builder)
+	{
+		var keyVaultEndpoint = builder.Configuration["AzureKeyVaultEndpoint"];
+		if (!string.IsNullOrWhiteSpace(keyVaultEndpoint) && Uri.TryCreate(keyVaultEndpoint, UriKind.Absolute, out var validUri))
+		{
+			// Lägg till Key Vault i konfigurationen
+			builder.Configuration.AddAzureKeyVault(validUri, new DefaultAzureCredential());
+			Console.WriteLine($"Connected to Key Vault: {keyVaultEndpoint}");
+		}
+		else
+		{
+			Console.WriteLine("Key Vault URI is invalid or missing.");
+		}
+
+		return builder;
+	}
+}
