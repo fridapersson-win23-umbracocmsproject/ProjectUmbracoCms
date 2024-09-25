@@ -146,7 +146,7 @@ section {
 
 .form-success {
   background-color: var(--color-success);
-  color: var(--color-theme);
+  color: var(--color-dark);
   font-weight: 400;
   /*color: var(--color-theme);*/
   font-family: "Poppins", sans-serif;
