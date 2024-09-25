@@ -31,4 +31,45 @@ public class ServiceBusEmailService
 			_logger.LogError($"ERROR : ServiceBusEmailService.PublishAsync() :: {ex.Message}");
 		}
 	}
+
+	public async Task PublishServiceDetailsAsync(ServiceDetailsFormModel form)
+	{
+		try
+		{
+			var emailRequest = new EmailRequest
+			{
+				To = form.Email,
+				Subject = "Thank you for your question",
+				HtmlBody = $"<h1>Thank you for your message, {form.Name}!</h1> <br /> <p>We have recieved your message and we will contact you asap</p>",
+				PlainText = $"Thank you for your message, {form.Name}! We have recieved your message and we will contact you asap"
+			};
+
+			await PublishAsync(emailRequest);
+		}
+		catch (Exception ex)
+		{
+			_logger.LogError($"ERROR : ServiceBusEmailService.PublishAsync() :: {ex.Message}");
+		}
+	}
+
+	public async Task PublishSupportAsync(SupportFormModel form)
+	{
+		try
+		{
+			var emailRequest = new EmailRequest
+			{
+				To = form.Email,
+				Subject = "Thank you for your online support request",
+				HtmlBody = $"<h1>Request recieved</h1> <br /> <p>We have recieved your request and our team will contact you asap</p>",
+				PlainText = "Request recieved! We have recieved your request and our team will contact you asap"
+			};
+
+			await PublishAsync(emailRequest);
+		}
+		catch (Exception ex)
+		{
+			_logger.LogError($"ERROR : ServiceBusEmailService.PublishAsync() :: {ex.Message}");
+		}
+	}
 }
+

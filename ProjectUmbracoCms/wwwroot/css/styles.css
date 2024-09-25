@@ -144,6 +144,29 @@ section {
   overflow: unset !important;
 }
 
+.form-success {
+  background-color: var(--color-success);
+  color: var(--color-theme);
+  font-weight: 400;
+  /*color: var(--color-theme);*/
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-size: 14px !important;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.form-error {
+  color: var(--color-danger-dark);
+  font-weight: 400;
+  /*color: var(--color-theme);*/
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-size: 14px !important;
+}
+
 .nav-link {
   font-weight: 400;
   /*color: var(--color-theme);*/
@@ -1042,6 +1065,50 @@ footer .container .copy-right p {
   }
 }
 
+#service-details-form .container {
+  display: grid;
+}
+#service-details-form .container .form-headers h5 {
+  margin: 1rem 0;
+}
+#service-details-form .container .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+#service-details-form .container .form-input-group .form-input {
+  font-style: italic;
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+  border: solid gray 1px;
+}
+#service-details-form .container .form-input-group .form-input::placeholder {
+  /*color: gray;*/
+}
+#service-details-form .container .btn-theme {
+  margin: 1rem 0;
+  font-weight: 500;
+}
+@media (min-width: 1024px) {
+  #service-details-form .container .btn-theme {
+    width: 20%;
+    margin-bottom: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  #service-details-form .container .btn-theme {
+    width: 10%;
+    margin-bottom: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  #service-details-form .container .btn-theme {
+    margin-bottom: 3rem;
+  }
+}
+
 #hero-slider {
   overflow: unset;
   /*    .bg-gray {
@@ -1139,7 +1206,7 @@ footer .container .copy-right p {
   font-weight: 300;
   font-style: italic;
 }
-#home-about-us .container .callback-form {
+#home-about-us .container #callback-form {
   display: grid;
   grid-template-columns: 1fr;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -1147,12 +1214,12 @@ footer .container .copy-right p {
   margin: 0 auto;
 }
 @media (min-width: 768px) {
-  #home-about-us .container .callback-form {
+  #home-about-us .container #callback-form {
     width: 70%;
   }
 }
 @media (min-width: 1200px) {
-  #home-about-us .container .callback-form {
+  #home-about-us .container #callback-form {
     width: 90%;
     position: absolute;
     display: block;
@@ -1161,11 +1228,11 @@ footer .container .copy-right p {
   }
 }
 @media (min-width: 1400px) {
-  #home-about-us .container .callback-form {
+  #home-about-us .container #callback-form {
     width: 75%;
   }
 }
-#home-about-us .container .callback-form .form-headers h2 {
+#home-about-us .container #callback-form .form-headers h2 {
   font-weight: 400;
   /*color: var(--color-theme);*/
   font-family: "Poppins", sans-serif;
@@ -1177,12 +1244,12 @@ footer .container .copy-right p {
   padding: 1.5rem 0 1.5rem 1rem;
 }
 @media (min-width: 1200px) {
-  #home-about-us .container .callback-form .form-headers h2 {
+  #home-about-us .container #callback-form .form-headers h2 {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 }
-#home-about-us .container .callback-form .form-headers p {
+#home-about-us .container #callback-form .form-headers p {
   padding-left: 1rem;
   padding-right: 1rem;
   font-style: italic;
@@ -1193,23 +1260,23 @@ footer .container .copy-right p {
   font-size: 14px !important;
 }
 @media (min-width: 1200px) {
-  #home-about-us .container .callback-form .form-headers p {
+  #home-about-us .container #callback-form .form-headers p {
     padding: 1rem 0 0.5rem 0;
     padding-left: 2rem;
     padding-right: 2rem;
   }
 }
-#home-about-us .container .callback-form .form-input-group {
+#home-about-us .container #callback-form .form-input-group {
   padding-left: 1rem;
   padding-right: 1rem;
 }
 @media (min-width: 1200px) {
-  #home-about-us .container .callback-form .form-input-group {
+  #home-about-us .container #callback-form .form-input-group {
     padding-left: 2rem;
     padding-right: 2rem;
   }
 }
-#home-about-us .container .callback-form .form-input-group .form-input {
+#home-about-us .container #callback-form .form-input-group .form-input {
   width: 100%;
   font-style: italic;
   padding: 1rem;
@@ -1218,23 +1285,23 @@ footer .container .copy-right p {
   padding-left: 0.8rem;
 }
 @media (min-width: 1200px) {
-  #home-about-us .container .callback-form .form-input-group .form-input {
+  #home-about-us .container #callback-form .form-input-group .form-input {
     margin-bottom: 0.5rem;
     padding-left: 1rem;
   }
 }
-#home-about-us .container .callback-form .form-input-group .form-input::placeholder {
+#home-about-us .container #callback-form .form-input-group .form-input::placeholder {
   color: gray;
 }
-#home-about-us .container .callback-form .form-input-group .form-error {
+#home-about-us .container #callback-form .form-input-group .form-error {
   color: var(--color-danger-dark);
 }
-#home-about-us .container .callback-form .btn-accent {
+#home-about-us .container #callback-form .btn-accent {
   font-weight: 600;
   margin: 1rem 0.8rem 1rem 0.8rem;
 }
 @media (min-width: 1200px) {
-  #home-about-us .container .callback-form .btn-accent {
+  #home-about-us .container #callback-form .btn-accent {
     width: 85%;
     margin: 0 2rem 1rem 2rem;
   }

@@ -13,7 +13,7 @@
 
 @if (ViewData["success"] == null)
 {
-	@using (Html.BeginUmbracoForm("HandleSupportFormSubmit", "ContactSurface", FormMethod.Post))
+	@using (Html.BeginUmbracoForm("HandleSupportFormSubmit", "SupportFormSurface", FormMethod.Post))
 	{
 		<div class="form-input-group">
 			<input type="hidden" name="Type" value="Support" />

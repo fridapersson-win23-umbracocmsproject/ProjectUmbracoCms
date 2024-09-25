@@ -40,7 +40,7 @@ public class ContactSurfaceController : SurfaceController
 		var emailRequest = new EmailRequest
 		{
 			To = form.Email,
-			Subject = "Thank you for your message",
+			Subject = "Thank you for your call back request",
 			HtmlBody = $"<h1>Hi {form.Name}</h1><p>Thank you for your message, we will contact you asap about {form.SelectedOption}</p>",
 			PlainText = $"Hi {form.Name}, Thank you for your message, we will contact you asap",
 		};
@@ -49,33 +49,5 @@ public class ContactSurfaceController : SurfaceController
 
 		ViewData["success"] = "Form submitted successfully!";
 		return CurrentUmbracoPage();
-	}
-
-
-	[HttpPost]
-	public async Task<IActionResult> HandleSupportFormSubmit(SupportFormModel supportForm)
-	{
-		if (!ModelState.IsValid)
-		{
-			TempData["email"] = supportForm.Email;
-
-			TempData["error_email"] = string.IsNullOrEmpty(supportForm.Email);
-
-
-			return CurrentUmbracoPage();
-		}
-		var emailRequest = new EmailRequest
-		{
-			To = supportForm.Email,
-			Subject = "Thank you for your support request",
-			HtmlBody = $"<h1>Hi</h1><p>Thank you for your support request, we will reach out to you asap, we will contact you on {supportForm.Email}</p>",
-			PlainText = $"Hi! Thank you for your support request, we will reach out to you asap"
-		};
-
-		await _emailService.PublishAsync(emailRequest);
-
-		ViewData["success"] = "Your request for online support has been submitted successfully.";
-		return CurrentUmbracoPage();
-
 	}
 }

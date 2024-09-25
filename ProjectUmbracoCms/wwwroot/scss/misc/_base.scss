@@ -29,3 +29,18 @@ img, svg {
 section{
     overflow: unset !important;
 }
+
+.form-success {
+    background-color: var(--color-success);
+    color: var(--color-theme);
+    @include text-s;
+    text-align: center;
+    padding: 1rem;
+    border-radius: .5rem;
+    font-weight: 500;
+}
+
+.form-error {
+    color: var(--color-danger-dark);
+    @include text-s;
+}
