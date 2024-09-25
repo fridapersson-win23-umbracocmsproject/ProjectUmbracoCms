@@ -26,3 +26,6 @@ html, body, section, div, header, footer, main, aside, nav, blockquote {
 img, svg {
     vertical-align: middle;
 }
+section{
+    overflow: unset !important;
+}

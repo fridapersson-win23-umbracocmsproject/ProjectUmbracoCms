@@ -1,7 +1,7 @@
 #project-details {
     .container {
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
 
         @include xl {
             flex-direction: row-reverse;
@@ -28,6 +28,13 @@
                     width: 55%;
                 }
             }
+            .mid-img{
+                display: none;
+
+                @include md {
+                    display: flex;
+                }
+            }
 
             img {
                 width: 20%;
@@ -50,7 +57,7 @@
 
                 .aside-form {
                     background-color: var(--color-theme);
-                    width: 110%;
+                    width: 100%;
 
                     form {
                         input {

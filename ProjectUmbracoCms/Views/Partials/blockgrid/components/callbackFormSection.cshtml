@@ -1,0 +1,62 @@
+﻿﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+	var options = new HashSet<string>
+	{ "Financial Consulting", "Business Advisory", "Other", "Connect with us" };
+	var selectedOption = TempData["selectedOptions"]?.ToString() ?? "";
+}
+
+
+@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+{
+	<div class="callback-form">
+		<div class="form-headers">
+			<h2>Request a call back</h2>
+			<p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
+		</div>
+		<div class="form-input-group">
+			@* <label class="form-label" for="name">Name</label> *@
+			<input id="name" class="form-input" name="name" type="text" placeholder="Name" value="@TempData["name"]" />
+			@if (TempData["error_name"] != null && (bool)TempData["error_name"]!)
+			{
+				<span class="form-error">You have to enter a valid name</span>
+			}
+		</div>
+
+		<div class="form-input-group">
+			@* <label class="form-label" for="email">E-mail address</label> *@
+			<input id="phone" class="form-input" name="phone" type="number" placeholder="Phone" value="@TempData["phone"]" />
+			@if (TempData["error_phone"] != null && (bool)TempData["error_phone"]!)
+			{
+				<span class="form-error">You have to enter a valid phone number</span>
+			}
+		</div>
+
+		<div class="form-input-group">
+			@* <label class="form-label" for="email">E-mail address</label> *@
+			<input id="email" class="form-input" name="email" type="email" placeholder="E-mail address" value="@TempData["email"]" />
+			@if (TempData["error_email"] != null && (bool)TempData["error_email"]!)
+			{
+				<span class="form-error">You have to enter a valid email</span>
+			}
+		</div>
+
+		<div class="form-input-group">
+			<select id="selectedOption" class="form-input" name="selectedOption">
+				<option value="" disabled selected>Choose a topic</option>
+				@foreach (var option in options)
+				{
+					<option value="@option">@option</option>
+				}
+			</select>
+			@if (TempData["error_selectedOption"] != null && (bool)TempData["error_selectedOption"]!)
+			{
+				<span class="form-error">Please choose a topic</span>
+			}
+		</div>
+
+		<button class="btn btn-accent" type="submit">Submit</button>
+	</div>
+}

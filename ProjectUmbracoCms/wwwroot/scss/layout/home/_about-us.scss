@@ -1,7 +1,115 @@
 #home-about-us {
+    position: relative;
+
     .container {
+        z-index: 1;
+        position: relative;
+
+        .headline-theme {
+            @include lg {
+                margin-bottom: 2rem;
+            }
+        }
+        .headline-subtheme {
+            @include xl {
+                margin-bottom: .5rem;
+            }
+        }
         blockquote {
             @include quotation;
+        }
+
+        .callback-form {
+            @include grid;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 1rem;
+            margin: 0 auto;
+
+            @include md {
+                width: 70%;
+            }
+
+            @include xl {
+                width: 90%;
+                position: absolute;
+                display: block;
+                top: -6rem;
+                right: .8rem;
+            }
+
+            @include xxl {
+                width: 75%;
+            }
+
+            .form-headers {
+                h2 {
+                    @include h3;
+                    color: var(--color-accent);
+                    background-color: var(--color-theme);
+                    padding: 1.5rem 0 1.5rem 1rem;
+
+                    @include xl {
+                        padding-left: 2rem;
+                        padding-right: 2rem;
+                    }
+                }
+
+                p {
+                    padding-left: 1rem;
+                    padding-right: 1rem;
+                    font-style: italic;
+                    @include text-s;
+
+                    @include xl {
+                        padding: 1rem 0 .5rem 0;
+                        padding-left: 2rem;
+                        padding-right: 2rem;
+                    }
+                }
+            }
+
+            .form-input-group {
+                padding-left: 1rem;
+                padding-right: 1rem;
+
+                @include xl {
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                }
+
+                .form-input {
+                    width: 100%;
+                    font-style: italic;
+                    padding: 1rem;
+                    border: solid var(--color-gray) 1px;
+                    margin-bottom: .8rem;
+                    padding-left: .8rem;
+
+                    @include xl {
+                        margin-bottom: .5rem;
+                        padding-left: 1rem;
+                    }
+
+
+                    &::placeholder {
+                        color: gray;
+                    }
+                }
+
+                .form-error {
+                    color: var(--color-danger-dark);
+                }
+            }
+
+            .btn-accent {
+                font-weight: 600;
+                margin: 1rem .8rem 1rem .8rem;
+
+                @include xl {
+                    width: 85%;
+                    margin: 0 2rem 1rem 2rem;
+                }
+            }
         }
     }
 }
