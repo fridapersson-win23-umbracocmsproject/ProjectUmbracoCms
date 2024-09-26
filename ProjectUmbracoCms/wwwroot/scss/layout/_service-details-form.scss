@@ -10,9 +10,12 @@
 
         .form-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
             grid-gap: 1rem;
             margin-bottom: 1rem;
+
+            @include md {
+                grid-template-columns: 1fr 1fr;
+            }
 
             .form-input-group {
                 .form-input {
@@ -40,6 +43,7 @@
         .btn-theme {
             margin: 1rem 0;
             font-weight: 500;
+
             @include lg {
                 width: 20%;
                 margin-bottom: 2rem;

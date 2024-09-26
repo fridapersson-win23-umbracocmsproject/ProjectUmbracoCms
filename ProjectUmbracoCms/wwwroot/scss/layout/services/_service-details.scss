@@ -3,13 +3,35 @@
 
     .container {
         display: flex;
+        flex-direction: column-reverse;
+
+        @include xl {
+            flex-direction: row;
+        }
+
 
         .aside-content {
-            display: none;
+            margin-top: 2rem;
+
+            @include md {
+                width: 80%;
+                margin: 0 auto;
+                margin-top: 3rem;
+            }
+
+            @include lg {
+            }
+
+            @include lg {
+                width: 60%;
+            }
 
             @include xl {
                 display: flex;
                 flex-direction: column;
+                margin-right: 2rem;
+                max-width: 300px;
+                margin-top: 0;
             }
 
             img {
@@ -17,7 +39,11 @@
             }
 
             p {
-                width: 90%;
+                @include text-xs;
+
+                @include xxl {
+                    @include text-s;
+                }
             }
         }
 

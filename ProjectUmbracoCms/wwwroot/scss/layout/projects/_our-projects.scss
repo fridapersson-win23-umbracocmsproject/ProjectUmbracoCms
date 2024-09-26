@@ -3,6 +3,11 @@
 
     .container {
         display: flex;
+        flex-direction: column;
+
+        @include xl {
+            flex-direction: row;
+        }
 
         .projects {
             display: grid;
@@ -107,28 +112,33 @@
         }
 
         .aside-content {
-            display: none;
-            /*border: solid red 1px;*/
 
             @include xl {
-                display: block;
-                padding-left: 2rem;
+                margin-left: 2rem;
             }
 
             .aside-form {
-                width: 100%;
-                .form-text{
-                    h4{
-
-                    }
-                    p{
-                        width: 90%;
-                    }
+                @include md {
+                    width: 60%;
+                    margin: 0 auto;
+                    margin-top: 2rem;
                 }
-                .form-background-image {
-                    position: absolute;
-                    bottom: 0;
-                    right: -2.3rem;
+
+                @include xl {
+                    width: 100%;
+                }
+
+                h4 {
+                }
+
+                p {
+                    width: 90%;
+
+                    @include xxl {
+                        /*@include text-xs;*/
+                        width: 95%;
+                        @include text-xs;
+                    }
                 }
             }
         }

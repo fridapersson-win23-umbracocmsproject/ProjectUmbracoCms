@@ -21,7 +21,6 @@
             }
 
             .img-text {
-                
                 @include xl {
                     margin-left: 24rem;
                     padding: .2rem;
@@ -43,21 +42,23 @@
 
         .aside-content {
             @include xl {
-                width: 80%;
+                width: 90%;
                 border-left: solid var(--color-gray) 1px;
                 padding-left: 1.5rem;
             }
 
-
             aside {
                 display: flex;
                 flex-direction: column;
-                background-color: white;
-
 
                 .aside-form {
                     background-color: var(--color-theme);
                     width: 100%;
+
+                    @include xl{
+                        margin-top: 0;
+                        
+                    }
 
                     form {
                         input {
@@ -67,8 +68,15 @@
                         }
                     }
 
+                    .form-text{
+                        @include xxl{
+                            margin-left: .5rem;
+                        }
+                    }
+
                     .form-input-group {
-                        .envelope-icon {
+                        @include xxl{
+                            margin-left: 1.3rem;
                         }
                     }
 
@@ -77,9 +85,6 @@
                             position: absolute;
                             bottom: 0;
                             right: -2.6rem;
-                        }
-
-                        img {
                         }
                     }
                 }
@@ -91,7 +96,6 @@
 
                 .recent-projects {
                     @include xl {
-                        margin-bottom: 3rem;
                         background-color: var(--color-white);
                     }
 
@@ -102,7 +106,6 @@
                         @include xl {
                             margin-bottom: 1rem;
                             border-bottom: solid black 1px;
-                            /*padding-bottom: .5rem;*/
                         }
 
 
@@ -113,8 +116,6 @@
                                 grid-template-columns: 1fr 1fr;
                                 text-decoration: none;
                             }
-
-
 
                             &:hover {
                                 text-decoration: underline;
@@ -141,8 +142,6 @@
 
                             .thumbnail-content {
                                 .thumbnail-content-text {
-                                    /*border: solid red 1px;*/
-
                                     h4 {
                                         @include text-m;
                                         color: var(--color-dark);
