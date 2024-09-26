@@ -21,22 +21,29 @@
             }
 
             .img-text {
-                @include xl {
-                    margin-left: 24rem;
+                @include lg {
+                    /*                    margin-left: 24rem;
                     padding: .2rem;
-                    width: 55%;
+                    width: 55%;*/
                 }
             }
-            .mid-img{
+
+            .mid-img {
                 display: none;
 
-                @include md {
+                @include lg {
                     display: flex;
+                    width: 50%;
+                    margin-right: 2rem;
                 }
             }
 
             img {
-                width: 20%;
+                width: 100%;
+
+                @include lg {
+                    width: 95%;
+                }
             }
         }
 
@@ -47,17 +54,25 @@
                 padding-left: 1.5rem;
             }
 
+
             aside {
                 display: flex;
                 flex-direction: column;
 
                 .aside-form {
                     background-color: var(--color-theme);
-                    width: 100%;
+                    width: 50%;
+                    margin: 0 auto;
+                    margin-bottom: 2rem;
+                    margin-top: 2rem;
 
-                    @include xl{
+                    @include lg {
+                        width: 40%;
+                    }
+
+                    @include xl {
                         margin-top: 0;
-                        
+                        width: 100%;
                     }
 
                     form {
@@ -68,14 +83,18 @@
                         }
                     }
 
-                    .form-text{
-                        @include xxl{
+                    .form-text {
+                        @include xxl {
                             margin-left: .5rem;
+                        }
+
+                        p {
+                            color: var(--color-white);
                         }
                     }
 
                     .form-input-group {
-                        @include xxl{
+                        @include xxl {
                             margin-left: 1.3rem;
                         }
                     }
@@ -92,11 +111,25 @@
                 h5 {
                     color: var(--color-theme);
                     margin-bottom: 1.5rem;
+                    text-align: center;
+
+                    @include md {
+                        text-align: left;
+                    }
                 }
 
                 .recent-projects {
+                    background-color: var(--color-white);
+                    margin: 0 auto;
+
+                    @include md {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-gap: 2rem;
+                    }
+
                     @include xl {
-                        background-color: var(--color-white);
+                        grid-template-columns: 1fr;
                     }
 
 
@@ -130,7 +163,12 @@
                                 overflow: hidden;
 
                                 img {
-                                    object-fit: contain;
+                                    object-fit: cover;
+                                    max-height: 220px;
+
+                                    @include md {
+                                        max-height: 200px;
+                                    }
 
                                     @include xl {
                                         width: 85%;

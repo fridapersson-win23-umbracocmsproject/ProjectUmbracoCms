@@ -1,41 +1,80 @@
-#contact {
-    #footer-banner {
-        background-color: var(--color-white);
-        .container {
-            padding-bottom: 3rem;
-            .content {
-                .banner-dot-container {
-                    z-index: 0;
+#footer-banner {
+    background-color: var(--color-white);
 
-                    img {
-                    }
+    .container {
+        .content {
+            .banner-dot-container {
+                /*z-index: 0;*/
+
+                img {
                 }
+            }
 
-                .banner-guy-container {
-                    img {
-                        z-index: 1;
-                    }
+            .banner-guy-container {
+                img {
+                    z-index: 1;
                 }
             }
         }
     }
+}
+
+
+#contact {
+    margin: 3rem 0;
 
     .container {
-        h1 {
+
+        @include xl {
+            position: absolute;
+            bottom: -90%;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            border: solid red 1px;
+            width: 80%;
+            box-shadow: 0, 0, 0, 0, 0, 4px;
+            background-color: white;
         }
 
+        .form-headers {
+            /*border: solid red 1px;*/
+            display: grid;
+            margin: 0 auto;
+            /*width: 50%;*/
+            text-align: center;
 
+
+
+            h6, h2 {
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+            }
+
+            p {
+            }
+        }
 
         form {
             background: var(--color-white);
-            margin-top: 3rem;
+            margin-top: 1rem;
+            display: grid;
+            grid-gap: 1rem;
+
+
             .form-input-group {
                 position: relative;
-                display: grid;
+
                 .form-label {
                 }
 
                 .form-input {
+                    width: 100%;
+                    border: solid gray 1px;
+                    font-style: italic;
+                    padding-left: .5rem;
                 }
             }
         }
@@ -43,11 +82,12 @@
 }
 
 .google-maps-location {
-    display: none;
+    position: relative;
+/*    display: none;
     position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0;*/
     z-index: -1;
     iframe {
         width: 100%;
