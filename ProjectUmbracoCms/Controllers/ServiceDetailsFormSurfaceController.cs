@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectUmbracoCms.Models;
 using ProjectUmbracoCms.Services;
+using System.Text.RegularExpressions;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Routing;
@@ -24,14 +25,14 @@ public class ServiceDetailsFormSurfaceController : SurfaceController
     {
         try
         {
-            if (!ModelState.IsValid)
+            if (!IsValidForm(form))
             {
                 TempData["service_name"] = form.Name;
                 TempData["service_email"] = form.Email;
                 TempData["service_message"] = form.Message;
 
                 TempData["service_error_name"] = string.IsNullOrEmpty(form.Name);
-                TempData["service_error_email"] = string.IsNullOrEmpty(form.Email);
+                TempData["service_error_email"] = !IsValidEmail(form.Email);
                 TempData["service_error_message"] = string.IsNullOrEmpty(form.Message);
 
                 return CurrentUmbracoPage();
@@ -48,11 +49,38 @@ public class ServiceDetailsFormSurfaceController : SurfaceController
             //await _serviceBusEmailService.PublishAsync(emailRequest);
             await _serviceBusEmailService.PublishServiceDetailsAsync(form);
 
+            TempData.Clear();
             TempData["service_success"] = "Form submitted successfully!";
             return CurrentUmbracoPage();
 
         }
         catch (Exception ex) { }
         return null!;
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return false;
+            }
+
+            var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
+            return regex.IsMatch(email);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return false;
+    }
+
+    private bool IsValidForm(ServiceDetailsFormModel form)
+    {
+        return !string.IsNullOrEmpty(form.Name) &&
+               IsValidEmail(form.Email) &&
+               !string.IsNullOrEmpty(form.Message);
     }
 }

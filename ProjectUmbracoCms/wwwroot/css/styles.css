@@ -1103,6 +1103,9 @@ footer .container .copy-right p {
   /*width: 60%;*/
   /*z-index: 1;*/
 }
+.aside-form .btn-theme {
+  display: none;
+}
 
 #service-details-form .container {
   display: grid;

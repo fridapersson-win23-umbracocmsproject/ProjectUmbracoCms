@@ -2,6 +2,7 @@
 using Microsoft.IdentityModel.Tokens;
 using ProjectUmbracoCms.Models;
 using ProjectUmbracoCms.Services;
+using System.Text.RegularExpressions;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Routing;
@@ -23,11 +24,11 @@ public class SupportFormSurfaceController : SurfaceController
 	[HttpPost]
 	public async Task<IActionResult> HandleSupportFormSubmit(SupportFormModel form)
 	{
-		if (!ModelState.IsValid)
+		if (!IsValidForm(form))
 		{
 			TempData["support_email"] = form.Email;
 
-			TempData["support_error_email"] = string.IsNullOrEmpty(form.Email);
+			TempData["support_error_email"] = !IsValidEmail(form.Email);
 
 
 			return CurrentUmbracoPage();
@@ -42,8 +43,33 @@ public class SupportFormSurfaceController : SurfaceController
 
 		await _servicebusEmailService.PublishSupportAsync(form);
 
-		ViewData["success"] = "Your request for online support has been submitted successfully.";
+        TempData.Clear();
+        ViewData["support_success"] = "Your request for online support has been submitted successfully.";
 		return CurrentUmbracoPage();
 
 	}
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                return false;
+            }
+
+            var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
+            return regex.IsMatch(email);
+        }
+        catch (Exception ex)
+        {
+
+        }
+        return false;
+    }
+
+    private bool IsValidForm(SupportFormModel form)
+    {
+		return IsValidEmail(form.Email);
+    }
 }
