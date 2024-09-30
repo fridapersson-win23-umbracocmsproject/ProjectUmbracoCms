@@ -1,0 +1,51 @@
+.tags {
+    /*border: solid red 1px;*/
+    margin-top: 2rem;
+    @include xl {
+        width: 80%;
+    }
+
+    @include xxl {
+        width: 87%;
+    }
+
+    .tags-header {
+        @include xl{
+            margin-bottom: 1rem;
+        }
+    }
+
+    .tag {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        @include xl {
+            margin-bottom: 3rem;
+        }
+
+        p {
+            padding: .5rem;
+            border: solid gray 1px;
+            border-radius: 1.5rem;
+
+            @include xl {
+                margin: 0;
+            }
+        }
+
+        .project-details-inside {
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            
+
+            .project-details-tag {
+                color: var(--color-dark);
+                padding: .3rem;
+                border-radius: 1.5rem;
+                background-color: var(--color-accent);
+            }
+        }
+    }
+}

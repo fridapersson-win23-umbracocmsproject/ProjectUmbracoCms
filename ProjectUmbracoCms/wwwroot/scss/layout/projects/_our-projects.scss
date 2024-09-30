@@ -112,9 +112,17 @@
         }
 
         .aside-content {
+            @include lg {
+                /*width: 40%;*/
+            }
 
             @include xl {
                 margin-left: 2rem;
+                width: 35%;
+            }
+
+            @include xxl {
+                width: 25%;
             }
 
             .aside-form {
@@ -137,7 +145,7 @@
                     @include xxl {
                         /*@include text-xs;*/
                         width: 95%;
-                        @include text-xs;
+                        font-size: .8rem;
                     }
                 }
             }

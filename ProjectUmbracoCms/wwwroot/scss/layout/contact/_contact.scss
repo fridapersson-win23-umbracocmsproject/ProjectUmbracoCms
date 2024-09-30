@@ -1,6 +1,4 @@
 #footer-banner {
-    background-color: var(--color-white);
-
     .container {
         .content {
             .banner-dot-container {
@@ -19,25 +17,51 @@
     }
 }
 
+.google-maps-location {
+    position: relative;
+    display: none;
+    z-index: -1;
+
+    @include md {
+        display: flex;
+        padding-bottom: 7rem;
+    }
+
+    iframe {
+        width: 100%;
+        height: 500px;
+    }
+}
+
 
 #contact {
-    margin: 3rem 0;
+    padding-bottom: 3rem;
 
     .container {
-        @include xl {
+        @include md {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
             z-index: 1;
             background-color: white;
+            width: 60%;
+            padding: 2rem;
+            box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.3);
+
+            @include lg {
+                bottom: -10%;
+                padding: 4rem;
+            }
+
+            @include xl {
+                bottom: -15%;
+            }
         }
 
         .form-headers {
-            /*border: solid red 1px;*/
             display: grid;
             margin: 0 auto;
-            /*width: 50%;*/
             text-align: center;
 
             h6, h2 {
@@ -48,6 +72,8 @@
             }
 
             p {
+                width: 85%;
+                margin: 0 auto;
             }
         }
 
@@ -56,6 +82,10 @@
             margin-top: 1rem;
             display: grid;
             grid-gap: 1rem;
+
+            @include lg {
+                grid-template-columns: 1fr 1fr;
+            }
 
             @include xl {
             }
@@ -67,26 +97,21 @@
                 }
 
                 .form-input {
+                    padding: .5rem;
                     width: 100%;
                     border: solid gray 1px;
                     font-style: italic;
                     padding-left: .5rem;
+                    border-radius: .2rem;
                 }
             }
-        }
-    }
-}
 
-.google-maps-location {
-    position: relative;
-/*    display: none;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;*/
-    z-index: -1;
-    iframe {
-        width: 100%;
-        height: 500px;
+            .btn-theme {
+                grid-column: 1 / -1;
+                width: 25%;
+                padding: .8rem;
+                justify-self: center;
+            }
+        }
     }
 }
