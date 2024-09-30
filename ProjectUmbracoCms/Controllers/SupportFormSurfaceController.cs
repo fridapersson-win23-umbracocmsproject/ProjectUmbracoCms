@@ -25,9 +25,9 @@ public class SupportFormSurfaceController : SurfaceController
 	{
 		if (!ModelState.IsValid)
 		{
-			TempData["email"] = form.Email;
+			TempData["support_email"] = form.Email;
 
-			TempData["error_email"] = string.IsNullOrEmpty(form.Email);
+			TempData["support_error_email"] = string.IsNullOrEmpty(form.Email);
 
 
 			return CurrentUmbracoPage();

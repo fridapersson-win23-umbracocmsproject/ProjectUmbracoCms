@@ -6,48 +6,47 @@
 
 }
 
-@if(ViewData["success"] == null)
+@if (TempData["service_success"] == null)
 {
-	@using (Html.BeginUmbracoForm("HandleServiceFormSubmit", "ServiceDetailsFormSurface", FormMethod.Post))
-	{
-		<section id="service-details-form">
-			<div class="container">
-				<div class="form-headers">
-					<h5>Have a question?</h5>
-				</div>
-				<div class="form-row">
-					<div class="form-input-group">
-						<input id="name" class="form-input" name="name" type="text" placeholder="Name" value="@TempData["service_name"]" />
-						@if (TempData["service_error_name"] != null && (bool)TempData["service_error_name"]!)
-						{
-							<span class="form-error">You have to enter a valid name</span>
-						}
-					</div>
+    @using (Html.BeginUmbracoForm("HandleServiceFormSubmit", "ServiceDetailsFormSurface", FormMethod.Post))
+    {
+        <section id="service-details-form">
+            <div class="container">
+                <div class="form-headers">
+                    <h5>Have a question?</h5>
+                </div>
+                <div class="form-row">
+                    <div class="form-input-group">
+                        <input id="name" class="form-input" name="name" type="text" placeholder="Name" value="@TempData["service_name"]" />
+                        @if (TempData["service_error_name"] != null && (bool)TempData["service_error_name"]!)
+                        {
+                            <span class="form-error">You have to enter a valid name</span>
+                        }
+                    </div>
 
-					<div class="form-input-group">
-						<input id="email" class="form-input" name="email" type="email" placeholder="E-mail" value="@TempData["email"]" />
-						@if (TempData["service_error_email"] != null && (bool)TempData["service_error_email"]!)
-						{
-							<span class="form-error">You have to enter a valid email</span>
-						}
-					</div>
-				</div>
+                    <div class="form-input-group">
+                        <input id="service_email" class="form-input" name="email" type="email" placeholder="E-mail" value="@TempData["service_email"]" />
+                        @if (TempData["service_error_email"] != null && (bool)TempData["service_error_email"]!)
+                        {
+                            <span class="form-error">You have to enter a valid email</span>
+                        }
+                    </div>
+                </div>
 
-				<div class="form-input-group">
-					<textarea id="message" class="form-input" rows="7" name="message" type="text" placeholder="Question" value="@TempData["service_message"]"></textarea>
-					@if (TempData["service_error_message"] != null && (bool)TempData["service_error_message"]!)
-					{
-						<span class="form-error">You have to enter a question</span>
-					}
-				</div>
+                <div class="form-input-group">
+                    <textarea id="service_message" class="form-input" rows="7" name="message" placeholder="Question">@TempData["service_message"]</textarea>
+                    @if (TempData["service_error_message"] != null && (bool)TempData["service_error_message"]!)
+                    {
+                        <span class="form-error">You have to enter a question</span>
+                    }
+                </div>
 
-				<button class="btn btn-theme" type="submit">Submit</button>
-			</div>
-		</section>
-	}
+                <button class="btn btn-theme" type="submit">Submit</button>
+            </div>
+        </section>
+    }
 }
 else
 {
-	<div class="form-success">@ViewData["service_success"]</div>
-
+    <div class="form-success">@TempData["service_success"]</div>
 }

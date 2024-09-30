@@ -17,17 +17,17 @@
 	{
 		<div class="form-input-group">
 			<input type="hidden" name="Type" value="Support" />
-			<input id="email" class="form-input" name="email" type="email" placeholder="E-mail address" value="@TempData["email"]" />
+			<input id="email" class="form-input" name="email" type="email" placeholder="E-mail address" value="@TempData["support_email"]" />
 			<div class="envelope-icon">
 				<i class="fa-regular fa-envelope"></i>
 			</div>
-			@if (TempData["error_email"] != null && (bool)TempData["error_email"]!)
+			@if (TempData["support_error_email"] != null && (bool)TempData["support_error_email"]!)
 			{
 				<span class="form-error">You have to enter a valid email</span>
 			}
 		</div>
 
-		@* <button class="btn-theme" type="submit">SEND</button> *@
+		<button class="btn-theme" type="submit">SEND</button>
 	}
 }
 else

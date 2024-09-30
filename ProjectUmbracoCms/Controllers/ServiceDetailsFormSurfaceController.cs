@@ -48,7 +48,7 @@ public class ServiceDetailsFormSurfaceController : SurfaceController
             //await _serviceBusEmailService.PublishAsync(emailRequest);
             await _serviceBusEmailService.PublishServiceDetailsAsync(form);
 
-            ViewData["service_success"] = "Form submitted successfully!";
+            TempData["service_success"] = "Form submitted successfully!";
             return CurrentUmbracoPage();
 
         }
