@@ -78,6 +78,13 @@
             }
         }
 
+        .form-success{
+            @include md {
+                min-height: 400px;
+                text-align:center;
+            }
+        }
+
         .form-headers {
             display: grid;
             margin: 0 auto;

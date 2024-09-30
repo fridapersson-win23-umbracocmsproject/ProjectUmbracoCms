@@ -46,7 +46,7 @@
 				</div>
 
 				<div class="form-input-group">
-					<input id="phone" class="form-input" name="phone" type="number" placeholder="Phone" value="@TempData["phone"]" />
+					<input id="phone" class="form-input" name="phone" type="text" placeholder="Phone" value="@TempData["phone"]" />
 					@if (TempData["error_phone"] != null && (bool)TempData["error_phone"]!)
 					{
 						<span class="form-error">You have to enter a valid phone number</span>

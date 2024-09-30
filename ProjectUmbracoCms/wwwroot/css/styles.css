@@ -490,7 +490,7 @@ span {
   /*color: var(--color-theme);*/
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  font-size: 14px !important;
+  font-size: 16px !important;
   text-align: center;
   padding: 1rem;
   border-radius: 0.5rem;
@@ -2030,13 +2030,14 @@ footer .container .copy-right p {
 #our-projects .container .projects {
   display: grid;
   gap: 2rem;
-  /*border: solid red 1px;*/
 }
 @media (min-width: 1200px) {
   #our-projects .container .projects {
     width: 80%;
     border-right: solid var(--color-gray) 1px;
     padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
   }
 }
 #our-projects .container .projects .project-item {
@@ -2066,7 +2067,7 @@ footer .container .copy-right p {
     margin-bottom: 2rem;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   #our-projects .container .projects .project-item .thumbnail-image img {
     /*object-fit: cover;*/
     /*width: 90%;*/
@@ -2075,6 +2076,12 @@ footer .container .copy-right p {
 }
 #our-projects .container .projects .project-item .thumbnail-content {
   /*border: solid red 1px;*/
+  text-align: center;
+}
+@media (min-width: 768px) {
+  #our-projects .container .projects .project-item .thumbnail-content {
+    text-align: left;
+  }
 }
 @media (min-width: 1024px) {
   #our-projects .container .projects .project-item .thumbnail-content {
@@ -2091,7 +2098,20 @@ footer .container .copy-right p {
   }
 }
 #our-projects .container .projects .project-item .thumbnail-content .thumbnail-content-text .thumbnail-text {
-  /*width: 90%;*/
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  #our-projects .container .projects .project-item .thumbnail-content .thumbnail-content-text .thumbnail-text {
+    width: 100%;
+  }
+}
+@media (min-width: 1400px) {
+  #our-projects .container .projects .project-item .thumbnail-content .thumbnail-content-text .thumbnail-text {
+    width: 95%;
+    margin: 0;
+  }
 }
 #our-projects .container .projects .project-item .thumbnail-content .read-more-link a .read-more {
   display: inline-flex;
@@ -2466,6 +2486,12 @@ footer .container .copy-right p {
 @media (min-width: 768px) and (min-width: 1400px) {
   #contact .container {
     width: 50%;
+  }
+}
+@media (min-width: 768px) {
+  #contact .container .form-success {
+    min-height: 400px;
+    text-align: center;
   }
 }
 #contact .container .form-headers {

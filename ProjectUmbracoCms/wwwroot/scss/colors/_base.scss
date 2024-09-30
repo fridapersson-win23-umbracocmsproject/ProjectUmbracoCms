@@ -9,7 +9,7 @@ span {
 .form-success {
     background-color: var(--color-success);
     color: var(--color-dark) !important;
-    @include text-s;
+    @include text-m;
     text-align: center;
     padding: 1rem;
     border-radius: .5rem;
