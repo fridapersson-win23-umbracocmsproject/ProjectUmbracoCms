@@ -18,18 +18,36 @@
 }
 
 .google-maps-location {
-    position: relative;
     display: none;
     z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*top: 0;*/
 
     @include md {
         display: flex;
         padding-bottom: 7rem;
+        width: 100%;
     }
 
     iframe {
         width: 100%;
         height: 500px;
+        position: absolute;
+
+        @include md {
+            height: 600px;
+        }
+
+        @include xl {
+            height: 550px;
+        }
+
+        @include xxl {
+            height: 520px;
+            
+        }
     }
 }
 
@@ -39,10 +57,7 @@
 
     .container {
         @include md {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
+            position: relative;
             z-index: 1;
             background-color: white;
             width: 60%;
@@ -50,12 +65,16 @@
             box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.3);
 
             @include lg {
-                bottom: -10%;
+                /*                bottom: -10%;*/
                 padding: 4rem;
             }
 
             @include xl {
-                bottom: -15%;
+                /*bottom: -15%;*/
+            }
+
+            @include xxl {
+                width: 50%;
             }
         }
 
