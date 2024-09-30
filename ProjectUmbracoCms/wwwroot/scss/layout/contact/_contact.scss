@@ -1,6 +1,6 @@
 #footer-banner {
     .container {
-        padding: 2rem 0;
+        /*padding: 2rem 0;*/
         .content {
             .banner-dot-container {
                 z-index: 0;
@@ -24,6 +24,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    opacity: .6;
 
     @include md {
         display: flex;
@@ -46,7 +47,6 @@
 
         @include xxl {
             height: 520px;
-            
         }
     }
 }

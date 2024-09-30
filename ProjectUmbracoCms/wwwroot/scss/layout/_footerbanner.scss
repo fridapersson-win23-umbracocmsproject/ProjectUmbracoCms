@@ -1,7 +1,13 @@
 #footer-banner {
-    background-color: var(--color-gray) !important;
+    background-color: var(--color-gray);
     z-index: 1;
     display: block !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    @include lg {
+        padding-bottom: 0;
+    }
     .container {
         position: relative;
 
