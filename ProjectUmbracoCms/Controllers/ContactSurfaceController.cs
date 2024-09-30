@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProjectUmbracoCms.Helpers;
 using ProjectUmbracoCms.Models;
 using ProjectUmbracoCms.Services;
 using System.Text.RegularExpressions;
@@ -23,8 +24,11 @@ public class ContactSurfaceController : SurfaceController
 	[HttpPost]
 	public async Task<IActionResult> HandleSubmit(ContactFormModel form)
 	{
-
-		if (!IsValidForm(form))
+		if (!FormValidatorHelper.IsValidForm(form, f =>
+				!string.IsNullOrEmpty(f.Name) &&
+				FormValidatorHelper.IsValidEmail(f.Email) &&
+				!string.IsNullOrEmpty(f.Phone) &&
+				!string.IsNullOrEmpty(f.SelectedOption)))
 		{
 			TempData["name"] = form.Name;
 			TempData["email"] = form.Email;
@@ -32,7 +36,7 @@ public class ContactSurfaceController : SurfaceController
 			TempData["selectedOption"] = form.SelectedOption;
 
 			TempData["error_name"] = string.IsNullOrEmpty(form.Name);
-			TempData["error_email"] = !IsValidEmail(form.Email);
+			TempData["error_email"] = !FormValidatorHelper.IsValidEmail(form.Email);
 			TempData["error_phone"] = string.IsNullOrEmpty(form.Phone);
 			TempData["error_selectedOption"] = string.IsNullOrEmpty(form.SelectedOption);
 
@@ -40,8 +44,24 @@ public class ContactSurfaceController : SurfaceController
 		}
 
 
+        //if (!IsValidForm(form))
+        //{
+        //	TempData["name"] = form.Name;
+        //	TempData["email"] = form.Email;
+        //	TempData["phone"] = form.Phone;
+        //	TempData["selectedOption"] = form.SelectedOption;
 
-		var emailRequest = new EmailRequest
+        //	TempData["error_name"] = string.IsNullOrEmpty(form.Name);
+        //	TempData["error_email"] = !IsValidEmail(form.Email);
+        //	TempData["error_phone"] = string.IsNullOrEmpty(form.Phone);
+        //	TempData["error_selectedOption"] = string.IsNullOrEmpty(form.SelectedOption);
+
+        //	return CurrentUmbracoPage();
+        //}
+
+
+
+        var emailRequest = new EmailRequest
 		{
 			To = form.Email,
 			Subject = "Thank you for your call back request",
@@ -56,32 +76,32 @@ public class ContactSurfaceController : SurfaceController
 		return CurrentUmbracoPage();
 	}
 
-	private bool IsValidEmail(string email)
-	{
-		try
-		{
-			if(string.IsNullOrWhiteSpace(email))
-			{
-				return false;
-			}
+	//private bool IsValidEmail(string email)
+	//{
+	//	try
+	//	{
+	//		if(string.IsNullOrWhiteSpace(email))
+	//		{
+	//			return false;
+	//		}
 
-			var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
-			return regex.IsMatch(email);
-		}
-		catch (Exception ex)
-		{
+	//		var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
+	//		return regex.IsMatch(email);
+	//	}
+	//	catch (Exception ex)
+	//	{
 
-		}
-		return false;
-	}
+	//	}
+	//	return false;
+	//}
 
-	private bool IsValidForm(ContactFormModel form)
-	{
-		return !string.IsNullOrEmpty(form.Name) &&
-			   IsValidEmail(form.Email) &&
-			   !string.IsNullOrEmpty(form.Phone) &&
-			   !string.IsNullOrEmpty(form.SelectedOption);
-	}
+	//private bool IsValidForm(ContactFormModel form)
+	//{
+	//	return !string.IsNullOrEmpty(form.Name) &&
+	//		   IsValidEmail(form.Email) &&
+	//		   !string.IsNullOrEmpty(form.Phone) &&
+	//		   !string.IsNullOrEmpty(form.SelectedOption);
+	//}
 }
 
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using ProjectUmbracoCms.Helpers;
 using ProjectUmbracoCms.Models;
 using ProjectUmbracoCms.Services;
 using System.Text.RegularExpressions;
@@ -24,11 +25,11 @@ public class SupportFormSurfaceController : SurfaceController
 	[HttpPost]
 	public async Task<IActionResult> HandleSupportFormSubmit(SupportFormModel form)
 	{
-		if (!IsValidForm(form))
+		if (!FormValidatorHelper.IsValidForm(form, x => FormValidatorHelper.IsValidEmail(x.Email)))
 		{
 			TempData["support_email"] = form.Email;
 
-			TempData["support_error_email"] = !IsValidEmail(form.Email);
+			TempData["support_error_email"] = !FormValidatorHelper.IsValidEmail(form.Email);
 
 
 			return CurrentUmbracoPage();
@@ -49,27 +50,27 @@ public class SupportFormSurfaceController : SurfaceController
 
 	}
 
-    private bool IsValidEmail(string email)
-    {
-        try
-        {
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                return false;
-            }
+  //  private bool IsValidEmail(string email)
+  //  {
+  //      try
+  //      {
+  //          if (string.IsNullOrWhiteSpace(email))
+  //          {
+  //              return false;
+  //          }
 
-            var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
-            return regex.IsMatch(email);
-        }
-        catch (Exception ex)
-        {
+  //          var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
+  //          return regex.IsMatch(email);
+  //      }
+  //      catch (Exception ex)
+  //      {
 
-        }
-        return false;
-    }
+  //      }
+  //      return false;
+  //  }
 
-    private bool IsValidForm(SupportFormModel form)
-    {
-		return IsValidEmail(form.Email);
-    }
+  //  private bool IsValidForm(SupportFormModel form)
+  //  {
+		//return IsValidEmail(form.Email);
+  //  }
 }

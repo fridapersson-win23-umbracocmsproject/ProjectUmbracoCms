@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ProjectUmbracoCms.Helpers;
 using ProjectUmbracoCms.Models;
 using ProjectUmbracoCms.Services;
 using System.Text.RegularExpressions;
@@ -25,14 +26,17 @@ public class ServiceDetailsFormSurfaceController : SurfaceController
     {
         try
         {
-            if (!IsValidForm(form))
+            if (!FormValidatorHelper.IsValidForm(form, x =>
+                !string.IsNullOrEmpty(x.Name) && 
+                FormValidatorHelper.IsValidEmail(x.Email) && 
+                !string.IsNullOrEmpty(x.Message)))
             {
                 TempData["service_name"] = form.Name;
                 TempData["service_email"] = form.Email;
                 TempData["service_message"] = form.Message;
 
                 TempData["service_error_name"] = string.IsNullOrEmpty(form.Name);
-                TempData["service_error_email"] = !IsValidEmail(form.Email);
+                TempData["service_error_email"] = !FormValidatorHelper.IsValidEmail(form.Email);
                 TempData["service_error_message"] = string.IsNullOrEmpty(form.Message);
 
                 return CurrentUmbracoPage();
@@ -58,29 +62,29 @@ public class ServiceDetailsFormSurfaceController : SurfaceController
         return null!;
     }
 
-    private bool IsValidEmail(string email)
-    {
-        try
-        {
-            if (string.IsNullOrWhiteSpace(email))
-            {
-                return false;
-            }
+    //private bool IsValidEmail(string email)
+    //{
+    //    try
+    //    {
+    //        if (string.IsNullOrWhiteSpace(email))
+    //        {
+    //            return false;
+    //        }
 
-            var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
-            return regex.IsMatch(email);
-        }
-        catch (Exception ex)
-        {
+    //        var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
+    //        return regex.IsMatch(email);
+    //    }
+    //    catch (Exception ex)
+    //    {
 
-        }
-        return false;
-    }
+    //    }
+    //    return false;
+    //}
 
-    private bool IsValidForm(ServiceDetailsFormModel form)
-    {
-        return !string.IsNullOrEmpty(form.Name) &&
-               IsValidEmail(form.Email) &&
-               !string.IsNullOrEmpty(form.Message);
-    }
+    //private bool IsValidForm(ServiceDetailsFormModel form)
+    //{
+    //    return !string.IsNullOrEmpty(form.Name) &&
+    //           IsValidEmail(form.Email) &&
+    //           !string.IsNullOrEmpty(form.Message);
+    //}
 }
