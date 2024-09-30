@@ -2386,6 +2386,9 @@ footer .container .copy-right p {
   background-color: var(--color-accent);
 }
 
+#footer-banner .container {
+  padding: 2rem 0;
+}
 #footer-banner .container .content .banner-dot-container {
   z-index: 0;
 }
@@ -2399,7 +2402,6 @@ footer .container .copy-right p {
   bottom: 0;
   left: 0;
   right: 0;
-  /*top: 0;*/
 }
 @media (min-width: 768px) {
   .google-maps-location {
