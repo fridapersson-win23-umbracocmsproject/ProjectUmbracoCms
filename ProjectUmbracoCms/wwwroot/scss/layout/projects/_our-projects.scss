@@ -18,7 +18,7 @@
                 border-right: solid var(--color-gray) 1px;
                 padding-right: 2rem;
                 display: flex;
-                flex-direction:column;
+                flex-direction: column;
             }
 
 
@@ -42,10 +42,16 @@
                     /*border: solid red 1px;*/
 
                     img {
+                        width: 80%;
+
+                        @include md {
+                            width: 95%;
+                            margin-bottom: 2rem;
+                        }
+
                         @include lg {
                             object-fit: cover;
                             width: 100%;
-                            margin-bottom: 2rem;
                         }
 
                         @include xxl {
@@ -59,9 +65,11 @@
                 .thumbnail-content {
                     /*border: solid red 1px;*/
                     text-align: center;
+
                     @include md {
                         text-align: left;
                     }
+
                     @include lg {
                         display: flex;
                         flex-direction: column;
@@ -89,7 +97,8 @@
                             @include md {
                                 width: 100%;
                             }
-                            @include xxl{
+
+                            @include xxl {
                                 width: 95%;
                                 margin: 0;
                             }

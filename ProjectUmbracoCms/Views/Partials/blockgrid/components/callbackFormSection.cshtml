@@ -1,13 +1,18 @@
-﻿﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
+	var callbackFormHeader = Model.Content.Value<string>("callbackformHeader");
+	var callbackFormDescription = Model.Content.Value<string>("callbackFormDescription");
+	var callbackFormSubHeader = Model.Content.Value<string>("callbackFormSubHeader");
+
+
+
 	var options = new HashSet<string>
 	{ "Financial Consulting", "Business Advisory", "Other", "Connect with us" };
 	var selectedOption = TempData["selectedOptions"]?.ToString() ?? "";
 }
-
 
 @if(ViewData["success"] == null)
 {
@@ -15,8 +20,13 @@
 	{
 		<div id="callback-form">
 			<div class="form-headers">
-				<h2>Request a call back</h2>
-				<p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
+				@if (callbackFormSubHeader != null)
+				{
+					<h6>@callbackFormSubHeader</h6>
+				}
+				<h2>@callbackFormHeader</h2>
+				<p>@callbackFormDescription</p>
+
 			</div>
 			<div class="form-input-group">
 				@* <label class="form-label" for="name">Name</label> *@

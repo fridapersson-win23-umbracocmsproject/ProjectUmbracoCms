@@ -2063,11 +2063,19 @@ footer .container .copy-right p {
 #our-projects .container .projects .project-item .thumbnail-image {
   /*border: solid red 1px;*/
 }
+#our-projects .container .projects .project-item .thumbnail-image img {
+  width: 80%;
+}
+@media (min-width: 768px) {
+  #our-projects .container .projects .project-item .thumbnail-image img {
+    width: 95%;
+    margin-bottom: 2rem;
+  }
+}
 @media (min-width: 1024px) {
   #our-projects .container .projects .project-item .thumbnail-image img {
     object-fit: cover;
     width: 100%;
-    margin-bottom: 2rem;
   }
 }
 @media (min-width: 1400px) {
@@ -2465,6 +2473,9 @@ footer .container .copy-right p {
 #contact {
   padding-bottom: 3rem;
 }
+#contact .container {
+  box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.3);
+}
 @media (min-width: 768px) {
   #contact .container {
     position: relative;
@@ -2472,18 +2483,11 @@ footer .container .copy-right p {
     background-color: white;
     width: 60%;
     padding: 2rem;
-    box-shadow: 10px 10px 20px 10px rgba(0, 0, 0, 0.3);
   }
 }
 @media (min-width: 768px) and (min-width: 1024px) {
   #contact .container {
-    /*                bottom: -10%;*/
     padding: 4rem;
-  }
-}
-@media (min-width: 768px) and (min-width: 1200px) {
-  #contact .container {
-    /*bottom: -15%;*/
   }
 }
 @media (min-width: 768px) and (min-width: 1400px) {
@@ -2491,23 +2495,16 @@ footer .container .copy-right p {
     width: 50%;
   }
 }
+#contact .container .form-success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (min-width: 768px) {
   #contact .container .form-success {
     min-height: 400px;
     text-align: center;
   }
-}
-#contact .container .form-headers {
-  display: grid;
-  margin: 0 auto;
-  text-align: center;
-}
-#contact .container .form-headers h6, #contact .container .form-headers h2 {
-  margin-bottom: 1rem;
-}
-#contact .container .form-headers p {
-  width: 85%;
-  margin: 0 auto;
 }
 #contact .container form {
   background: var(--color-white);
@@ -2517,13 +2514,41 @@ footer .container .copy-right p {
 }
 @media (min-width: 1024px) {
   #contact .container form {
-    grid-template-columns: 1fr 1fr;
+    /*grid-template-columns: 1fr 1fr;*/
   }
 }
-#contact .container form .form-input-group {
+#contact .container form #callback-form {
+  /*border: solid red 1px;*/
+}
+@media (min-width: 768px) {
+  #contact .container form #callback-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+#contact .container form #callback-form .form-headers {
+  display: grid;
+  margin: 0 auto;
+  text-align: center;
+}
+#contact .container form #callback-form .form-headers h6, #contact .container form #callback-form .form-headers h2 {
+  margin-bottom: 1rem;
+}
+#contact .container form #callback-form .form-headers p {
+  width: 85%;
+  margin: 0 auto;
+}
+#contact .container form #callback-form .form-input-group {
   position: relative;
 }
-#contact .container form .form-input-group .form-input {
+@media (min-width: 768px) {
+  #contact .container form #callback-form .form-input-group {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+#contact .container form #callback-form .form-input-group .form-input {
   padding: 0.5rem;
   width: 100%;
   border: solid gray 1px;
@@ -2531,11 +2556,16 @@ footer .container .copy-right p {
   padding-left: 0.5rem;
   border-radius: 0.2rem;
 }
-#contact .container form .btn-theme {
-  grid-column: 1/-1;
-  width: 25%;
-  padding: 0.8rem;
-  justify-self: center;
+#contact .container form #callback-form button {
+  padding: 0.8rem 2rem;
+  background-color: var(--color-theme);
+  color: var(--color-white);
+  /*                    grid-column: 1 / -1;
+                      width: 3%;
+                      padding: .8rem;
+                      background-color: red;
+                      color: red;*/
+  /*justify-self: center;*/
 }
 
 .umb-block-grid__layout-container {

@@ -1,7 +1,7 @@
 ﻿using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
-using ProjectUmbracoCms.Models;
+using ProjectUmbracoCms.ViewModels;
 
 namespace ProjectUmbracoCms.Services;
 

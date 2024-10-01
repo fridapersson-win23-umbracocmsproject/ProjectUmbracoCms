@@ -1,29 +1,31 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+﻿@* @using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
 @{
-
 	Layout = "mainLayout.cshtml";
 
-	ViewBag.Title = Model.Value("pageTitle");
+	ViewBag.Title = Model.Content.Value("pageTitle");
+
+	
 
 	var options = new HashSet<string> { "Financial consulting", "Option 2", "Other", "Connect with us" };
 	var selectedOption = TempData["selectedOptions"]?.ToString() ?? "";
 
 
 }
+ *@
 
 
+@* <div class="footer-banner-contact">
+	@await Html.PartialAsync("partials/static/footerBanner.cshtml")
+</div> *@
 
-<div class="footer-banner-contact">
-@await Html.PartialAsync("partials/static/footerBanner.cshtml")
-</div>
 
-
-<div class="google-maps-location">
+@* <div class="google-maps-location">
 	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8140.807367933488!2d18.045408189307857!3d59.32958393082175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d61b5b2a595%3A0xd9fa560691e12d7!2sKlarabergsviadukten%2090%2C%20111%2064%20Stockholm!5e0!3m2!1ssv!2sse!4v1727696593724!5m2!1ssv!2sse" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
-
+</div> *@
+@* 
 <section id="contact">
 
 	<div class="container">
@@ -83,5 +85,5 @@
 			<div class="form-success">@ViewData["success"]</div>
 		}
 	</div>
-</section>
+</section> *@
 

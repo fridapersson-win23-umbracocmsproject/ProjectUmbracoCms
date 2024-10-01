@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectUmbracoCms.Helpers;
-using ProjectUmbracoCms.Models;
 using ProjectUmbracoCms.Services;
-using System.Text.RegularExpressions;
+using ProjectUmbracoCms.ViewModels;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Routing;
@@ -24,11 +23,11 @@ public class ContactSurfaceController : SurfaceController
 	[HttpPost]
 	public async Task<IActionResult> HandleSubmit(ContactFormModel form)
 	{
-		if (!FormValidatorHelper.IsValidForm(form, f =>
-				!string.IsNullOrEmpty(f.Name) &&
-				FormValidatorHelper.IsValidEmail(f.Email) &&
-				!string.IsNullOrEmpty(f.Phone) &&
-				!string.IsNullOrEmpty(f.SelectedOption)))
+		if (!FormValidatorHelper.IsValidForm(form, x =>
+				!string.IsNullOrEmpty(x.Name) &&
+				FormValidatorHelper.IsValidEmail(x.Email) &&
+				!string.IsNullOrEmpty(x.Phone) &&
+				!string.IsNullOrEmpty(x.SelectedOption)))
 		{
 			TempData["name"] = form.Name;
 			TempData["email"] = form.Email;

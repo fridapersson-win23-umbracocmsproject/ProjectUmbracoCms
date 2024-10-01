@@ -38,7 +38,17 @@
         @await Html.PartialAsync("partials/static/breadcrumb.cshtml")
 
 
-        <main>@RenderBody()</main>
+        <main>
+            @if(currentPageUrl == "/contact/")
+            {
+                @await Html.PartialAsync("partials/static/footerBanner.cshtml")
+
+                @await Html.PartialAsync("partials/static/googleMaps.cshtml")
+
+            }
+
+            @RenderBody()
+        </main>
 
         @if (currentPageUrl != "/" && currentPageUrl != "/contact/")
         {

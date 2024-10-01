@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
 using ProjectUmbracoCms.Helpers;
-using ProjectUmbracoCms.Models;
 using ProjectUmbracoCms.Services;
-using System.Text.RegularExpressions;
+using ProjectUmbracoCms.ViewModels;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Routing;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjectUmbracoCms.Helpers;
-using ProjectUmbracoCms.Models;
 using ProjectUmbracoCms.Services;
+using ProjectUmbracoCms.ViewModels;
 using System.Text.RegularExpressions;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;

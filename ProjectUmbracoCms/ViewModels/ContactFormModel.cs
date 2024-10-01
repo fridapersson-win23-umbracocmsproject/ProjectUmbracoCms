@@ -1,4 +1,4 @@
-﻿namespace ProjectUmbracoCms.Models;
+﻿namespace ProjectUmbracoCms.ViewModels;
 
 public class ContactFormModel
 {
