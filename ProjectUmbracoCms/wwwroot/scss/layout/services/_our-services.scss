@@ -3,8 +3,9 @@
     margin: 2rem 0;
 
     .container {
-            display: flex;
-            flex-direction: column;
+        display: flex;
+        flex-direction: column;
+
         .headline-theme {
             margin: 1rem 0;
 
@@ -21,7 +22,8 @@
             @include xxl {
                 max-width: 470px;
             }
-            h6{
+
+            h6 {
                 margin-bottom: .5rem;
             }
         }
@@ -39,6 +41,8 @@
                 grid-template-columns: 1fr 1fr 1fr;
             }
 
+
+
             a {
                 text-decoration: none;
 
@@ -51,10 +55,23 @@
                 }
 
                 .service-item {
-                    border: solid gray 1px;
+                    border: solid var(--color-gray-200) 2px;
                     overflow: hidden;
+                    /*border: solid red 1px;*/
+
+                    &:hover {
+                        background-color: var(--color-accent);
+                        transition: ease-in-out .2s;
+
+                        p {
+                            color: var(--color-dark);
+                            text-decoration: underline;
+                            transition: ease-in-out .2s;
+                        }
+                    }
 
                     .thumbnail-header {
+
                         h4 {
                             margin-top: 1rem;
                             margin-left: 1rem;

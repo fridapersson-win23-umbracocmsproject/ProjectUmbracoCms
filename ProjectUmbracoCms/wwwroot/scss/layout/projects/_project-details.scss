@@ -50,7 +50,7 @@
         .aside-content {
             @include xl {
                 width: 90%;
-                border-left: solid var(--color-gray) 1px;
+                border-left: solid var(--color-gray) 2px;
                 padding-left: 1.5rem;
             }
 
@@ -140,28 +140,49 @@
 
                     @include xl {
                         grid-template-columns: 1fr;
+                        grid-gap: 0;
                     }
 
 
                     .project-item {
                         display: flex;
+                        margin-bottom: 1rem;
 
                         @include xl {
+                            border: none;
                             margin-bottom: 1rem;
-                            border-bottom: solid black 1px;
+                            border-bottom: solid var(--color-gray) 2px;
+                        }
+
+                        @include xxl {
+                            /*margin-bottom: 0;*/
                         }
 
 
                         .link-container {
                             display: grid;
+                            /*border: solid red 1px;*/
+                            margin-bottom: 1rem;
+                            text-decoration: none;
+
+                            @include lg {
+                                /*border: solid red 1px;*/
+                                width: 100%;
+                            }
 
                             @include xl {
                                 grid-template-columns: 1fr 1fr;
                                 text-decoration: none;
                             }
 
+                            @include xxl {
+                                margin-bottom: 1rem;
+                            }
+
                             &:hover {
                                 text-decoration: underline;
+                                background-color: var(--color-accent);
+                                color: var(--color-dark);
 
                                 img {
                                     transform: scale(1.2);
@@ -172,6 +193,17 @@
                             .thumbnail-image {
                                 overflow: hidden;
 
+                                @include xl {
+                                    width: 90%;
+                                    max-height: 100px;
+                                    overflow: hidden;
+                                }
+
+                                @include xxl {
+                                    width: 90%;
+                                    height: 100%;
+                                }
+
                                 img {
                                     object-fit: cover;
                                     max-height: 220px;
@@ -180,24 +212,34 @@
                                         max-height: 200px;
                                     }
 
+                                    @include lg {
+                                        width: 100%;
+                                    }
+
                                     @include xl {
-                                        width: 85%;
-                                        margin: 0;
-                                        padding: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
                                     }
                                 }
                             }
 
                             .thumbnail-content {
                                 .thumbnail-content-text {
+                                    margin-top: .5rem;
+                                    text-align:center;
+
+                                    @include lg {
+                                        text-align: left;
+                                    }
                                     h4 {
-                                        @include text-m;
+                                        @include text-s;
                                         color: var(--color-dark);
                                     }
 
                                     .date {
                                         color: var(--color-dark);
-                                        @include text-s;
+                                        @include text-xs;
                                     }
                                 }
                             }

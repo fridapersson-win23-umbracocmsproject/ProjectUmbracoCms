@@ -15,7 +15,7 @@
 
             @include xl {
                 width: 80%;
-                border-right: solid var(--color-gray) 1px;
+                border-right: solid var(--color-gray) 2px;
                 padding-right: 2rem;
                 display: flex;
                 flex-direction: column;
@@ -24,7 +24,7 @@
 
             .project-item {
                 display: grid;
-                border-bottom: solid gray 1px;
+                border-bottom: solid var(--color-gray) 2px;
                 text-align: center;
 
 
