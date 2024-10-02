@@ -5,11 +5,6 @@
     border-radius: .2rem;
     display: grid;
     background-color: var(--color-theme);
-/*    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;*/
-
 
     .form-text {
         @include grid;
@@ -54,12 +49,12 @@
         input {
             padding: .8rem;
             border: solid var(--color-theme) 1px;
-            border-radius: .5rem;
+            border-radius: .2rem;
             width: 100%;
             font-style: italic;
-            padding-left: 1.5rem;
+            padding-left: .5rem;
             position: relative;
-            /*z-index: 3;*/
+            @include text-xs;
         }
 
         i {
@@ -68,7 +63,6 @@
             right: 1rem;
             color: var(--color-theme);
             font-size: 1.5rem;
-            /*z-index: 3;*/
         }
     }
 
@@ -77,8 +71,6 @@
         position: absolute;
         bottom: -1rem;
         right: 0;
-        /*width: 60%;*/
-        /*z-index: 1;*/
     }
 
     .btn-theme {

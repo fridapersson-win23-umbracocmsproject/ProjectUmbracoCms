@@ -13,16 +13,7 @@
 	var sectionId = pageTitle?.ToString().ToLower().Trim().Replace(" ", "-");
 
 	var headline = Model.Content.Value<string>("headline") ?? null;
-
 }
-@* <ul>
-	@foreach (var item in selection)
-	{
-		<li>
-			<a href="@item.Url()">@item.Name()</a>
-		</li>
-	}
-</ul> *@
 
 <section id="our-recent-projects">
 		<div class="container">
@@ -32,7 +23,6 @@
 			</div>
 		</div>
 	<div class="projects">
-
 		@foreach(var project in selection)
 		{
 			var thumbnailImage = project?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? null;
@@ -47,7 +37,6 @@
 				</div>
 			</a>
 		}
-
 	</div>
 </section>
 

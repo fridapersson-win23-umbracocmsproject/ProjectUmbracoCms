@@ -10,15 +10,8 @@ header {
         align-items: center;
         position: relative;
 
-        @include md {
-        }
-
         @include lg {
             justify-content: space-between;
-        }
-
-
-        .logotype {
         }
 
         .navbar {
@@ -65,14 +58,7 @@ header {
             }
         }
 
-        .search {
-
-            i {
-            }
-        }
-
         .btn-round {
-            /*display: flex;*/
             @include lg {
                 display: none;
             }

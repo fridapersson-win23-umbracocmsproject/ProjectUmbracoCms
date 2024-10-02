@@ -3,11 +3,6 @@
     .container {
         .headline-text {
             margin-bottom: 1rem;
-            h6 {
-            }
-
-            h2 {
-            }
         }
     }
 
@@ -20,13 +15,8 @@
             grid-template-columns: 1fr 1fr;
         }
 
-        @include lg {
-            grid-template-columns: 1fr 1fr 1fr;
-        }
-
         @include xl {
             grid-template-columns: 1fr 1fr 1fr 1fr;
-
         }
 
         a {
@@ -64,13 +54,9 @@
                 background: rgba(79, 89, 85, 0.5);
                 color: var(--color-white);
 
-
-
                 h6 {
                     color: var(--color-white);
                     position: relative;
-
-
 
                     .arrow-symbol {
                         display: none;
@@ -80,9 +66,6 @@
                         font-size: 5rem;
                         font-weight: 300;
                     }
-                }
-
-                p {
                 }
             }
         }

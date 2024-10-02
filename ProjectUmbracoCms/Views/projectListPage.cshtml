@@ -8,8 +8,8 @@
 
 
 @{
-	var selection = Umbraco.Content(Guid.Parse("6ed1109e-293f-4da9-a45f-f88afc07bf57"))
-			.ChildrenOfType("projectItemTemplate")
+	var selection = Umbraco.Content(Guid.Parse("6ed1109e-293f-4da9-a45f-f88afc07bf57"))!
+			.ChildrenOfType("projectItemTemplate")!
 			.Where(x => x.IsVisible())
 			.OrderByDescending(x => x.CreateDate);
 
@@ -28,7 +28,7 @@
 <section id="our-projects">
 	<div class="container">
 		<div class="projects">
-			@foreach (var project in pagedItems)
+			@foreach (var project in pagedItems!)
 			{
 				var thumbnailImage = project?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? null;
 
@@ -85,7 +85,6 @@
 			<aside class="aside-form bg-theme">
 				@await Html.PartialAsync("partials/static/asideForm.cshtml")
 			</aside>
-
 		</div>
 	</div>
 </section>

@@ -8,7 +8,6 @@
             margin-top: 3rem;
         }
 
-
         .content {
             padding: 1rem;
 
@@ -18,14 +17,6 @@
 
             h4 {
                 width: 95%;
-            }
-
-            .img-text {
-                @include lg {
-                    /*                    margin-left: 24rem;
-                    padding: .2rem;
-                    width: 55%;*/
-                }
             }
 
             .mid-img {
@@ -53,7 +44,6 @@
                 border-left: solid var(--color-gray) 2px;
                 padding-left: 1.5rem;
             }
-
 
             aside {
                 display: flex;
@@ -154,19 +144,12 @@
                             border-bottom: solid var(--color-gray) 2px;
                         }
 
-                        @include xxl {
-                            /*margin-bottom: 0;*/
-                        }
-
-
                         .link-container {
                             display: grid;
-                            /*border: solid red 1px;*/
                             margin-bottom: 1rem;
                             text-decoration: none;
 
                             @include lg {
-                                /*border: solid red 1px;*/
                                 width: 100%;
                             }
 

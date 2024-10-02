@@ -41,8 +41,6 @@
                 grid-template-columns: 1fr 1fr 1fr;
             }
 
-
-
             a {
                 text-decoration: none;
 
@@ -57,7 +55,6 @@
                 .service-item {
                     border: solid var(--color-gray-200) 2px;
                     overflow: hidden;
-                    /*border: solid red 1px;*/
 
                     &:hover {
                         background-color: var(--color-accent);
@@ -79,11 +76,6 @@
 
                             @include md {
                                 margin-bottom: 1rem;
-                                /*@include h4;*/
-                            }
-
-                            @include xl {
-                                /*margin: 1.5rem 2rem;*/
                             }
                         }
                     }
@@ -99,12 +91,6 @@
                         p {
                             margin-top: 1rem;
                             margin-left: 1rem;
-
-                            @include lg {
-                            }
-
-                            @include xl {
-                            }
                         }
                     }
                 }

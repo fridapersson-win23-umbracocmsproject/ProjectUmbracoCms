@@ -2,7 +2,6 @@
 using ProjectUmbracoCms.Helpers;
 using ProjectUmbracoCms.Services;
 using ProjectUmbracoCms.ViewModels;
-using System.Text.RegularExpressions;
 using Umbraco.Cms.Core.Cache;
 using Umbraco.Cms.Core.Logging;
 using Umbraco.Cms.Core.Routing;
@@ -42,15 +41,6 @@ public class ServiceDetailsFormSurfaceController : SurfaceController
                 return CurrentUmbracoPage();
             }
 
-            //var emailRequest = new EmailRequest
-            //{
-            //    To = form.Email,
-            //    Subject = "Thank you for your question",
-            //    HtmlBody = $"<h1>Thank you for your message, {form.Name}!</h1> <br /> <p>We have recieved your message and we will contact you asap</p>",
-            //    PlainText = $"Thank you for your message, {form.Name}! We have recieved your message and we will contact you asap"
-            //};
-
-            //await _serviceBusEmailService.PublishAsync(emailRequest);
             await _serviceBusEmailService.PublishServiceDetailsAsync(form);
 
             TempData.Clear();
@@ -61,30 +51,4 @@ public class ServiceDetailsFormSurfaceController : SurfaceController
         catch (Exception ex) { }
         return null!;
     }
-
-    //private bool IsValidEmail(string email)
-    //{
-    //    try
-    //    {
-    //        if (string.IsNullOrWhiteSpace(email))
-    //        {
-    //            return false;
-    //        }
-
-    //        var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]{2,}$");
-    //        return regex.IsMatch(email);
-    //    }
-    //    catch (Exception ex)
-    //    {
-
-    //    }
-    //    return false;
-    //}
-
-    //private bool IsValidForm(ServiceDetailsFormModel form)
-    //{
-    //    return !string.IsNullOrEmpty(form.Name) &&
-    //           IsValidEmail(form.Email) &&
-    //           !string.IsNullOrEmpty(form.Message);
-    //}
 }

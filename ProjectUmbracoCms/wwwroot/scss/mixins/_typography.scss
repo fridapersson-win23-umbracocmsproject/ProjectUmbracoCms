@@ -3,7 +3,6 @@ $font-poppins: 'Poppins', sans-serif;
 
 @mixin standard-text {
     font-weight: 400;
-    /*color: var(--color-theme);*/
     font-family: $font-poppins;
     font-size: 16px;
 }

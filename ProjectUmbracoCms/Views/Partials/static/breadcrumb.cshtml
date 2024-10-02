@@ -2,10 +2,9 @@
 @using Umbraco.Extensions
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
 
- @using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper;
-
 
 @inject IPublishedUrlProvider PublishedUrlProvider
 
@@ -17,8 +16,6 @@
     var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var breadcrumbImage1 = settings?.Value<IPublishedContent>("breadcrumbImage1")?.Url() ?? null;
     var breadcrumbImage2 = settings?.Value<IPublishedContent>("breadcrumbImage2")?.Url() ?? null;
-    // var homeDisplayName = "Home";
-    // var isFirstItem = true;
  }
 
 @if (selection?.Length > 0)
@@ -40,7 +37,6 @@
                     <li>
                         <a href="@item.Url(PublishedUrlProvider)">@item.Name</a> 
                     </li>
-                    @* isFirstItem = false; *@
                     <li>></li>
                 }
                 <li class="active">@Model.Name</li>

@@ -20,7 +20,6 @@
     var customSpacingTopClass = customSpacingTop > 0 ? $"custom-spacing-top-{customSpacingTop}" : null;
     var customSpacingBottomClass = customSpacingBottom > 0 ? $"custom-spacing-bottom-{customSpacingBottom}" : null;
 
-
     //bakgrundsfärg
     var sectionBackgroundColorLabel = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("sectionBackgroundColor")?.Label.ToLower() ?? null;
     var backgroundColorClass = (!string.IsNullOrEmpty(sectionBackgroundColorLabel) && sectionBackgroundColorLabel != "none") ? $"bg-{sectionBackgroundColorLabel}" : null;
@@ -29,7 +28,6 @@
     var sectionBackgroundImage = Model?.Content.Value<IPublishedContent>("sectionBackgroundImage")?.Url() ?? null;
 }
 
-
 <section id="@sectionId" class="@spacingTopClass @spacingBottomClass @backgroundColorClass @customSpacingTopClass @customSpacingBottomClass">
 
     @if (!string.IsNullOrEmpty(sectionBackgroundImage))
@@ -37,31 +35,6 @@
         <img class="background-image" src="@sectionBackgroundImage" alt="@sectionTitle background image" />
     }
     <div class="container @centerContentClass">
-        @await Html.GetBlockGridItemAreasHtmlAsync(Model)
-    </div>
-
-    @* @if (!string.IsNullOrEmpty(backgroundColorClass))
-    {
-        <div class="background @backgroundColorClass">
-            @if (!string.IsNullOrEmpty(sectionBackgroundImage))
-            {
-                <img class="background-image" src="@sectionBackgroundImage" alt="@sectionTitle background image" />
-            }
-            <div class="container @centerContentClass">
-                @await Html.GetBlockGridItemAreasHtmlAsync(Model)
-            </div>
-        </div>
-    }
-    else 
-    {
-        @if (!string.IsNullOrEmpty(sectionBackgroundImage))
-        {
-            <img class="background-image" src="@sectionBackgroundImage" alt="@sectionTitle background image" />
-        }
-        <div class="container @centerContentClass">
-            @await Html.GetBlockGridItemAreasHtmlAsync(Model)
-        </div>
-    } *@
-    
-
+        @await Html.GetBlockGridItemAreasHtmlAsync(Model!)
+    </div>  
 </section>

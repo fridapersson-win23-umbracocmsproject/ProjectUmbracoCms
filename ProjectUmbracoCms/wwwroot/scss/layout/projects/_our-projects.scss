@@ -21,12 +21,10 @@
                 flex-direction: column;
             }
 
-
             .project-item {
                 display: grid;
                 border-bottom: solid var(--color-gray) 2px;
                 text-align: center;
-
 
                 @include md {
                     grid-template-columns: 1fr 1fr;
@@ -34,13 +32,7 @@
                     text-align: left;
                 }
 
-                @include lg {
-                    /*border: solid red 1px;*/
-                }
-
                 .thumbnail-image {
-                    /*border: solid red 1px;*/
-
                     img {
                         width: 80%;
 
@@ -53,17 +45,10 @@
                             object-fit: cover;
                             width: 100%;
                         }
-
-                        @include xxl {
-                            /*object-fit: cover;*/
-                            /*width: 90%;*/
-                            /*margin-bottom: 2rem;*/
-                        }
                     }
                 }
 
                 .thumbnail-content {
-                    /*border: solid red 1px;*/
                     text-align: center;
 
                     @include md {
@@ -77,18 +62,6 @@
                     }
 
                     .thumbnail-content-text {
-                        @include lg {
-                            /*                            display: flex;
-                            flex-direction:column;
-                            justify-content:space-evenly;*/
-                        }
-
-                        h4 {
-                        }
-
-                        .date {
-                        }
-
                         .thumbnail-text {
                             width: 80%;
                             margin: 0 auto;
@@ -107,10 +80,6 @@
 
                     .read-more-link {
                         a {
-
-                            &:hover {
-                            }
-
                             .read-more {
                                 display: inline-flex;
                                 justify-content: center;
@@ -136,10 +105,6 @@
         }
 
         .aside-content {
-            @include lg {
-                /*width: 40%;*/
-            }
-
             @include xl {
                 margin-left: 2rem;
                 width: 35%;
@@ -160,14 +125,10 @@
                     width: 100%;
                 }
 
-                h4 {
-                }
-
                 p {
                     width: 90%;
 
                     @include xxl {
-                        /*@include text-xs;*/
                         width: 95%;
                         font-size: .8rem;
                     }

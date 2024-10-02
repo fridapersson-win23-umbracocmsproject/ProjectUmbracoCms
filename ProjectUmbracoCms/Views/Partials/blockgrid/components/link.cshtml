@@ -5,9 +5,6 @@
 @{
     var linkText = Model?.Content.Value<string>("linkText") ?? null;
     var linkUrl = Model?.Content.Value<string>("linkUrl") ?? null;
-    
-    // var isExternal = Model?.Content.Value<bool>("isExternal") ?? null;
-    // var targetAttribute = isExternal ? "target=\"blank\" rel=\"noopener noreferrer\"" : string.Empty;
 }
 
 @if(!string.IsNullOrEmpty(linkText)) {

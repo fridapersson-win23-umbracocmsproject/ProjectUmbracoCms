@@ -85,8 +85,6 @@
     }
 }
 
-
-
 @mixin custom-spacing-classes($direction, $maxSpacingValue) {
     @for $spacingValue from 1 through $maxSpacingValue {
         .custom-spacing-#{$direction}-#{$spacingValue} {

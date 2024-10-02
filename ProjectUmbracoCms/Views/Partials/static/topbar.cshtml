@@ -6,10 +6,6 @@
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var officeLocation = settings?.Value<string>("officeLocation") ?? "";
-
-    // var officeFacebookUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
-    // var officeTwitterUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
-    // var officeLinkedInUrl = settings?.Value<string>("officeFacebookUrl") ?? "";
 }
 
 <div id="topbar" class="bg-theme">

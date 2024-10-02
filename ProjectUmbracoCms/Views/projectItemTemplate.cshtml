@@ -1,12 +1,9 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
-
     Layout = "mainLayout.cshtml";
 
     ViewBag.Title = Model?.Name ?? null;
-
-
 
     var thumbnailDate = Model?.Value<DateTime>("thumbnailDate");
 
@@ -28,7 +25,6 @@
     <div class="container">
         <div class="aside-content">
             @Model?.Value("asideContent")
-
             <aside>
                 <h5>Recent projects</h5>
                 <div class="recent-projects">
@@ -78,7 +74,6 @@
                     @await Html.PartialAsync("partials/static/asideForm.cshtml")
                 </div>
             </aside>
-
         </div>
 
         <div class="content">

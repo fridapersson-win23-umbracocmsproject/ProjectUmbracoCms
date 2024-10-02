@@ -13,8 +13,6 @@
 			.ChildrenOfType("serviceItemTemplate")?
 			.Where(x => x.IsVisible());
 
-
-
 	var itemsPerPage = 6;
 
 	if(!int.TryParse(Context.Request.Query["page"], out int currentPage))

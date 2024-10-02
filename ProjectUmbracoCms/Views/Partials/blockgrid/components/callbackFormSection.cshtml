@@ -10,18 +10,7 @@
 
 	var formBlocks = Model.Content.Value<BlockListModel>("form");
 	var dropdownOptions = Model.Content.Value<IEnumerable<string>>("dropdownOptions");
-
-
-	// var options = new HashSet<string>
-	// { "Financial Consulting", "Business Advisory", "Other", "Connect with us" };
-	// var selectedOption = TempData["selectedOptions"]?.ToString() ?? "";
 }
-
-
-
-
-
-
 
 @if(ViewData["success"] == null)
 {
@@ -48,7 +37,7 @@
 					var errorMessage = block.Content.Value<string>("errorMessage");
 
 					<div class="form-input-group">
-						<input id="@uniqueName" class="form-input" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@TempData["name"]" />
+						<input id="@uniqueName" class="form-input" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@TempData[uniqueName!]" />
 						@if (TempData[$"error_{uniqueName}"] != null && (bool)TempData[$"error_{uniqueName}"]!)
 						{
 							<span class="form-error">@errorMessage</span>

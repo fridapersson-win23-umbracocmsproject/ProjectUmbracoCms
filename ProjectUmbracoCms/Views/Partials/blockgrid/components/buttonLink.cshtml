@@ -12,7 +12,6 @@
     var buttonColor = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("buttonColor")?.Label.ToLower() ?? "";
 }
 
-
 @if (!string.IsNullOrEmpty(buttonColor))
 {
     <a href="@buttonLinkUrl" title="@buttonLinkText" class="btn btn-@buttonColor">@buttonLinkText</a>

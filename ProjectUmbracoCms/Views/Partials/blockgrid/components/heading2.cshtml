@@ -20,9 +20,7 @@
     var customSpacingBottom = Model?.Content.Value<int>("customAddSpaceToBottom") ?? 0;
 
     var customSpacingTopClass = customSpacingTop > 0 ? $"custom-spacing-top-{customSpacingTop}" : null;
-    var customSpacingBottomClass = customSpacingBottom > 0 ? $"custom-spacing-bottom-{customSpacingBottom}" : null;
-
-    
+    var customSpacingBottomClass = customSpacingBottom > 0 ? $"custom-spacing-bottom-{customSpacingBottom}" : null; 
 }
 
 @if(!string.IsNullOrEmpty(headlineContent)) {

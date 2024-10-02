@@ -3,17 +3,15 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using Umbraco.Cms.Core.PropertyEditors.ValueConverters;
 @{
-	var selection = Umbraco.Content(Guid.Parse("dd3cbc75-a2c5-41a0-83d6-b8a267c25967"))
-	.ChildrenOfType("serviceItemTemplate")
+	var selection = Umbraco.Content(Guid.Parse("dd3cbc75-a2c5-41a0-83d6-b8a267c25967"))!
+	.ChildrenOfType("serviceItemTemplate")!
 	.Where(x => x.IsVisible())
 	.Take(6);
-
 
 	var sectionTitle = Model?.Content.Value<string>("sectionTitle") ?? null;
 	var sectionId = sectionTitle?.ToString().ToLower().Trim().Replace(" ", "-");
 	
 	var headline = Model?.Content.Value<string>("headline") ?? null;
-
 
 	//bakgrundsfärg
 	var sectionBackgroundColorLabel = Model?.Content.Value<ColorPickerValueConverter.PickedColor>("sectionBackgroundColor")?.Label.ToLower() ?? null;
@@ -32,8 +30,6 @@
 	var customSpacingBottomClass = customSpacingBottom > 0 ? $"custom-spacing-bottom-{customSpacingBottom}" : null;
 }
 
-
-
 <section id="@sectionId" class="@spacingTopClass @spacingBottomClass @backgroundColorClass @customSpacingTopClass @customSpacingBottomClass">
 	<div class="container @centerContentClass">
 		@if (!string.IsNullOrEmpty(sectionTitle))
@@ -44,7 +40,6 @@
 			</div>
 		}
 		<div class="services">
-
 				@foreach (var service in selection)
 				{
 					var thumbnailImage = service?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? null;
@@ -65,26 +60,6 @@
 						</div>
 					</a>
 				}
-			
-
 		</div>
 	</div>
 </section>
-
-
-
-
-
-
-
-
-
-@* <ul>
-	@foreach (var item in selection)
-	{
-		<li>
-			<a href="@item.Url()">@item.Name()</a>
-		</li>
-	}
-</ul> *@
-

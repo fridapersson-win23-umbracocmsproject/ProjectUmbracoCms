@@ -1,42 +1,16 @@
 #hero-slider {
     overflow: unset;
 
-
-    @include md {
-    }
-
-    @include lg {
-    }
-
-    @include xl {
-    }
-    /*    .bg-gray {
-    }*/
-
     .background-image {
         @include background-image;
         width: 100%;
         height: 100%;
     }
 
-
     .container {
         overflow: unset;
 
-        @include lg {
-        }
-
-
-
-
-        h1, p, a {
-            @include lg {
-            }
-        }
-
         h1 {
-
-
             @include lg {
                 @include d5;
             }
