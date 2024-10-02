@@ -6,6 +6,7 @@
 	var selection = Umbraco.Content(Guid.Parse("6ed1109e-293f-4da9-a45f-f88afc07bf57"))
 	.ChildrenOfType("projectItemTemplate")
 	.Where(x => x.IsVisible())
+	.OrderByDescending(x => x.CreateDate)
 	.Take(4);
 
 	var pageTitle = Model.Content.Value<string>("pageTitle") ?? null;

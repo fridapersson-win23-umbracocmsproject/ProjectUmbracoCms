@@ -1,0 +1,159 @@
+#our-recent-projects {
+    margin: 2rem 0;
+
+    .projects {
+        overflow: hidden;
+        display: grid;
+        width: 60%;
+        margin: 0 auto;
+
+        @include md {
+            width: 100%;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        @include xl {
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+            gap: 0;
+        }
+
+        a {
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+
+            @include xl {
+                flex: 1 1 25%;
+            }
+
+            .thumbnail-image {
+                position: relative;
+                object-fit: cover;
+                overflow: hidden;
+
+                @include md {
+                    width: 100%;
+                    height: 200px;
+                }
+
+                @include xl {
+                    height: 300px;
+                }
+
+                img {
+                    width: 100%;
+                    transition: transform 0.4s ease;
+
+                    @include lg {
+                        height: 200px;
+                        object-fit: cover;
+                    }
+
+                    @include xl {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+
+                .text-content {
+                    transition: ease-in-out .2s;
+                    opacity: 1;
+                    padding: 1.5rem;
+
+                    h6 {
+                        color: var(--color-subtheme);
+
+                        .arrow-symbol {
+                            color: var(--color-white);
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+
+            .text-content {
+                padding: 1rem;
+                position: absolute;
+                bottom: -5%;
+                left: 0;
+                right: 0;
+                background-color: var(--color-theme);
+                opacity: 0.6;
+                transition: transform 0.3s ease;
+
+                h6 {
+                    color: var(--color-white);
+                    position: relative;
+                    margin-bottom: .3rem;
+                    @include text-xs;
+
+                    @include md {
+                        @include text-s;
+                    }
+
+                    @include xl {
+                        @include text-xs;
+                    }
+
+                    @include xxl {
+                        @include text-s;
+                    }
+
+                    @media(min-width: 1600px) {
+                        @include text-m;
+                    }
+
+                    .arrow-symbol {
+                        visibility: hidden;
+                        position: absolute;
+                        top: 0%;
+                        right: -4%;
+                        font-size: 3rem;
+                        font-weight: 300;
+
+                        @include md {
+                            font-size: 5rem;
+                            top: -120%;
+                            right: 10%;
+                        }
+
+                        @include xl {
+                            top: -170%;
+                            right: -7%;
+                        }
+
+                        @include xxl {
+                            right: 0%;
+                        }
+
+                        @media(min-width: 1600px) {
+                            top: -100%;
+                        }
+                    }
+                }
+
+                p {
+                    color: var(--color-white);
+                    @include text-xs;
+
+                    @include xxl {
+                        @include text-s;
+                    }
+
+                    @media(min-width: 1600px) {
+                        @include text-s;
+                    }
+                }
+            }
+        }
+    }
+}

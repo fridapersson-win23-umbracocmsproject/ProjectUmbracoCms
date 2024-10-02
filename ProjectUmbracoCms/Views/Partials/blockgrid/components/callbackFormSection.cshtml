@@ -1,4 +1,5 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+﻿@using Umbraco.Cms.Core.Models.Blocks
+@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 
@@ -7,12 +8,20 @@
 	var callbackFormDescription = Model.Content.Value<string>("callbackFormDescription");
 	var callbackFormSubHeader = Model.Content.Value<string>("callbackFormSubHeader");
 
+	var formBlocks = Model.Content.Value<BlockListModel>("form");
+	var dropdownOptions = Model.Content.Value<IEnumerable<string>>("dropdownOptions");
 
 
-	var options = new HashSet<string>
-	{ "Financial Consulting", "Business Advisory", "Other", "Connect with us" };
-	var selectedOption = TempData["selectedOptions"]?.ToString() ?? "";
+	// var options = new HashSet<string>
+	// { "Financial Consulting", "Business Advisory", "Other", "Connect with us" };
+	// var selectedOption = TempData["selectedOptions"]?.ToString() ?? "";
 }
+
+
+
+
+
+
 
 @if(ViewData["success"] == null)
 {
@@ -28,39 +37,34 @@
 				<p>@callbackFormDescription</p>
 
 			</div>
-			<div class="form-input-group">
-				@* <label class="form-label" for="name">Name</label> *@
-				<input id="name" class="form-input" name="name" type="text" placeholder="Name" value="@TempData["name"]" />
-				@if (TempData["error_name"] != null && (bool)TempData["error_name"]!)
-				{
-					<span class="form-error">You have to enter a valid name</span>
-				}
-			</div>
 
-			<div class="form-input-group">
-				@* <label class="form-label" for="email">E-mail address</label> *@
-				<input id="phone" class="form-input" name="phone" type="text" placeholder="Phone" value="@TempData["phone"]" />
-				@if (TempData["error_phone"] != null && (bool)TempData["error_phone"]!)
+			@foreach (var block in formBlocks!)
+			{
+				if (block.Content.ContentType.Alias == "formInputText")
 				{
-					<span class="form-error">You have to enter a valid phone number</span>
-				}
-			</div>
+					var uniqueName = block.Content.Value<string>("uniqueName");
+					var placeholderText = block.Content.Value<string>("placeholderText");
+					var inputType = block.Content.Value<string>("inputType");
+					var errorMessage = block.Content.Value<string>("errorMessage");
 
-			<div class="form-input-group">
-				@* <label class="form-label" for="email">E-mail address</label> *@
-				<input id="email" class="form-input" name="email" type="email" placeholder="E-mail address" value="@TempData["email"]" />
-				@if (TempData["error_email"] != null && (bool)TempData["error_email"]!)
-				{
-					<span class="form-error">You have to enter a valid email</span>
+					<div class="form-input-group">
+						<input id="@uniqueName" class="form-input" name="@uniqueName" type="@inputType" placeholder="@placeholderText" value="@TempData["name"]" />
+						@if (TempData[$"error_{uniqueName}"] != null && (bool)TempData[$"error_{uniqueName}"]!)
+						{
+							<span class="form-error">@errorMessage</span>
+						}
+					</div>
 				}
-			</div>
-
+			}
 			<div class="form-input-group">
 				<select id="selectedOption" class="form-input" name="selectedOption">
 					<option value="" disabled selected>Choose a topic</option>
-					@foreach (var option in options)
+					@if (dropdownOptions != null)
 					{
-						<option value="@option">@option</option>
+						@foreach (var option in dropdownOptions)
+						{
+							<option value="@option">@option</option>
+						}
 					}
 				</select>
 				@if (TempData["error_selectedOption"] != null && (bool)TempData["error_selectedOption"]!)

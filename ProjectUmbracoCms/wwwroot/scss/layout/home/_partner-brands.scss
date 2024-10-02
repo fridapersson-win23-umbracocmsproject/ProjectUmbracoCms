@@ -2,9 +2,13 @@
     .container {
         .image-slider {
             .image-container {
-                @include grid;
-                text-align: center;
+                @include flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
                 gap: 3rem;
+
                 @include md {
                     @include flex;
                     flex-wrap: wrap;
